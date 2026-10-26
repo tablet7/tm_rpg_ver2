@@ -1,0 +1,56 @@
+{
+  "criteria": {
+    "melee": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "damage": {
+          "source_entity": {},
+          "type": {
+            "tags": [
+              {
+                "id": "#minecraft:is_projectile",
+                "expected": false
+              },
+              {
+                "id": "#minecraft:is_fire",
+                "expected": false
+              },
+              {
+                "id": "#minecraft:bypasses_armor",
+                "expected": false
+              },
+              {
+                "id": "#minecraft:wither_immune_to",
+                "expected": false
+              }
+            ]
+          }
+        }
+      }
+    },
+    "projectile": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "damage": {
+          "type": {
+            "tags": [
+              {
+                "id": "#is_projectile",
+                "expected": true
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "melee",
+      "projectile"
+    ]
+  ],
+  "rewards": {
+    "function": "tm_rpg:system/naguri/on_hurt_by"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:command",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bow",
+          "modifier": [
+            {
+              "type": "minecraft:set_name",
+              "name": {"text": "test_weapon","color": "white","italic": false}
+            },
+            {
+              "type": "minecraft:set_lore",
+              "lore": [
+                {"text": "ただの弓。特に効果はない。","color": "white","italic": false},
+                [
+                  {"text": "魔法攻撃力","color": "blue","italic": false},
+                  {"text": "の","color": "white","italic": false},
+                  {"text": "100%","color": "blue","italic": false},
+                  {"text": "分のダメージを与える","color": "white","italic": false}
+
+                ],
+                {"text": "どうやって手に入れた？"}
+              ],
+              "mode": "append"
+            },
+            {
+              "type": "minecraft:set_custom_data",
+              "tag": "{damage_type:2,damage_kinsetu:0,damage_per:100}"
+            },
+            {
+              "type": "minecraft:set_components","components": {"minecraft:unbreakable": {}}
+            },
+            {
+              "type": "minecraft:set_enchantments","enchantments": {"minecraft:infinity": 1}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

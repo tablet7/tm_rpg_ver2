@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "melee": {
+      "trigger": "minecraft:player_hurt_entity"
+    },
+    "projectile": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "damage": {
+          "type": {
+            "tags": [
+              {
+                "id": "#is_projectile",
+                "expected": true
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "melee",
+      "projectile"
+    ]
+  ],
+  "rewards": {
+    "function": "tm_rpg:system/naguri/on_hurt_other"
+  }
+}

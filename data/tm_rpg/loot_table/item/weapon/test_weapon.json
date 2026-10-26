@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:command",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:wooden_sword",
+          "modifier": [
+            {
+              "type": "minecraft:set_name",
+              "name": {"text": "test_weapon","color": "white","italic": false}
+            },
+            {
+              "type": "minecraft:set_lore",
+              "lore": [
+                {"text": "ただの木の剣。特に効果はない。","color": "white","italic": false},
+                [
+                  {"text": "攻撃力","color": "red","italic": false},
+                  {"text": "の","color": "white","italic": false},
+                  {"text": "100%","color": "red","italic": false},
+                  {"text": "分のダメージを与える","color": "white","italic": false}
+
+                ],
+                {"text": "どうやって手に入れた？"}
+              ],
+              "mode": "append"
+            },
+            {
+              "type": "minecraft:set_custom_data",
+              "tag": "{damage_type:1,damage_kinsetu:1,damage_per:100}"
+            },
+            {
+              "type": "minecraft:set_components","components": {"minecraft:unbreakable": {}}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

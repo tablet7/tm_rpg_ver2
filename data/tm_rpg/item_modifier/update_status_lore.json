@@ -1,0 +1,78 @@
+{
+  "type": "minecraft:set_lore",
+  "entity": "this",
+  "lore": [
+    [
+      {"text": "Lv: ", "color": "white", "italic": false},
+      {"score": {"name": "@s", "objective": "Lv"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "HP: ", "color": "red", "italic": false},
+      {"score": {"name": "@s", "objective": "HP_MAX"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "HP自動回復: ", "color": "#e47878", "italic": false},
+      {"score": {"name": "@s", "objective": "hp_rege"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "MP: ", "color": "blue", "italic": false},
+      {"score": {"name": "@s", "objective": "MP_MAX"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "MP自動回復: ", "color": "#90d1e6", "italic": false},
+      {"score": {"name": "@s", "objective": "mp_rege"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "防御力: ", "color": "#a8a8a8", "italic": false},
+      {"score": {"name": "@s", "objective": "armor"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "魔法防御力: ", "color": "#34ada7", "italic": false},
+      {"score": {"name": "@s", "objective": "magic_armor"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "攻撃力: ", "color": "#660000", "italic": false},
+      {"score": {"name": "@s", "objective": "p_attack"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "魔法攻撃力: ", "color": "#826cff", "italic": false},
+      {"score": {"name": "@s", "objective": "m_attack"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "クールタイム低下: ", "color": "green", "italic": false},
+      {"score": {"name": "@s", "objective": "cooltime"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "持続時間増加: ", "color": "#ca7900", "italic": false},
+      {"score": {"name": "@s", "objective": "sustain_time"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "付与効果増加: ", "color": "#7900ca", "italic": false},
+      {"score": {"name": "@s", "objective": "sustain_power"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "クリティカル率: ", "color": "white", "italic": false},
+      {"score": {"name": "@s", "objective": "crit_per"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "クリティカルダメージ: ", "color": "white", "italic": false},
+      {"score": {"name": "@s", "objective": "crit_damage"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "回避率: ", "color": "#2d5172", "italic": false},
+      {"score": {"name": "@s", "objective": "evasion"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "役職ボーナス: ", "color": "white", "italic": false},
+      {"score": {"name": "@s", "objective": "job_bonus"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "運: ", "color": "gold", "italic": false},
+      {"score": {"name": "@s", "objective": "luck"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "※投げるとメニューが開けるぞ！", "color": "white", "italic": false}
+    ]
+  ],
+  "mode": "replace_all"
+}
