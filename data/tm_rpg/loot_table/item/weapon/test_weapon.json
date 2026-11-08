@@ -15,7 +15,7 @@
             {
               "type": "minecraft:set_lore",
               "lore": [
-                [{"text": "Lv: ","color": "gold","italic": false},{"text": "1","color": "white","italic": false}],
+                [{"text": "Lv: ","color": "gold","italic": false},{"text": "1","color": "white","italic": false},{"text": "  (0)","color": "white","italic": false}],
                 [{"text": "参照ステータス: ","color": "white","italic": false},{"text": "攻撃力","color": "red","italic": false}],
                 [{"text": "ダメージタイプ: ","color": "white","italic": false},{"text": "物理ダメージ","color": "red","italic": false}],
                 {"text": "基本ダメージ: 3 + 120%","color": "white","italic": false},
