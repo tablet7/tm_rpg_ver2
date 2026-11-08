@@ -15,6 +15,12 @@ scoreboard objectives add dash_kill_time dummy
 ## 自由変数
 scoreboard objectives add random_rand dummy
 scoreboard objectives add temp dummy
+scoreboard objectives add temp2 dummy
+scoreboard objectives add temp3 dummy
+scoreboard objectives add temp4 dummy
+scoreboard objectives add temp5 dummy
+scoreboard objectives add temp6 dummy
+scoreboard objectives add temp7 dummy
 
 ## 定数
 scoreboard objectives add CONTACT_1 dummy

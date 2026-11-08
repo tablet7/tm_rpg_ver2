@@ -25,6 +25,8 @@ execute on attacker if items entity @s weapon.mainhand *[custom_data~{damage_typ
 execute on attacker if items entity @s weapon.mainhand *[custom_data~{damage_type:1,damage_kinsetu:0,damage_per:125}] if score @s attack_timer >= @s ATTACK_TIMER_LEV if score @s shot_bow_time matches 1.. store result storage tm_rpg:damage p_damage int 1.25 run scoreboard players get @s p_attack
 execute on attacker if items entity @s weapon.mainhand *[custom_data~{damage_type:2,damage_kinsetu:0,damage_per:100}] if score @s attack_timer >= @s ATTACK_TIMER_LEV if score @s shot_bow_time matches 1.. store result storage tm_rpg:damage m_damage int 1 run scoreboard players get @s m_attack
 
+
+
 execute on attacker store result score @s random_rand run random value 1..100
 
 execute on attacker if score @s crit_per >= @s random_rand store result storage tm_rpg:damage c_damage int 1 run scoreboard players get @s crit_damage

@@ -21,3 +21,4 @@ execute if score @s sinking_time matches 0.. run scoreboard players remove @s si
 # 振動
 execute if score @s vibration_time matches ..0 run scoreboard players set @s vibration_potency 0
 execute if score @s vibration_time matches 0.. run scoreboard players remove @s vibration_time 1
+
