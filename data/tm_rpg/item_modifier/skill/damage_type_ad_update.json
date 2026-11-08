@@ -1,0 +1,7 @@
+{
+  "type": "set_lore",
+  "lore": [[{"text": "ダメージタイプ: ","color": "white","italic": false},{"text": "物理ダメージ","color": "red","italic": false}]],
+  "mode": "replace_section",
+  "offset": 5,
+  "size": 1
+}

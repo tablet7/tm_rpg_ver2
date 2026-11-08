@@ -1,0 +1,10 @@
+{
+  "type": "set_lore",
+  "lore": [[{"text": "Lv: ","color": "gold","italic": false},{"score": {"name": "System", "objective": "temp"}, "color": "white", "italic": false}],
+           [{"text": "スキルクールタイム: ","color": "white","italic": false},{"score": {"name": "System", "objective": "temp2"}, "color": "white", "italic": false}],
+           [{"text": "消費MP: ","color": "blue","italic": false},{"score": {"name": "System", "objective": "temp3"}, "color": "white", "italic": false}],
+           [{"text": "クールタイム: ","color": "green","italic": false},{"score": {"name": "System", "objective": "temp4"}, "color": "white", "italic": false},{"text": "秒","color": "green","italic": false}]],
+  "mode": "replace_section",
+  "offset": 0,
+  "size": 4
+}
