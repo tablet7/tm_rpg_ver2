@@ -8,6 +8,7 @@ advancement revoke @s only tm_rpg:naguri/hurt_other
 
 tag @s add current_attacker
 
-execute as @e[nbt={HurtTime:10s}] if function tm_rpg:system/naguri/check_attacker run function tm_rpg:system/naguri/process_damage
+# 今ダメージを受けたか（HurtTime）はセレクター引数・predicate で判定できないため nbt を使う
+execute as @e[type=#tm_rpg:mob_type,nbt={HurtTime:10s}] if function tm_rpg:system/naguri/check_attacker run function tm_rpg:system/naguri/process_damage
 
 tag @s remove current_attacker

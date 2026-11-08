@@ -30,12 +30,12 @@ execute if score @s temp > @s random_rand run function tm_rpg:system/damage_ex/e
 execute if score @s armor matches ..75 run scoreboard players operation @s random_rand = @s armor
 execute if score @s armor matches 76.. run scoreboard players set @s random_rand 75
 #execute if score @s armor matches 100.. if score @s guardian_skill4_buff_time matches 1.. run scoreboard players set @s random_rand 100
-scoreboard players operation @s damage_dealt_per -= @s armor
+scoreboard players operation @s damage_dealt_per -= @s random_rand
 scoreboard players operation @s damage_dealt_pmc_p *= @s damage_dealt_per
 scoreboard players operation @s damage_dealt_pmc_p /= System CONTACT_100
 
 execute if score @s armor matches 76.. run scoreboard players operation @s random_rand = @s armor
-execute if score @s armor matches 76.. run scoreboard players operation @s random_rand /= @s CONTACT_4
+execute if score @s armor matches 76.. run scoreboard players operation @s random_rand /= System CONTACT_4
 execute if score @s armor matches 76.. run scoreboard players operation @s damage_dealt_pmc_p -= @s random_rand
 execute if score @s armor matches 76.. if score @s damage_dealt_pmc_p matches ..0 run scoreboard players set @s damage_dealt_pmc_p 1
 
@@ -51,12 +51,12 @@ scoreboard players set @s damage_dealt_per 100
 execute if score @s magic_armor matches ..75 run scoreboard players operation @s random_rand = @s magic_armor
 execute if score @s magic_armor matches 76.. run scoreboard players set @s random_rand 75
 #execute if score @s magic_armor matches 100.. if score @s guardian_skill4_buff_time matches 1.. run scoreboard players set @s random_rand 100
-scoreboard players operation @s damage_dealt_per -= @s magic_armor
+scoreboard players operation @s damage_dealt_per -= @s random_rand
 scoreboard players operation @s damage_dealt_pmc_m *= @s damage_dealt_per
 scoreboard players operation @s damage_dealt_pmc_m /= System CONTACT_100
 
 execute if score @s magic_armor matches 76.. run scoreboard players operation @s random_rand = @s magic_armor
-execute if score @s magic_armor matches 76.. run scoreboard players operation @s random_rand /= @s CONTACT_4
+execute if score @s magic_armor matches 76.. run scoreboard players operation @s random_rand /= System CONTACT_4
 execute if score @s magic_armor matches 76.. run scoreboard players operation @s damage_dealt_pmc_m -= @s random_rand
 execute if score @s magic_armor matches 76.. if score @s damage_dealt_pmc_m matches ..0 run scoreboard players set @s damage_dealt_pmc_m 1
 

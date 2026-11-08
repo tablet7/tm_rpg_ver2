@@ -19,7 +19,7 @@ execute if score @s random_rand matches 4 if score @s skill4_recast matches 31..
 execute if score @s random_rand matches 4 if score @s skill4_recast matches ..30 run scoreboard players operation @s skill4_recast += @s vibration_potency
 
 execute if score @s random_rand matches 5 if score @s skill5_recast matches 31.. store result storage tm_rpg:damage c_damage int 1 run scoreboard players get @s vibration_potency
-execute if score @s random_rand matches 5 if score @s skill5_recast matches ..30 run scoreboard players operation @s skill4_recast += @s vibration_potency
+execute if score @s random_rand matches 5 if score @s skill5_recast matches ..30 run scoreboard players operation @s skill5_recast += @s vibration_potency
 
 execute if score @s random_rand matches 6 if score @s skill6_recast matches 31.. store result storage tm_rpg:damage c_damage int 1 run scoreboard players get @s vibration_potency
-execute if score @s random_rand matches 6 if score @s skill6_recast matches ..30 run scoreboard players operation @s skill4_recast += @s vibration_potency
+execute if score @s random_rand matches 6 if score @s skill6_recast matches ..30 run scoreboard players operation @s skill6_recast += @s vibration_potency
