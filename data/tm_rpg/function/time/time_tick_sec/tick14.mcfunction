@@ -1,4 +1,4 @@
-#> function tm_rpg:time/time_tick_sec/tick14
+#> tm_rpg:time/time_tick_sec/tick14
 
 
 

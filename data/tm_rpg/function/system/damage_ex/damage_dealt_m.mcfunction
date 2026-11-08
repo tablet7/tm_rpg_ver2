@@ -1,4 +1,4 @@
-#> tm_rpg:system/damage_ex/damage_dealt
+#> tm_rpg:system/damage_ex/damage_dealt_m
 
 # ダメージ表記の文字列
 $data merge storage tm_rpg:damage_text_dis {color:$(color)}

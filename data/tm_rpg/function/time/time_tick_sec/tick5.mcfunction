@@ -1,3 +1,3 @@
-#> function tm_rpg:time/time_tick_sec/tick5
+#> tm_rpg:time/time_tick_sec/tick5
 
 

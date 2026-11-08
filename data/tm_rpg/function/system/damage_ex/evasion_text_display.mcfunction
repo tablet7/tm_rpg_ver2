@@ -1,4 +1,4 @@
-#> tm_rpg:system/damage_ex/damage_text_display
+#> tm_rpg:system/damage_ex/evasion_text_display
 
 $summon text_display ~$(x_rand) ~$(y_rand) ~$(z_rand) \
 {transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[2f,2f,2f]},\

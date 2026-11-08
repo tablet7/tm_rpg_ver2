@@ -1,4 +1,4 @@
-#> function tm_rpg:player/first_reload
+#> tm_rpg:player/first_reload
 
 tag @s add joined
 

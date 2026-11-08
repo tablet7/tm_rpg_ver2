@@ -1,8 +1,8 @@
 #> tm_rpg:reload
 
 # system
-kill @e[tag=enemy]
-kill @e[tag=mount_text]
+kill @e[type=#tm_rpg:mob_type,tag=enemy]
+kill @e[type=text_display,tag=mount_text]
 kill @e[type=item]
 
 # scoreboard

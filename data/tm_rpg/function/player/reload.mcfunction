@@ -1,4 +1,4 @@
-#> function tm_rpg:player/reload
+#> tm_rpg:player/reload
 effect give @s minecraft:instant_health infinite 10 true
 effect give @s minecraft:saturation infinite 10 true
 effect give @s minecraft:resistance infinite 10 true

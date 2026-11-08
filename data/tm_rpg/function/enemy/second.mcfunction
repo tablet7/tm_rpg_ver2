@@ -1,4 +1,4 @@
-# tm_rpg:enemy/second
+#> tm_rpg:enemy/second
 
 # 状態異常管理
 function tm_rpg:system/abnormal/second

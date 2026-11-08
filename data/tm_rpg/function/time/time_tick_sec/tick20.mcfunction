@@ -1,4 +1,4 @@
-#> function tm_rpg:time/time_tick_sec/tick20
+#> tm_rpg:time/time_tick_sec/tick20
 
 # 時間管理
 scoreboard players add System seconds 1

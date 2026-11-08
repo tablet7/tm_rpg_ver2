@@ -1,4 +1,4 @@
-# tm_rpg:enemy/main
+#> tm_rpg:enemy/main
 
 # 殴られたとき 耐性MAXじゃないといけない
 execute as @s[nbt={HurtTime:10s}] unless block ~ ~ ~ fire unless block ~ ~ ~ lava at @s run function tm_rpg:system/naguri/on_hurt_by

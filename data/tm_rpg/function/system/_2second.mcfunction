@@ -1,4 +1,4 @@
-# tm_rpg:system\_2second
+#> tm_rpg:system/_2second
 
 # system
 scoreboard players set System 2tick 0

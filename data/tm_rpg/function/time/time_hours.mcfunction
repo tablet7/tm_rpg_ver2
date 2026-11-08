@@ -1,4 +1,4 @@
-#> function tm_rpg:time/time_hours
+#> tm_rpg:time/time_hours
 
 # 時間管理
 scoreboard players set System minutes 0

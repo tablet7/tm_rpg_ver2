@@ -1,4 +1,4 @@
-#> function tm_rpg:player/main
+#> tm_rpg:player/main
 
 # first_login
 execute if entity @s[tag=!joined] run function tm_rpg:player/first_reload

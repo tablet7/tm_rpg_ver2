@@ -1,4 +1,4 @@
-# tm_rpg:system/hp_text_update
+#> tm_rpg:system/hp_text_update
 
 execute if score @e[limit=1,sort=nearest] hp_ratio matches 21.. run data modify entity @s text set value {"color":"green","text":"❚❚❚❚❚❚❚❚❚❚+"}
 execute if score @e[limit=1,sort=nearest] hp_ratio matches 19..20 run data modify entity @s text set value {"color":"green","text":"❚❚❚❚❚❚❚❚❚❚"}

@@ -2,7 +2,7 @@
 
 # main
 execute as @a at @s run function tm_rpg:player/main
-execute as @e[tag=enemy] at @s run function tm_rpg:enemy/main
+execute as @e[type=#tm_rpg:mob_type,tag=enemy] at @s run function tm_rpg:enemy/main
 
 # 時間管理
 scoreboard players add System tick 1
@@ -45,4 +45,5 @@ execute as @e[type=text_display,tag=mount_text] at @s unless entity @e[type=!#tm
 execute as @e[type=vindicator,tag=fire_ent_delete] run function tm_rpg:system/abnormal/delete_dire
 
 ## 矢
+# 地面に刺さっているかはセレクター引数・predicate で判定できないため nbt を使う
 execute as @e[type=arrow,nbt={inGround:1b}] at @s run kill
