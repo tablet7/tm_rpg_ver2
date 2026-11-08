@@ -15,21 +15,18 @@
             {
               "type": "minecraft:set_lore",
               "lore": [
+                [{"text": "Lv: ","color": "gold","italic": false},{"text": "1","color": "white","italic": false}],
+                [{"text": "参照ステータス: ","color": "white","italic": false},{"text": "魔法攻撃力","color": "blue","italic": false}],
+                [{"text": "ダメージタイプ: ","color": "white","italic": false},{"text": "魔法ダメージ","color": "blue","italic": false}],
+                {"text": "基本ダメージ: 0 + 100%","color": "white","italic": false},
                 {"text": "ただの弓。特に効果はない。","color": "white","italic": false},
-                [
-                  {"text": "魔法攻撃力","color": "blue","italic": false},
-                  {"text": "の","color": "white","italic": false},
-                  {"text": "100%","color": "blue","italic": false},
-                  {"text": "分のダメージを与える","color": "white","italic": false}
-
-                ],
                 {"text": "どうやって手に入れた？"}
               ],
               "mode": "append"
             },
             {
               "type": "minecraft:set_custom_data",
-              "tag": "{damage_type:2,damage_kinsetu:0,damage_per:100}"
+              "tag": "{lv:1,kihon:0,per:100,damage_type:2,sanshou_type:2,kinsetu:0,kaizou:0}"
             },
             {
               "type": "minecraft:set_components","components": {"minecraft:unbreakable": {}}
