@@ -7,6 +7,8 @@
 execute as @a at @s run function tm_rpg:player/main
 execute as @e[type=#tm_rpg:mob_type,tag=enemy] at @s run function tm_rpg:enemy/main
 
+execute as @e[type=marker,tag=kaizoudai] at @s run function tm_rpg:system/item_mod/kaizoudai_main
+
 # 時間管理
 scoreboard players add System tick 1
 
@@ -40,6 +42,10 @@ execute as @e[type=#tm_rpg:mob_type,scores={hp = ..0}] run kill @s
 execute as @e[type=#tm_rpg:delete_type,tag=delete_entity] at @s run scoreboard players remove @s kill_time 1
 
 execute as @e[type=#tm_rpg:delete_type,tag=delete_entity] at @s if score @s kill_time matches ..-1 run kill
+
+## 岩盤
+kill @e[type=item,nbt={Item:{id:"minecraft:bedrock"}}]
+clear @a bedrock
 
 ## テキストディスプレイ
 execute as @e[type=text_display,tag=mount_text] at @s unless entity @e[type=!#tm_rpg:delete_hp_bar_type,dx=0,dy=-3,dz=0] run kill @s

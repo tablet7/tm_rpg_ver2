@@ -2,9 +2,11 @@
 
 # 召喚した敵にステータスを設定し、HPバー（text_display）を乗せるマクロ関数。敵の召喚関数（enemy/summon/...）から呼ばれる
 # @s ＝ 召喚した敵
-# 引数: HP, HP_MAX, hp_rege, MP, MP_MAX, mp_rege, armor, magic_armor, p_attack, m_attack, cooltime, sustain_time, sustain_power, crit_per, crit_damage, job_bonus, evasin, luck, loot_weapon
+# 引数: Lv, HP, HP_MAX, hp_rege, MP, MP_MAX, mp_rege, armor, magic_armor, p_attack, m_attack, cooltime, sustain_time, sustain_power, crit_per, crit_damage, job_bonus, evasin, luck, loot_weapon
 
 execute store result score @s ent_id run random value 0..2147483646
+
+$scoreboard players set @s Lv $(Lv)
 
 $scoreboard players set @s hp $(HP)
 $scoreboard players set @s mp $(MP)

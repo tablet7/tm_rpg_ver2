@@ -18,7 +18,7 @@ $summon skeleton $(x) $(y) $(z) {\
 }
 
 execute as @e[tag=new_mob,limit=1] at @s run function tm_rpg:enemy/enemy_set_status \
-{HP:1000,HP_MAX:1000,hp_rege:10,\
+{Lv:1,HP:1000,HP_MAX:1000,hp_rege:10,\
 MP:1000,MP_MAX:1000,mp_rege:10,\
 armor:10,magic_armor:10,\
 p_attack:10,m_attack:10,\
