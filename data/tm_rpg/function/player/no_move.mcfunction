@@ -1,5 +1,9 @@
 #> tm_rpg:player/no_move
 
+# プレイヤーが動いていないときの処理。player/main から呼ばれる
+# インベントリのスロット17にステータス表示用の本を用意し、内容を更新する
+# @s ＝ プレイヤー
+
 # status表示用の紙を用意
 execute unless items entity @s container.17 * run item replace entity @s container.17 with book[custom_data={is_status_paper:1b},item_name='STATUS'] 1 
 # status表示

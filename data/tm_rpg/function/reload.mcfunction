@@ -1,5 +1,8 @@
 #> tm_rpg:reload
 
+# tm_rpg の初期化処理。main:reload から呼ばれる
+# 敵やHPバーなどの削除、スコアボード・チームの作成、全プレイヤーのリセットを行う
+
 # system
 kill @e[type=#tm_rpg:mob_type,tag=enemy]
 kill @e[type=text_display,tag=mount_text]

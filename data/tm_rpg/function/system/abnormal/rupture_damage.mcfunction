@@ -1,5 +1,9 @@
 #> tm_rpg:system/abnormal/rupture_damage
 
+# 破裂の処理。ダメージを受けたときに、物理ダメージを破裂の威力ぶん増やす
+# damage_ex/damage_dealt、damage_ex/damage_dealt_tama から呼ばれる
+# @s ＝ ダメージを受けたエンティティ
+
 execute if score @s rupture_potency matches ..0 run scoreboard players set @s rupture_potency 1
 
 tellraw @s [{"text":"破裂","color":"green"},{"score":{"name":"@s","objective":"rupture_potency"},"color":"white"},{"text":" "},{"score":{"name":"@s","objective":"rupture_time"}},{"text":"秒","color":"white"}]

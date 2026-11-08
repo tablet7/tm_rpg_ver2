@@ -1,4 +1,9 @@
 #> tm_rpg:player/reload
+
+# プレイヤーの状態をリセットする関数。tm_rpg:reload、player/first_reload、player/death/on_death から呼ばれる
+# HP・MP・リキャスト・状態異常などを元に戻し、HPバー（text_display）を作り直す
+# @s ＝ プレイヤー
+
 effect give @s minecraft:instant_health infinite 10 true
 effect give @s minecraft:saturation infinite 10 true
 effect give @s minecraft:resistance infinite 10 true
@@ -26,6 +31,8 @@ scoreboard players set @s attack_timer 0
 
 tag @s remove temp_victim
 scoreboard players set @s temp_victim_remove 0
+
+function tm_rpg:system/stutas/potion_reset
 
 tag @s add player_reload
 

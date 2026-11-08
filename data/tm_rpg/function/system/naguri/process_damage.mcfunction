@@ -1,5 +1,8 @@
 #> tm_rpg:system/naguri/process_damage
 
+# 殴られた際にダメージ計算を行う関数。naguri/on_hurt_by、naguri/on_hurt_other から呼ばれる
+# 殴った側の武器（custom_data）とステータスからダメージを決め、damage_ex/damage_dealt を実行する
+
 # @s ＝ 殴られた側
 
 #say @s なぐられた

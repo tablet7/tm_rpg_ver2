@@ -1,5 +1,9 @@
 #> tm_rpg:system/damage_ex/damage_dealt
-#> tm_rpg:system/damage_ex/damage_dealt {p_damage:10,m_damage:10,c_damage:10,func:"tm_rpg:system/naguri/non_func"}
+
+# ダメージ計算・ダメージ表示・HP減少を行うマクロ関数。殴り（naguri/process_damage）や状態異常から with storage tm_rpg:damage で呼ばれる
+# 使い方: function tm_rpg:system/damage_ex/damage_dealt {p_damage:10,m_damage:10,c_damage:10,func:"tm_rpg:system/naguri/non_func"}
+# p_damage＝物理、m_damage＝魔法、c_damage＝確定ダメージ、func＝計算前に実行する関数
+# @s ＝ ダメージを受けるエンティティ
 
 # ダメージの計算・表記
 scoreboard players set @s damage_dealt_per 100

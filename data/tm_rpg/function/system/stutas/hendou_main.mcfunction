@@ -1,5 +1,9 @@
 #> tm_rpg:system/stutas/hendou_main
 
+# ステータス（HP・MP・防御・攻撃など）の実数値を計算する関数。player/main、enemy/main から毎tick呼ばれる
+# 装備の custom_data・バフ・基礎値を合計して実数値にする
+# @s ＝ プレイヤーまたは敵
+
 # リセット
 scoreboard players set @s hp_score 0
 scoreboard players set @s hp_rege_score 0

@@ -1,5 +1,8 @@
 #> tm_rpg:system/stutas/skillpoint_reset
 
+# スキルポイントの振り分けをリセットする関数。player/first_reload から呼ばれる
+# @s ＝ プレイヤー
+
 scoreboard players operation @s add_point_all = @s ADD_POINT_ALL_LEV
 
 scoreboard players set @s add_point_hp_buff 0

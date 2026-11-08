@@ -1,5 +1,8 @@
 #> tm_rpg:system/abnormal/vibration_damage
 
+# 振動爆発のダメージ処理（確定ダメージ）。プレイヤーの場合は vibration_damage2 を実行する（現在は呼び出し元なし）
+# @s ＝ 振動が爆発したエンティティ
+
 execute if score @s vibration_potency matches ..0 run scoreboard players set @s vibration_potency 1
 tellraw @s [{"text":"振動爆発!!!","color":"yellow"},{"score":{"name":"@s","objective":"vibration_potency"},"color":"white"},{"text":" "},{"score":{"name":"@s","objective":"vibration_time"}},{"text":"秒","color":"white"}]
 

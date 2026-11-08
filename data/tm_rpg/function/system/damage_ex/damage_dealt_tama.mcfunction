@@ -1,5 +1,9 @@
 #> tm_rpg:system/damage_ex/damage_dealt_tama
 
+# 弾（飛び道具）用のダメージ計算マクロ関数。同じ弾（id）に一度当たったエンティティには重ねてダメージを与えない（現在は呼び出し元なし）
+# 引数: p_damage, m_damage, c_damage, func, id
+# @s ＝ ダメージを受けるエンティティ
+
 # ダメージの計算・表記
 scoreboard players set @s damage_dealt_per 100
 

@@ -1,5 +1,9 @@
 #> tm_rpg:enemy/main
 
+# 敵の毎tick処理。tm_rpg:main から呼ばれる
+# 殴られた判定、HP割合とHPバーの更新、ステータスの再計算を行う
+# @s ＝ 敵（tag=enemy）
+
 # 殴られたとき 耐性MAXじゃないといけない
 execute as @s[nbt={HurtTime:10s}] unless block ~ ~ ~ fire unless block ~ ~ ~ lava at @s run function tm_rpg:system/naguri/on_hurt_by
 

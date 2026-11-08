@@ -1,5 +1,8 @@
 #> tm_rpg:system/damage_ex/evasion_damage
 
+# 回避が成功したときの処理。ダメージを0にして「回避！」を表示する。damage_ex/damage_dealt、damage_ex/damage_dealt_tama から呼ばれる
+# @s ＝ 回避したエンティティ
+
 scoreboard players set @s damage_dealt_pmc_p 0
 scoreboard players set @s damage_dealt_pmc_m 0
 scoreboard players set @s damage_dealt_pmc_c 0

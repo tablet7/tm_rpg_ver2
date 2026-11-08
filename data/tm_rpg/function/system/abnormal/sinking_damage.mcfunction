@@ -1,5 +1,9 @@
 #> tm_rpg:system/abnormal/sinking_damage
 
+# 沈潜の処理。ダメージを受けたときに、敵は魔法ダメージが増え、プレイヤーはMPが減る（MPが0なら魔法ダメージが増える）
+# damage_ex/damage_dealt、damage_ex/damage_dealt_tama から呼ばれる
+# @s ＝ ダメージを受けたエンティティ
+
 execute if score @s sinking_potency matches ..0 run scoreboard players set @s sinking_potency 1
 
 tellraw @s [{"text":"沈潜","color":"blue"},{"score":{"name":"@s","objective":"sinking_potency"},"color":"white"},{"text":" "},{"score":{"name":"@s","objective":"sinking_time"}},{"text":"秒","color":"white"}]

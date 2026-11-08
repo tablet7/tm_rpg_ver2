@@ -1,5 +1,9 @@
 #> tm_rpg:player/seconds
 
+# プレイヤーの1秒ごとの処理。time/time_tick_sec/tick1 から呼ばれる
+# スキルのリキャスト減少、状態異常の処理、火傷中のプレイヤーを燃やす処理を行う
+# @s ＝ プレイヤー
+
 # recast操作
 execute if score @s skill1_recast matches 1.. run scoreboard players remove @s skill1_recast 1
 execute if score @s skill2_recast matches 1.. run scoreboard players remove @s skill2_recast 1

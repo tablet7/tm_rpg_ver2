@@ -1,5 +1,8 @@
 #> tm_rpg:system/stutas/stutas_watch
 
+# 装備アイテムの custom_data に書かれたステータスを加算するマクロ関数。stutas/hendou_main から with entity @s ... で呼ばれる
+# @s ＝ プレイヤーまたは敵
+
 # {hp:0,mp:0,armor:0,magic_armor:0,p_attack:0,m_attack:0,cooltime:0,sustaintime:0,range:0,crit_per:0,crit_damage:0,job_bonus:0,luck:0,evasion:0}
 
 $scoreboard players set @s temp $(hp)

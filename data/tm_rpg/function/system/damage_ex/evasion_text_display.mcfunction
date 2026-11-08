@@ -1,5 +1,8 @@
 #> tm_rpg:system/damage_ex/evasion_text_display
 
+# 「回避！」の表示（text_display）を出すマクロ関数。damage_ex/evasion_damage から with storage tm_rpg:damage_text_dis で呼ばれる
+# 引数: x_rand, y_rand, z_rand
+
 $summon text_display ~$(x_rand) ~$(y_rand) ~$(z_rand) \
 {transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[2f,2f,2f]},\
 billboard:"vertical",text:{"bold":true,text:"回避！"},\

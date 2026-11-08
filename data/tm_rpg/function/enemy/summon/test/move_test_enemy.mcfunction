@@ -1,6 +1,7 @@
 #> tm_rpg:enemy/summon/test/move_test_enemy
 
-# tm_rpg:enemy/summon/test/move_test_enemy {x:"~",y:"~",z:"~"}
+# テスト用の動く敵（スケルトン）を指定座標に召喚する関数
+# 使い方: function tm_rpg:enemy/summon/test/move_test_enemy {x:"~",y:"~",z:"~"}
 
 $summon skeleton $(x) $(y) $(z) {\
     Silent:1b,\

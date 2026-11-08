@@ -1,5 +1,8 @@
 #> tm_rpg:system/abnormal/burn_damage
 
+# 火傷のダメージ処理（魔法ダメージ）。system/abnormal/second から1秒ごとに呼ばれる
+# @s ＝ 火傷しているエンティティ
+
 execute if score @s burn_potency matches ..0 run scoreboard players set @s burn_potency 1
 
 tellraw @s [{"text":"火傷","color":"red"},{"score":{"name":"@s","objective":"burn_potency"},"color":"white"},{"text":" "},{"score":{"name":"@s","objective":"burn_time"}},{"text":"秒","color":"white"}]

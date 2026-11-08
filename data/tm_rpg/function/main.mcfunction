@@ -1,5 +1,8 @@
 #> tm_rpg:main
 
+# tm_rpg の毎tick処理。main:main から呼ばれる
+# プレイヤー・敵の毎tick処理、時間管理（1〜20tickへの振り分け、2秒ごとの処理）、不要エンティティの削除を行う
+
 # main
 execute as @a at @s run function tm_rpg:player/main
 execute as @e[type=#tm_rpg:mob_type,tag=enemy] at @s run function tm_rpg:enemy/main

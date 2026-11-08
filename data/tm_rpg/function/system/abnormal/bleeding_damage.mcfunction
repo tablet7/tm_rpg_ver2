@@ -1,5 +1,8 @@
 #> tm_rpg:system/abnormal/bleeding_damage
 
+# 出血のダメージ処理（物理ダメージ）。system/abnormal/second から1秒ごとに呼ばれる（プレイヤー以外）
+# @s ＝ 出血しているエンティティ
+
 execute if score @s bleeding_potency matches ..0 run scoreboard players set @s bleeding_potency 1
 
 tellraw @s [{"text":"出血","color":"#640000"},{"score":{"name":"@s","objective":"bleeding_potency"},"color":"white"},{"text":" "},{"score":{"name":"@s","objective":"bleeding_time"}},{"text":"秒","color":"white"}]

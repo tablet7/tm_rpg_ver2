@@ -1,5 +1,9 @@
 #> tm_rpg:player/main
 
+# プレイヤーの毎tick処理。tm_rpg:main から呼ばれる
+# ステータス計算、アクションバー表示、HPバー更新、死亡検知、移動判定、弓・攻撃タイマーの管理を行う
+# @s ＝ プレイヤー
+
 # first_login
 execute if entity @s[tag=!joined] run function tm_rpg:player/first_reload
 
