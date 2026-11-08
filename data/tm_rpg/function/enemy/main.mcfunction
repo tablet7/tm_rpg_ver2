@@ -11,8 +11,7 @@ execute as @s[nbt={HurtTime:10s}] unless block ~ ~ ~ fire unless block ~ ~ ~ lav
 scoreboard players operation @s hp_ratio = @s hp
 scoreboard players operation @s hp_ratio *= System CONTACT_20
 scoreboard players operation @s hp_ratio /= @s HP_MAX
-execute store result storage tm_rpg:data_enemy hp int 1 run scoreboard players get @s hp_ratio
-function tm_rpg:system/stutas/hp_ratio_watch with storage tm_rpg:data_enemy
+execute unless score @s hp_ratio = @s hp_ratio_old run function tm_rpg:system/stutas/hp_ratio_watch
 
 # hp表示テキストのtp
 scoreboard players operation System temp = @s ent_id
