@@ -58,6 +58,7 @@ scoreboard players set System hours 0
 
 ## player
 scoreboard objectives add Lv dummy
+scoreboard objectives add item_roll dummy
 scoreboard objectives add hp_ratio dummy
 scoreboard objectives add player_deaths deathCount
 scoreboard objectives add used_carrot_on_a_stick minecraft.used:minecraft.carrot_on_a_stick
