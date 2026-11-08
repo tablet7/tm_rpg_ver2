@@ -1,5 +1,9 @@
 #> tm_rpg:system/abnormal/vibration_damage2
 
+# 振動爆発をプレイヤーが受けたときの処理。system/abnormal/vibration_damage から呼ばれる
+# ランダムなスキルのリキャストを振動の威力ぶん増やす（リキャストが31以上なら代わりに確定ダメージ）
+# @s ＝ プレイヤー
+
 execute store result score @s random_rand run random value 1..6
 
 execute if score @s random_rand matches 1 if score @s skill1_recast matches 31.. store result storage tm_rpg:damage c_damage int 1 run scoreboard players get @s vibration_potency
@@ -15,7 +19,7 @@ execute if score @s random_rand matches 4 if score @s skill4_recast matches 31..
 execute if score @s random_rand matches 4 if score @s skill4_recast matches ..30 run scoreboard players operation @s skill4_recast += @s vibration_potency
 
 execute if score @s random_rand matches 5 if score @s skill5_recast matches 31.. store result storage tm_rpg:damage c_damage int 1 run scoreboard players get @s vibration_potency
-execute if score @s random_rand matches 5 if score @s skill5_recast matches ..30 run scoreboard players operation @s skill4_recast += @s vibration_potency
+execute if score @s random_rand matches 5 if score @s skill5_recast matches ..30 run scoreboard players operation @s skill5_recast += @s vibration_potency
 
 execute if score @s random_rand matches 6 if score @s skill6_recast matches 31.. store result storage tm_rpg:damage c_damage int 1 run scoreboard players get @s vibration_potency
-execute if score @s random_rand matches 6 if score @s skill6_recast matches ..30 run scoreboard players operation @s skill4_recast += @s vibration_potency
+execute if score @s random_rand matches 6 if score @s skill6_recast matches ..30 run scoreboard players operation @s skill6_recast += @s vibration_potency

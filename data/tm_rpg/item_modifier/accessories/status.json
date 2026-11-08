@@ -1,0 +1,144 @@
+{
+  "type": "minecraft:sequence",
+  "functions": [
+    {
+      "type": "minecraft:copy_custom_data",
+      "source": {"type": "minecraft:storage","source": "tm_rpg:item_random"},
+      "ops": [
+        {"source": "data.lv","target": "lv","op": "replace"},
+        {"source": "data.hp","target": "hp","op": "replace"},
+        {"source": "data.hp_rege","target": "hp_rege","op": "replace"},
+        {"source": "data.mp","target": "mp","op": "replace"},
+        {"source": "data.mp_rege","target": "mp_rege","op": "replace"},
+        {"source": "data.armor","target": "armor","op": "replace"},
+        {"source": "data.magic_armor","target": "magic_armor","op": "replace"},
+        {"source": "data.p_attack","target": "p_attack","op": "replace"},
+        {"source": "data.m_attack","target": "m_attack","op": "replace"},
+        {"source": "data.cooltime","target": "cooltime","op": "replace"},
+        {"source": "data.sustaintime","target": "sustaintime","op": "replace"},
+        {"source": "data.range","target": "range","op": "replace"},
+        {"source": "data.crit_per","target": "crit_per","op": "replace"},
+        {"source": "data.crit_damage","target": "crit_damage","op": "replace"},
+        {"source": "data.evasion","target": "evasion","op": "replace"},
+        {"source": "data.job_bonus","target": "job_bonus","op": "replace"},
+        {"source": "data.luck","target": "luck","op": "replace"},
+        {"source": "data.kaizou","target": "kaizou","op": "replace"}
+      ]
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "condition": {"type": "minecraft:int_value_check","value": {"type": "minecraft:score","target": {"type": "minecraft:fixed","name": "hp"},"score": "item_roll"},"test": {"min": 1}},
+      "lore": [[{"text": "HP: ","color": "red","italic": false},{"score": {"name": "hp","objective": "item_roll"},"color": "white","italic": false}]],
+      "mode": "append"
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "condition": {"type": "minecraft:int_value_check","value": {"type": "minecraft:score","target": {"type": "minecraft:fixed","name": "hp_rege"},"score": "item_roll"},"test": {"min": 1}},
+      "lore": [[{"text": "HP自動回復: ","color": "#e47878","italic": false},{"score": {"name": "hp_rege","objective": "item_roll"},"color": "white","italic": false}]],
+      "mode": "append"
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "condition": {"type": "minecraft:int_value_check","value": {"type": "minecraft:score","target": {"type": "minecraft:fixed","name": "mp"},"score": "item_roll"},"test": {"min": 1}},
+      "lore": [[{"text": "MP: ","color": "blue","italic": false},{"score": {"name": "mp","objective": "item_roll"},"color": "white","italic": false}]],
+      "mode": "append"
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "condition": {"type": "minecraft:int_value_check","value": {"type": "minecraft:score","target": {"type": "minecraft:fixed","name": "mp_rege"},"score": "item_roll"},"test": {"min": 1}},
+      "lore": [[{"text": "MP自動回復: ","color": "#90d1e6","italic": false},{"score": {"name": "mp_rege","objective": "item_roll"},"color": "white","italic": false}]],
+      "mode": "append"
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "condition": {"type": "minecraft:int_value_check","value": {"type": "minecraft:score","target": {"type": "minecraft:fixed","name": "armor"},"score": "item_roll"},"test": {"min": 1}},
+      "lore": [[{"text": "防御力: ","color": "#a8a8a8","italic": false},{"score": {"name": "armor","objective": "item_roll"},"color": "white","italic": false}]],
+      "mode": "append"
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "condition": {"type": "minecraft:int_value_check","value": {"type": "minecraft:score","target": {"type": "minecraft:fixed","name": "magic_armor"},"score": "item_roll"},"test": {"min": 1}},
+      "lore": [[{"text": "魔法防御力: ","color": "#34ada7","italic": false},{"score": {"name": "magic_armor","objective": "item_roll"},"color": "white","italic": false}]],
+      "mode": "append"
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "condition": {"type": "minecraft:int_value_check","value": {"type": "minecraft:score","target": {"type": "minecraft:fixed","name": "p_attack"},"score": "item_roll"},"test": {"min": 1}},
+      "lore": [[{"text": "攻撃力: ","color": "#660000","italic": false},{"score": {"name": "p_attack","objective": "item_roll"},"color": "white","italic": false}]],
+      "mode": "append"
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "condition": {"type": "minecraft:int_value_check","value": {"type": "minecraft:score","target": {"type": "minecraft:fixed","name": "m_attack"},"score": "item_roll"},"test": {"min": 1}},
+      "lore": [[{"text": "魔法攻撃力: ","color": "#826cff","italic": false},{"score": {"name": "m_attack","objective": "item_roll"},"color": "white","italic": false}]],
+      "mode": "append"
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "condition": {"type": "minecraft:int_value_check","value": {"type": "minecraft:score","target": {"type": "minecraft:fixed","name": "cooltime"},"score": "item_roll"},"test": {"min": 1}},
+      "lore": [[{"text": "クールタイム低下: ","color": "green","italic": false},{"score": {"name": "cooltime","objective": "item_roll"},"color": "white","italic": false}]],
+      "mode": "append"
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "condition": {"type": "minecraft:int_value_check","value": {"type": "minecraft:score","target": {"type": "minecraft:fixed","name": "sustaintime"},"score": "item_roll"},"test": {"min": 1}},
+      "lore": [[{"text": "持続時間増加: ","color": "#ca7900","italic": false},{"score": {"name": "sustaintime","objective": "item_roll"},"color": "white","italic": false}]],
+      "mode": "append"
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "condition": {"type": "minecraft:int_value_check","value": {"type": "minecraft:score","target": {"type": "minecraft:fixed","name": "range"},"score": "item_roll"},"test": {"min": 1}},
+      "lore": [[{"text": "付与効果増加: ","color": "#7900ca","italic": false},{"score": {"name": "range","objective": "item_roll"},"color": "white","italic": false}]],
+      "mode": "append"
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "condition": {"type": "minecraft:int_value_check","value": {"type": "minecraft:score","target": {"type": "minecraft:fixed","name": "crit_per"},"score": "item_roll"},"test": {"min": 1}},
+      "lore": [[{"text": "クリティカル率: ","color": "white","italic": false},{"score": {"name": "crit_per","objective": "item_roll"},"color": "white","italic": false}]],
+      "mode": "append"
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "condition": {"type": "minecraft:int_value_check","value": {"type": "minecraft:score","target": {"type": "minecraft:fixed","name": "crit_damage"},"score": "item_roll"},"test": {"min": 1}},
+      "lore": [[{"text": "クリティカルダメージ: ","color": "white","italic": false},{"score": {"name": "crit_damage","objective": "item_roll"},"color": "white","italic": false}]],
+      "mode": "append"
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "condition": {"type": "minecraft:int_value_check","value": {"type": "minecraft:score","target": {"type": "minecraft:fixed","name": "evasion"},"score": "item_roll"},"test": {"min": 1}},
+      "lore": [[{"text": "回避率: ","color": "#2d5172","italic": false},{"score": {"name": "evasion","objective": "item_roll"},"color": "white","italic": false}]],
+      "mode": "append"
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "condition": {"type": "minecraft:int_value_check","value": {"type": "minecraft:score","target": {"type": "minecraft:fixed","name": "job_bonus"},"score": "item_roll"},"test": {"min": 1}},
+      "lore": [[{"text": "役職ボーナス: ","color": "white","italic": false},{"score": {"name": "job_bonus","objective": "item_roll"},"color": "white","italic": false}]],
+      "mode": "append"
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "condition": {"type": "minecraft:int_value_check","value": {"type": "minecraft:score","target": {"type": "minecraft:fixed","name": "luck"},"score": "item_roll"},"test": {"min": 1}},
+      "lore": [[{"text": "運: ","color": "gold","italic": false},{"score": {"name": "luck","objective": "item_roll"},"color": "white","italic": false}]],
+      "mode": "append"
+    },
+    {
+      "type": "minecraft:set_components","components": {"minecraft:unbreakable": {}}
+    }
+  ]
+}

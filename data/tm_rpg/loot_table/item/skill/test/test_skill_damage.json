@@ -1,0 +1,53 @@
+{
+  "type": "minecraft:command",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:carrot_on_a_stick",
+          "modifier": [
+            {
+              "type": "minecraft:set_name",
+              "name": {
+                "text": "Test_damage",
+                "color": "white",
+                "italic": false
+              }
+            },
+            {
+              "type": "minecraft:set_lore",
+              "lore": [
+                [{"text": "Lv: ","color": "gold","italic": false},{"text": "1","color": "white","italic": false},{"text": "  (0)","color": "white","italic": false}],
+                [{"text": "スキルクールタイム: ","color": "white","italic": false},{"text": "1","color": "white","italic": false}],
+                [{"text": "消費MP: ","color": "blue","italic": false},{"text": "10","color": "white","italic": false}],
+                [{"text": "クールタイム: ","color": "green","italic": false},{"text": "5","color": "white","italic": false},{"text": "秒","color": "green","italic": false}],
+                [{"text": "参照ステータス: ","color": "white","italic": false},{"text": "攻撃力","color": "red","italic": false}],
+                [{"text": "ダメージタイプ: ","color": "white","italic": false},{"text": "物理ダメージ","color": "red","italic": false}],
+                {"text": "基本ダメージ: 5 + 150%","color": "white","italic": false},
+                {"text": "右クリック:スキル発動","color": "yellow","italic": false},
+                {"text": "前方に範囲ダメージを与える","color": "white","italic": false},
+                {"text": "どうやって手に入れた？"}
+              ],
+              "mode": "append"
+            },
+            {
+              "type": "minecraft:set_custom_model_data",
+              "strings": {
+                "values": [
+                  "0.1"
+                ],
+                "mode": "append"
+              }
+            },
+            {
+              "type": "minecraft:set_custom_data",
+              "tag": "{lv:1,skillcool:1,mp:10,cooltime:5,kihon:5,per:150,damage_type:1,sanshou_type:1,delete_item_reset:1,kaizou:0}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

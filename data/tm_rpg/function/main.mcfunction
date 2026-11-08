@@ -1,8 +1,13 @@
 #> tm_rpg:main
 
+# tm_rpg の毎tick処理。main:main から呼ばれる
+# プレイヤー・敵の毎tick処理、時間管理（1〜20tickへの振り分け、2秒ごとの処理）、不要エンティティの削除を行う
+
 # main
 execute as @a at @s run function tm_rpg:player/main
-execute as @e[tag=enemy] at @s run function tm_rpg:enemy/main
+execute as @e[type=#tm_rpg:mob_type,tag=enemy] at @s run function tm_rpg:enemy/main
+
+execute as @e[type=marker,tag=kaizoudai] at @s run function tm_rpg:system/item_mod/kaizoudai_main
 
 # 時間管理
 scoreboard players add System tick 1
@@ -38,6 +43,10 @@ execute as @e[type=#tm_rpg:delete_type,tag=delete_entity] at @s run scoreboard p
 
 execute as @e[type=#tm_rpg:delete_type,tag=delete_entity] at @s if score @s kill_time matches ..-1 run kill
 
+## 岩盤
+kill @e[type=item,nbt={Item:{id:"minecraft:bedrock"}}]
+clear @a bedrock
+
 ## テキストディスプレイ
 execute as @e[type=text_display,tag=mount_text] at @s unless entity @e[type=!#tm_rpg:delete_hp_bar_type,dx=0,dy=-3,dz=0] run kill @s
 
@@ -45,4 +54,5 @@ execute as @e[type=text_display,tag=mount_text] at @s unless entity @e[type=!#tm
 execute as @e[type=vindicator,tag=fire_ent_delete] run function tm_rpg:system/abnormal/delete_dire
 
 ## 矢
+# 地面に刺さっているかはセレクター引数・predicate で判定できないため nbt を使う
 execute as @e[type=arrow,nbt={inGround:1b}] at @s run kill

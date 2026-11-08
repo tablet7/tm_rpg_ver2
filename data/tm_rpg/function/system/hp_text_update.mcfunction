@@ -1,4 +1,7 @@
-# tm_rpg:system/hp_text_update
+#> tm_rpg:system/hp_text_update
+
+# HPバー（text_display）の表示を hp_ratio に合わせて更新する関数。player/main、enemy/main から呼ばれる
+# @s ＝ HPバーの text_display（一番近いエンティティの hp_ratio を参照する）
 
 execute if score @e[limit=1,sort=nearest] hp_ratio matches 21.. run data modify entity @s text set value {"color":"green","text":"❚❚❚❚❚❚❚❚❚❚+"}
 execute if score @e[limit=1,sort=nearest] hp_ratio matches 19..20 run data modify entity @s text set value {"color":"green","text":"❚❚❚❚❚❚❚❚❚❚"}

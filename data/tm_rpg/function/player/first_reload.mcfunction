@@ -1,4 +1,8 @@
-#> function tm_rpg:player/first_reload
+#> tm_rpg:player/first_reload
+
+# プレイヤーの初回参加時の処理。player/main から tag=joined がないときに呼ばれる
+# 基礎ステータス・スキルポイント・ポーション効果の初期化と、チームへの参加を行う
+# @s ＝ 初めて参加したプレイヤー
 
 tag @s add joined
 

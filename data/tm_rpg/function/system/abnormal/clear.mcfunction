@@ -1,5 +1,8 @@
 #> tm_rpg:system/abnormal/clear
 
+# すべての状態異常（火傷・破裂・出血・沈潜・振動）を解除する関数。player/reload、system/abnormal/non_debuff から呼ばれる
+# @s ＝ 対象のエンティティ
+
 # 火傷
 scoreboard players set @s burn_time -1
 scoreboard players set @s burn_potency 0

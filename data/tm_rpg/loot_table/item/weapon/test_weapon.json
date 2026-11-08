@@ -15,21 +15,18 @@
             {
               "type": "minecraft:set_lore",
               "lore": [
+                [{"text": "Lv: ","color": "gold","italic": false},{"text": "1","color": "white","italic": false},{"text": "  (0)","color": "white","italic": false}],
+                [{"text": "参照ステータス: ","color": "white","italic": false},{"text": "攻撃力","color": "red","italic": false}],
+                [{"text": "ダメージタイプ: ","color": "white","italic": false},{"text": "物理ダメージ","color": "red","italic": false}],
+                {"text": "基本ダメージ: 3 + 120%","color": "white","italic": false},
                 {"text": "ただの木の剣。特に効果はない。","color": "white","italic": false},
-                [
-                  {"text": "攻撃力","color": "red","italic": false},
-                  {"text": "の","color": "white","italic": false},
-                  {"text": "100%","color": "red","italic": false},
-                  {"text": "分のダメージを与える","color": "white","italic": false}
-
-                ],
                 {"text": "どうやって手に入れた？"}
               ],
               "mode": "append"
             },
             {
               "type": "minecraft:set_custom_data",
-              "tag": "{damage_type:1,damage_kinsetu:1,damage_per:100}"
+              "tag": "{lv:1,kihon:3,per:120,damage_type:1,sanshou_type:1,kinsetu:1,kaizou:0}"
             },
             {
               "type": "minecraft:set_components","components": {"minecraft:unbreakable": {}}

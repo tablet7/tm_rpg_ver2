@@ -1,4 +1,8 @@
-#> function tm_rpg:player/main
+#> tm_rpg:player/main
+
+# プレイヤーの毎tick処理。tm_rpg:main から呼ばれる
+# ステータス計算、アクションバー表示、HPバー更新、死亡検知、移動判定、弓・攻撃タイマーの管理を行う
+# @s ＝ プレイヤー
 
 # first_login
 execute if entity @s[tag=!joined] run function tm_rpg:player/first_reload
@@ -10,8 +14,7 @@ function tm_rpg:system/stutas/hendou_main
 scoreboard players operation @s hp_ratio = @s hp
 scoreboard players operation @s hp_ratio *= System CONTACT_20
 scoreboard players operation @s hp_ratio /= @s HP_MAX
-execute store result storage tm_rpg:data_player hp int 1 run scoreboard players get @s hp_ratio
-function tm_rpg:system/stutas/hp_ratio_watch with storage tm_rpg:data_player
+execute unless score @s hp_ratio = @s hp_ratio_old run function tm_rpg:system/stutas/hp_ratio_watch
 
 #actionbar表示
 execute as @s[tag=!sorcerer] at @s run title @s actionbar [\

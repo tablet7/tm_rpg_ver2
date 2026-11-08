@@ -1,5 +1,8 @@
 #> tm_rpg:system/naguri/process_damage
 
+# 殴られた際にダメージ計算を行う関数。naguri/on_hurt_by、naguri/on_hurt_other から呼ばれる
+# 殴った側の武器（custom_data）とステータスからダメージを決め、damage_ex/damage_dealt を実行する
+
 # @s ＝ 殴られた側
 
 #say @s なぐられた
@@ -16,14 +19,14 @@ data modify storage tm_rpg:damage p_damage set value 0
 data modify storage tm_rpg:damage m_damage set value 0
 data modify storage tm_rpg:damage c_damage set value 0
 
-execute on attacker if items entity @s weapon.mainhand *[custom_data~{damage_type:1,damage_kinsetu:1,damage_per:100}] if score @s attack_timer >= @s ATTACK_TIMER_LEV store result storage tm_rpg:damage p_damage int 1 run scoreboard players get @s p_attack
-execute on attacker if items entity @s weapon.mainhand *[custom_data~{damage_type:1,damage_kinsetu:1,damage_per:75}] if score @s attack_timer >= @s ATTACK_TIMER_LEV store result storage tm_rpg:damage p_damage int 0.75 run scoreboard players get @s p_attack
-execute on attacker if items entity @s weapon.mainhand *[custom_data~{damage_type:1,damage_kinsetu:1,damage_per:200}] if score @s attack_timer >= @s ATTACK_TIMER_LEV store result storage tm_rpg:damage p_damage int 2 run scoreboard players get @s p_attack
-execute on attacker if items entity @s weapon.mainhand *[custom_data~{damage_type:2,damage_kinsetu:1,damage_per:100}] if score @s attack_timer >= @s ATTACK_TIMER_LEV store result storage tm_rpg:damage m_damage int 1 run scoreboard players get @s m_attack
+# 殴った側の武器の custom_data を storage に入れる
+data remove storage tm_rpg:weapon data
+execute on attacker if entity @s[type=player] run data modify storage tm_rpg:weapon data set from entity @s SelectedItem.components."minecraft:custom_data"
+execute on attacker if entity @s[type=!player] run data modify storage tm_rpg:weapon data set from entity @s equipment.mainhand.components."minecraft:custom_data"
 
-execute on attacker if items entity @s weapon.mainhand *[custom_data~{damage_type:1,damage_kinsetu:0,damage_per:100}] if score @s attack_timer >= @s ATTACK_TIMER_LEV if score @s shot_bow_time matches 1.. store result storage tm_rpg:damage p_damage int 1 run scoreboard players get @s p_attack
-execute on attacker if items entity @s weapon.mainhand *[custom_data~{damage_type:1,damage_kinsetu:0,damage_per:125}] if score @s attack_timer >= @s ATTACK_TIMER_LEV if score @s shot_bow_time matches 1.. store result storage tm_rpg:damage p_damage int 1.25 run scoreboard players get @s p_attack
-execute on attacker if items entity @s weapon.mainhand *[custom_data~{damage_type:2,damage_kinsetu:0,damage_per:100}] if score @s attack_timer >= @s ATTACK_TIMER_LEV if score @s shot_bow_time matches 1.. store result storage tm_rpg:damage m_damage int 1 run scoreboard players get @s m_attack
+# 攻撃間隔を満たしていれば、武器のダメージを計算する
+execute on attacker if score @s attack_timer >= @s ATTACK_TIMER_LEV if data storage tm_rpg:weapon data.damage_type run function tm_rpg:system/naguri/weapon_damage
+
 
 execute on attacker store result score @s random_rand run random value 1..100
 

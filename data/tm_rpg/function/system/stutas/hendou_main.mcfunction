@@ -1,5 +1,9 @@
 #> tm_rpg:system/stutas/hendou_main
 
+# ステータス（HP・MP・防御・攻撃など）の実数値を計算する関数。player/main、enemy/main から毎tick呼ばれる
+# 装備の custom_data・バフ・基礎値を合計して実数値にする
+# @s ＝ プレイヤーまたは敵
+
 # リセット
 scoreboard players set @s hp_score 0
 scoreboard players set @s hp_rege_score 0
@@ -18,13 +22,8 @@ scoreboard players set @s job_bonus_score 0
 scoreboard players set @s evasion_score 0 
 scoreboard players set @s luck_score 0 
 
-# アイテムを持ってたら
-execute if entity @s[nbt={SelectedItem:{components:{"minecraft:custom_data":{}}}}] run function tm_rpg:system/stutas/stutas_watch with entity @s SelectedItem.components."minecraft:custom_data"
-execute if entity @s[nbt={equipment:{offhand:{components:{"minecraft:custom_data":{}}}}}] run function tm_rpg:system/stutas/stutas_watch with entity @s equipment.offhand.components."minecraft:custom_data"
-execute if entity @s[nbt={equipment:{head:{components:{"minecraft:custom_data":{}}}}}] run function tm_rpg:system/stutas/stutas_watch with entity @s equipment.head.components."minecraft:custom_data"
-execute if entity @s[nbt={equipment:{chest:{components:{"minecraft:custom_data":{}}}}}] run function tm_rpg:system/stutas/stutas_watch with entity @s equipment.chest.components."minecraft:custom_data"
-execute if entity @s[nbt={equipment:{legs:{components:{"minecraft:custom_data":{}}}}}] run function tm_rpg:system/stutas/stutas_watch with entity @s equipment.legs.components."minecraft:custom_data"
-execute if entity @s[nbt={equipment:{feet:{components:{"minecraft:custom_data":{}}}}}] run function tm_rpg:system/stutas/stutas_watch with entity @s equipment.feet.components."minecraft:custom_data"
+# 装備の custom_data のステータスを加算
+function tm_rpg:system/stutas/equipment_watch
 
 # バフとデバフ
 function tm_rpg:system/stutas/buff_debuff_main

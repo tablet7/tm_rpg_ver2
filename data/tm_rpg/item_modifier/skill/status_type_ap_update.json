@@ -1,0 +1,7 @@
+{
+  "type": "set_lore",
+  "lore": [[{"text": "参照ステータス: ","color": "white","italic": false},{"text": "魔法攻撃力","color": "blue","italic": false}]],
+  "mode": "replace_section",
+  "offset": 4,
+  "size": 1
+}

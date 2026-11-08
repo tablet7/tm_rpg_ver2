@@ -1,8 +1,11 @@
 #> tm_rpg:reload
 
+# tm_rpg の初期化処理。main:reload から呼ばれる
+# 敵やHPバーなどの削除、スコアボード・チームの作成、全プレイヤーのリセットを行う
+
 # system
-kill @e[tag=enemy]
-kill @e[tag=mount_text]
+kill @e[type=#tm_rpg:mob_type,tag=enemy]
+kill @e[type=text_display,tag=mount_text]
 kill @e[type=item]
 
 # scoreboard
@@ -15,6 +18,12 @@ scoreboard objectives add dash_kill_time dummy
 ## 自由変数
 scoreboard objectives add random_rand dummy
 scoreboard objectives add temp dummy
+scoreboard objectives add temp2 dummy
+scoreboard objectives add temp3 dummy
+scoreboard objectives add temp4 dummy
+scoreboard objectives add temp5 dummy
+scoreboard objectives add temp6 dummy
+scoreboard objectives add temp7 dummy
 
 ## 定数
 scoreboard objectives add CONTACT_1 dummy
@@ -49,7 +58,9 @@ scoreboard players set System hours 0
 
 ## player
 scoreboard objectives add Lv dummy
+scoreboard objectives add item_roll dummy
 scoreboard objectives add hp_ratio dummy
+scoreboard objectives add hp_ratio_old dummy
 scoreboard objectives add player_deaths deathCount
 scoreboard objectives add used_carrot_on_a_stick minecraft.used:minecraft.carrot_on_a_stick
 

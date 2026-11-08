@@ -1,5 +1,8 @@
 #> tm_rpg:system/stutas/buff_debuff_main
 
+# ポーションとスキルポイントによるステータスの加算を行う関数。stutas/hendou_main から呼ばれる
+# @s ＝ プレイヤーまたは敵
+
 # バフ
 ## ポーション
 scoreboard players operation @s hp_score += @s potion_hp_buff

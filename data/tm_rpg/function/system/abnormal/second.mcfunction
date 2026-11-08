@@ -1,5 +1,9 @@
 #> tm_rpg:system/abnormal/second
 
+# 状態異常の1秒ごとの処理。player/seconds、enemy/second から呼ばれる
+# 火傷・出血のダメージ処理と、各状態異常の残り時間を減らす処理を行う
+# @s ＝ プレイヤーまたは敵
+
 # 火傷
 execute if score @s burn_time matches 1.. run function tm_rpg:system/abnormal/burn_damage
 execute if score @s burn_time matches ..0 run scoreboard players set @s burn_potency 0
@@ -21,3 +25,4 @@ execute if score @s sinking_time matches 0.. run scoreboard players remove @s si
 # 振動
 execute if score @s vibration_time matches ..0 run scoreboard players set @s vibration_potency 0
 execute if score @s vibration_time matches 0.. run scoreboard players remove @s vibration_time 1
+
