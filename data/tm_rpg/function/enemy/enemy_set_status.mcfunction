@@ -1,32 +1,34 @@
 #> tm_rpg:enemy/enemy_set_status
 
-# 召喚した敵にステータスを設定し、HPバー（text_display）を乗せるマクロ関数。敵の召喚関数（enemy/summon/...）から呼ばれる
+# 召喚した敵にステータスを設定し、HPバー（text_display）を乗せる関数（マクロなし）。敵の召喚関数（enemy/summon/...）から呼ばれる
+# 使い方: storage tm_rpg:enemy_status data にステータスを入れてから、execute as <召喚した敵> at @s run function tm_rpg:enemy/enemy_set_status
+# data のキー: Lv, HP, HP_MAX, hp_rege, MP, MP_MAX, mp_rege, armor, magic_armor, p_attack, m_attack, cooltime, sustain_time, sustain_power, crit_per, crit_damage, job_bonus, evasin, luck
+# 武器は召喚関数のほうで loot replace entity @s weapon.mainhand loot <loot table> を実行して持たせる
 # @s ＝ 召喚した敵
-# 引数: Lv, HP, HP_MAX, hp_rege, MP, MP_MAX, mp_rege, armor, magic_armor, p_attack, m_attack, cooltime, sustain_time, sustain_power, crit_per, crit_damage, job_bonus, evasin, luck, loot_weapon
 
 execute store result score @s ent_id run random value 0..2147483646
 
-$scoreboard players set @s Lv $(Lv)
+execute store result score @s Lv run data get storage tm_rpg:enemy_status data.Lv
 
-$scoreboard players set @s hp $(HP)
-$scoreboard players set @s mp $(MP)
+execute store result score @s hp run data get storage tm_rpg:enemy_status data.HP
+execute store result score @s mp run data get storage tm_rpg:enemy_status data.MP
 
-$scoreboard players set @s HP_MAX_LEV $(HP_MAX)
-$scoreboard players set @s HP_REGE_MAX_LEV $(hp_rege)
-$scoreboard players set @s MP_MAX_LEV $(MP_MAX)
-$scoreboard players set @s MP_REGE_MAX_LEV $(mp_rege)
-$scoreboard players set @s ARMOR_MAX_LEV $(armor)
-$scoreboard players set @s MAGIC_ARMOR_MAX_LEV $(magic_armor)
-$scoreboard players set @s P_ATTACK_MAX_LEV $(p_attack)
-$scoreboard players set @s M_ATTACK_MAX_LEV $(m_attack)
-$scoreboard players set @s COOLTIME_MAX_LEV $(cooltime)
-$scoreboard players set @s SUSTAIN_TIME_MAX_LEV $(sustain_time)
-$scoreboard players set @s SUSTAIN_POWER_MAX_LEV $(sustain_power)
-$scoreboard players set @s CRIT_PER_MAX_LEV $(crit_per)
-$scoreboard players set @s CRIT_DAMAGE_MAX_LEV $(crit_damage)
-$scoreboard players set @s JOB_BONUS_MAX_LEV $(job_bonus)
-$scoreboard players set @s EVASION_MAX_LEV $(evasin)
-$scoreboard players set @s LUCK_MAX_LEV $(luck)
+execute store result score @s HP_MAX_LEV run data get storage tm_rpg:enemy_status data.HP_MAX
+execute store result score @s HP_REGE_MAX_LEV run data get storage tm_rpg:enemy_status data.hp_rege
+execute store result score @s MP_MAX_LEV run data get storage tm_rpg:enemy_status data.MP_MAX
+execute store result score @s MP_REGE_MAX_LEV run data get storage tm_rpg:enemy_status data.mp_rege
+execute store result score @s ARMOR_MAX_LEV run data get storage tm_rpg:enemy_status data.armor
+execute store result score @s MAGIC_ARMOR_MAX_LEV run data get storage tm_rpg:enemy_status data.magic_armor
+execute store result score @s P_ATTACK_MAX_LEV run data get storage tm_rpg:enemy_status data.p_attack
+execute store result score @s M_ATTACK_MAX_LEV run data get storage tm_rpg:enemy_status data.m_attack
+execute store result score @s COOLTIME_MAX_LEV run data get storage tm_rpg:enemy_status data.cooltime
+execute store result score @s SUSTAIN_TIME_MAX_LEV run data get storage tm_rpg:enemy_status data.sustain_time
+execute store result score @s SUSTAIN_POWER_MAX_LEV run data get storage tm_rpg:enemy_status data.sustain_power
+execute store result score @s CRIT_PER_MAX_LEV run data get storage tm_rpg:enemy_status data.crit_per
+execute store result score @s CRIT_DAMAGE_MAX_LEV run data get storage tm_rpg:enemy_status data.crit_damage
+execute store result score @s JOB_BONUS_MAX_LEV run data get storage tm_rpg:enemy_status data.job_bonus
+execute store result score @s EVASION_MAX_LEV run data get storage tm_rpg:enemy_status data.evasin
+execute store result score @s LUCK_MAX_LEV run data get storage tm_rpg:enemy_status data.luck
 
 scoreboard players set @s attack_timer 0
 scoreboard players set @s ATTACK_TIMER_LEV 0
@@ -42,7 +44,8 @@ effect give @s resistance infinite 100 true
 effect give @s[tag=speed0] speed infinite 0 true
 effect give @s[tag=speed1] speed infinite 1 true
 
-$loot replace entity @s weapon.mainhand loot $(loot_weapon)
+# 装備しているアイテムをすべてドロップしないようにする
+data merge entity @s {drop_chances:{head:0f,chest:0f,legs:0f,feet:0f,mainhand:0f,offhand:0f,body:0f,saddle:0f}}
 
 tag @s remove new_mob
 
