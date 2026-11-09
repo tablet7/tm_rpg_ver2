@@ -42,7 +42,7 @@ execute if score @s armor matches 76.. if score @s damage_dealt_pmc_p matches ..
 
 execute store result storage tm_rpg:damage_d damage_type int 1 run scoreboard players get @s damage_dealt_pmc_p
 data modify storage tm_rpg:damage_d color set value "red"
-execute if score @s damage_dealt_pmc_p matches 1.. run function tm_rpg:system/damage_ex/damage_dealt_m with storage tm_rpg:damage_d
+execute if score @s damage_dealt_pmc_p matches 1.. run function tm_rpg:system/damage_ex/damage_dealt_m
 
 execute if score @s damage_dealt_pmc_p matches 1.. run scoreboard players operation @s hp -= @s damage_dealt_pmc_p
 
@@ -62,14 +62,14 @@ execute if score @s magic_armor matches 76.. if score @s damage_dealt_pmc_m matc
 
 execute store result storage tm_rpg:damage_d damage_type int 1 run scoreboard players get @s damage_dealt_pmc_m
 data modify storage tm_rpg:damage_d color set value "blue"
-execute if score @s damage_dealt_pmc_m matches 1.. run function tm_rpg:system/damage_ex/damage_dealt_m with storage tm_rpg:damage_d
+execute if score @s damage_dealt_pmc_m matches 1.. run function tm_rpg:system/damage_ex/damage_dealt_m
 
 execute if score @s damage_dealt_pmc_m matches 1.. run scoreboard players operation @s hp -= @s damage_dealt_pmc_m
 
 # 確定ダメージ
 execute store result storage tm_rpg:damage_d damage_type int 1 run scoreboard players get @s damage_dealt_pmc_c
 data modify storage tm_rpg:damage_d color set value "white"
-execute if score @s damage_dealt_pmc_c matches 1.. run function tm_rpg:system/damage_ex/damage_dealt_m with storage tm_rpg:damage_d
+execute if score @s damage_dealt_pmc_c matches 1.. run function tm_rpg:system/damage_ex/damage_dealt_m
 
 execute if score @s damage_dealt_pmc_c matches 1.. run scoreboard players operation @s hp -= @s damage_dealt_pmc_c
 
