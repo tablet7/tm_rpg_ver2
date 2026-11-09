@@ -16,4 +16,4 @@ execute store result storage tm_rpg:damage_text_dis z_rand float 0.1 run scorebo
 # ダメージ量
 data modify storage tm_rpg:damage_text_dis damage set from storage tm_rpg:damage_d damage_type
 
-function tm_rpg:system/damage_ex/damage_text_display with storage tm_rpg:damage_text_dis
+execute summon text_display run function tm_rpg:system/damage_ex/damage_text_display

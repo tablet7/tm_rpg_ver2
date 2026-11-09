@@ -20,7 +20,7 @@ data merge storage tm_rpg:ab_text {type:"出血"}
 execute store result storage tm_rpg:ab_text damage int 1 run scoreboard players get @s bleeding_potency
 execute store result storage tm_rpg:ab_text time int 1 run scoreboard players get @s bleeding_time
 
-function tm_rpg:system/abnormal/ab_text with storage tm_rpg:ab_text
+execute summon text_display run function tm_rpg:system/abnormal/ab_text
 
 # ダメージ
 data modify storage tm_rpg:damage p_damage set value 0

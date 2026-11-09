@@ -9,6 +9,9 @@ execute as @e[type=#tm_rpg:mob_type,tag=enemy] at @s run function tm_rpg:enemy/m
 
 execute as @e[type=marker,tag=kaizoudai] at @s run function tm_rpg:system/item_mod/kaizoudai_main
 
+# ダメージ表記の操作
+execute as @e[type=text_display,tag=damage_display] at @s run tp ~ ~0.01 ~
+
 # 時間管理
 scoreboard players add System tick 1
 
