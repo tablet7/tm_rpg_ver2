@@ -36,7 +36,7 @@ function tm_rpg:system/abnormal/ab_text with storage tm_rpg:ab_text
 
 scoreboard players remove @s vibration_time 10
 
-function tm_rpg:system/damage_ex/damage_dealt with storage tm_rpg:damage
+function tm_rpg:system/damage_ex/damage_dealt
 
 particle minecraft:block{block_state:gold_block} ~ ~1 ~ 0.2 0.3 0.2 0.2 10 normal
 

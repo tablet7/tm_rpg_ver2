@@ -42,4 +42,4 @@ execute on attacker run scoreboard players set @s attack_timer 0
 execute on attacker if entity @s[tag=temp_victim] run function tm_rpg:system/naguri/0damage
 
 # ダメージを与える
-function tm_rpg:system/damage_ex/damage_dealt with storage tm_rpg:damage
+function tm_rpg:system/damage_ex/damage_dealt

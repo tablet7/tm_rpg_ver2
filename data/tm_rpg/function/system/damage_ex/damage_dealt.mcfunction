@@ -1,18 +1,19 @@
 #> tm_rpg:system/damage_ex/damage_dealt
 
-# ダメージ計算・ダメージ表示・HP減少を行うマクロ関数。殴り（naguri/process_damage）や状態異常から with storage tm_rpg:damage で呼ばれる
-# 使い方: function tm_rpg:system/damage_ex/damage_dealt {p_damage:10,m_damage:10,c_damage:10,func:"tm_rpg:system/naguri/non_func"}
-# p_damage＝物理、m_damage＝魔法、c_damage＝確定ダメージ、func＝計算前に実行する関数
+# ダメージ計算・ダメージ表示・HP減少を行う関数（マクロなし）。殴り（naguri/process_damage）や状態異常から呼ばれる
+# 使い方: storage tm_rpg:damage に p_damage, m_damage, c_damage, func を入れてから function tm_rpg:system/damage_ex/damage_dealt
+# p_damage＝物理、m_damage＝魔法、c_damage＝確定ダメージ、func＝計算前に実行する関数（何もしないときは "tm_rpg:system/naguri/non_func"）
 # @s ＝ ダメージを受けるエンティティ
 
 # ダメージの計算・表記
 scoreboard players set @s damage_dealt_per 100
 
-$scoreboard players set @s damage_dealt_pmc_p $(p_damage)
-$scoreboard players set @s damage_dealt_pmc_m $(m_damage)
-$scoreboard players set @s damage_dealt_pmc_c $(c_damage)
+execute store result score @s damage_dealt_pmc_p run data get storage tm_rpg:damage p_damage
+execute store result score @s damage_dealt_pmc_m run data get storage tm_rpg:damage m_damage
+execute store result score @s damage_dealt_pmc_c run data get storage tm_rpg:damage c_damage
 
-$function $(func)
+# func が non_func（何もしない）以外のときだけ、マクロで func を実行する
+execute unless data storage tm_rpg:damage {func:"tm_rpg:system/naguri/non_func"} run function tm_rpg:system/damage_ex/run_func with storage tm_rpg:damage
 
 #tellraw @a [{"score":{"name":"@s","objective":"damage_dealt_pmc_p"}},{"text":"/"},{"score":{"name":"@s","objective":"damage_dealt_pmc_m"}},{"text":"/"},{"score":{"name":"@s","objective":"damage_dealt_pmc_c"}}]
 

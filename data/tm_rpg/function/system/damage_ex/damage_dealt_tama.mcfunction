@@ -1,19 +1,21 @@
 #> tm_rpg:system/damage_ex/damage_dealt_tama
 
-# 弾（飛び道具）用のダメージ計算マクロ関数。同じ弾（id）に一度当たったエンティティには重ねてダメージを与えない（現在は呼び出し元なし）
-# 引数: p_damage, m_damage, c_damage, func, id
+# 弾（飛び道具）用のダメージ計算関数（マクロなし）。同じ弾（id）に一度当たったエンティティには重ねてダメージを与えない（現在は呼び出し元なし）
+# 使い方: storage tm_rpg:damage に p_damage, m_damage, c_damage, func, id を入れてから function tm_rpg:system/damage_ex/damage_dealt_tama
 # @s ＝ ダメージを受けるエンティティ
 
 # ダメージの計算・表記
 scoreboard players set @s damage_dealt_per 100
 
-$scoreboard players set @s damage_dealt_pmc_p $(p_damage)
-$scoreboard players set @s damage_dealt_pmc_m $(m_damage)
-$scoreboard players set @s damage_dealt_pmc_c $(c_damage)
+execute store result score @s damage_dealt_pmc_p run data get storage tm_rpg:damage p_damage
+execute store result score @s damage_dealt_pmc_m run data get storage tm_rpg:damage m_damage
+execute store result score @s damage_dealt_pmc_c run data get storage tm_rpg:damage c_damage
 
-$function $(func)
+# func が non_func（何もしない）以外のときだけ、マクロで func を実行する
+execute unless data storage tm_rpg:damage {func:"tm_rpg:system/naguri/non_func"} run function tm_rpg:system/damage_ex/run_func with storage tm_rpg:damage
 
-$execute if entity @s[tag=hit_$(id)] run function tm_rpg:system/damage_ex/0damage_func
+# 同じ弾にすでに当たっていたらダメージを0にし、当たった印（tag hit_<id>）を付ける
+function tm_rpg:system/damage_ex/tama_hit with storage tm_rpg:damage
 
 # 破裂
 execute if score @s[tag=!vibration_damage_flag,tag=!bleeding_damage_flag,tag=!burn_damage_flag,tag=!0damage_ent] rupture_time matches 1.. run function tm_rpg:system/abnormal/rupture_damage
@@ -75,9 +77,6 @@ execute if score @s damage_dealt_pmc_c matches 1.. run scoreboard players operat
 
 # ノックバック
 damage @s 1 minecraft:player_attack by @e[sort=nearest,limit=1,tag=damage_marker]
-
-# tag
-$tag @s add hit_$(id)
 
 #tellraw @a {"score": {"name": "@s", "objective": "damage_dealt_pmc"}}
 
