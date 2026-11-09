@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:command",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_boots"
+        }
+      ],
+      "modifier": [
+        {
+          "type": "minecraft:set_name",
+          "name": {"text": "鉄のブーツ","color": "white","italic": false}
+        },
+        {
+          "type": "minecraft:set_lore",
+          "entity": "this",
+          "lore": [
+            [{"text": "Lv: ","color": "gold","italic": false},{"score": {"name": "#lv","objective": "item_roll"},"color": "white","italic": false},{"text": "  (0)","color": "white","italic": false}],
+            {"text": "足に装備することで効果が発揮される","color": "yellow","italic": false},
+            {"text": "すべての能力が上がる可能性がある","color": "white","italic": false}
+          ],
+          "mode": "append"
+        },
+        "tm_rpg:accessories/status",
+        {
+          "type": "minecraft:set_components",
+          "components": {"minecraft:attribute_modifiers": []}
+        },
+        {
+          "type": "minecraft:set_custom_model_data",
+          "floats": {"values": [1],"mode": "append"}
+        }
+      ]
+    }
+  ]
+}

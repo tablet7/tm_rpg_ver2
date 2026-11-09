@@ -38,7 +38,6 @@ scoreboard players add System 2tick 1
 execute if score System 2tick matches 40.. run function tm_rpg:system/_2second
 
 # system kill
-execute as @e[type=#tm_rpg:mob_type,scores={hp = ..0}] run kill @s
 execute as @e[type=#tm_rpg:delete_type,tag=delete_entity] at @s run scoreboard players remove @s kill_time 1
 
 execute as @e[type=#tm_rpg:delete_type,tag=delete_entity] at @s if score @s kill_time matches ..-1 run kill

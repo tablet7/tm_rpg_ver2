@@ -4,6 +4,9 @@
 # ステータス計算、アクションバー表示、HPバー更新、死亡検知、移動判定、弓・攻撃タイマーの管理を行う
 # @s ＝ プレイヤー
 
+# hp=0
+execute if entity @s[scores={hp = ..0}] run function tm_rpg:player/death/death_main
+
 # first_login
 execute if entity @s[tag=!joined] run function tm_rpg:player/first_reload
 

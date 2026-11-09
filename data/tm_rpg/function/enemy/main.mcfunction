@@ -4,6 +4,9 @@
 # 殴られた判定、HP割合とHPバーの更新、ステータスの再計算を行う
 # @s ＝ 敵（tag=enemy）
 
+# hp=0
+execute if entity @s[scores={hp = ..0}] run function tm_rpg:enemy/death_main
+
 # 殴られたとき 耐性MAXじゃないといけない
 execute as @s[nbt={HurtTime:10s}] unless block ~ ~ ~ fire unless block ~ ~ ~ lava at @s run function tm_rpg:system/naguri/on_hurt_by
 
