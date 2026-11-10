@@ -30,6 +30,9 @@
           "components": {"minecraft:attribute_modifiers": []}
         },
         {
+          "type": "minecraft:set_components","components": {"minecraft:unbreakable": {}}
+        },
+        {
           "type": "minecraft:set_custom_model_data",
           "floats": {"values": [1],"mode": "append"}
         }
