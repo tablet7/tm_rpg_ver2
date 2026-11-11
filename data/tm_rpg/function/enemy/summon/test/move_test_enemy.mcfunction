@@ -1,9 +1,9 @@
 #> tm_rpg:enemy/summon/test/move_test_enemy
 
-# テスト用の動く敵（スケルトン）を指定座標に召喚する関数
-# 使い方: function tm_rpg:enemy/summon/test/move_test_enemy {x:"~",y:"~",z:"~"}
+# テスト用の動く敵（スケルトン）を実行位置に召喚する関数（マクロなし）
+# 使い方: execute positioned <x> <y> <z> run function tm_rpg:enemy/summon/test/move_test_enemy
 
-$summon skeleton $(x) $(y) $(z) {\
+summon skeleton ~ ~ ~ {\
     Silent:1b,\
     CustomNameVisible:1b,\
     DeathLootTable:"tm_rpg:entity/empty",\

@@ -44,7 +44,8 @@ execute as @e[type=#tm_rpg:delete_type,tag=delete_entity] at @s run scoreboard p
 execute as @e[type=#tm_rpg:delete_type,tag=delete_entity] at @s if score @s kill_time matches ..-1 run kill
 
 ## 岩盤
-kill @e[type=item,nbt={Item:{id:"minecraft:bedrock"}}]
+# アイテムの種類は if items（contents スロット）で判定する。nbt= より軽い
+execute as @e[type=item] if items entity @s contents minecraft:bedrock run kill @s
 clear @a bedrock
 
 ## テキストディスプレイ

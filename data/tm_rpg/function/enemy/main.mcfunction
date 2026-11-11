@@ -23,3 +23,6 @@ execute as @e[type=text_display,tag=mount_text] if score @s ent_id = System temp
 
 # HP,MP,Armorなどの変動
 function tm_rpg:system/stutas/hendou_main
+
+# モブごとの毎tick処理（見た目の差し替えなど）。この関数は敵1体ごとに呼ばれているので、検索は増えない
+execute if entity @s[tag=mecha_mosquito] run function tm_rpg:enemy/mob/mecha_mosquito/tick
