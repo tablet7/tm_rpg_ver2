@@ -67,3 +67,5 @@ execute if score @s shot_bow matches 1.. run function tm_rpg:system/naguri/yumiy
 # 連続殴りを防ぐ
 scoreboard players add @s attack_timer 1
 
+# ダッシュが発動しなかったとき（持ち替えたなど）の後片付け。ダッシュ自体はスキル（player/skill/move/...）から player/dash/impulse を呼ぶ
+execute if score @s dash_on matches 1.. run function tm_rpg:player/dash/impulse_tick

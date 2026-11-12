@@ -65,6 +65,30 @@ scoreboard objectives add hp_ratio_old dummy
 scoreboard objectives add player_deaths deathCount
 scoreboard objectives add used_carrot_on_a_stick minecraft.used:minecraft.carrot_on_a_stick
 
+# ダッシュ（player/dash/impulse の入力と、エンチャント tm_rpg:dash_impulse が見るビットごとのスコア）
+scoreboard objectives add dash_x dummy
+scoreboard objectives add dash_y dummy
+scoreboard objectives add dash_z dummy
+scoreboard objectives add dash_on dummy
+scoreboard objectives add dash_l1 dummy
+scoreboard objectives add dash_l2 dummy
+scoreboard objectives add dash_l4 dummy
+scoreboard objectives add dash_l8 dummy
+scoreboard objectives add dash_l16 dummy
+scoreboard objectives add dash_l32 dummy
+scoreboard objectives add dash_u1 dummy
+scoreboard objectives add dash_u2 dummy
+scoreboard objectives add dash_u4 dummy
+scoreboard objectives add dash_u8 dummy
+scoreboard objectives add dash_u16 dummy
+scoreboard objectives add dash_u32 dummy
+scoreboard objectives add dash_f1 dummy
+scoreboard objectives add dash_f2 dummy
+scoreboard objectives add dash_f4 dummy
+scoreboard objectives add dash_f8 dummy
+scoreboard objectives add dash_f16 dummy
+scoreboard objectives add dash_f32 dummy
+
 scoreboard objectives add x_pos dummy
 scoreboard objectives add y_pos dummy
 scoreboard objectives add z_pos dummy
