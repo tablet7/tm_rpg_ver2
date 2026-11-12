@@ -10,6 +10,9 @@ execute unless data storage tm_rpg:skill item.skill run return 0
 # 出血
 execute if score @s bleeding_time matches 1.. run function tm_rpg:system/abnormal/bleeding_damage
 
+# 撃った人（弾の main_projectile/init が summon_ent_id に写す）
+scoreboard players operation #skill_owner temp = @s ent_id
+
 # スキル本体（成功で 1、不発で 0 が入る。関数 ID が間違っていると何も入らず 0 のまま → 失敗音）
 execute store result score @s skill_on run function tm_rpg:player/skill/run with storage tm_rpg:skill item
 

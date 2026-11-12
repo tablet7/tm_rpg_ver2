@@ -1,7 +1,8 @@
 #> tm_rpg:system/damage_ex/damage_dealt_tama
 
-# 弾（飛び道具）用のダメージ計算関数（マクロなし）。同じ弾（id）に一度当たったエンティティには重ねてダメージを与えない（現在は呼び出し元なし）
-# 使い方: storage tm_rpg:damage に p_damage, m_damage, c_damage, func, id を入れてから function tm_rpg:system/damage_ex/damage_dealt_tama
+# 弾（飛び道具）用のダメージ計算関数（マクロなし）。player/skill/main_projectile/hit_target から呼ばれる
+# 同じ弾に2回当たらないようにする判定は、呼ぶ側（main_projectile/hit）で tama_hit_id のスコアを見て行う
+# 使い方: storage tm_rpg:damage に p_damage, m_damage, c_damage, func を入れてから function tm_rpg:system/damage_ex/damage_dealt_tama
 # @s ＝ ダメージを受けるエンティティ
 
 # ダメージの計算・表記
@@ -13,9 +14,6 @@ execute store result score @s damage_dealt_pmc_c run data get storage tm_rpg:dam
 
 # func が non_func（何もしない）以外のときだけ、マクロで func を実行する
 execute unless data storage tm_rpg:damage {func:"tm_rpg:system/naguri/non_func"} run function tm_rpg:system/damage_ex/run_func with storage tm_rpg:damage
-
-# 同じ弾にすでに当たっていたらダメージを0にし、当たった印（tag hit_<id>）を付ける
-function tm_rpg:system/damage_ex/tama_hit with storage tm_rpg:damage
 
 # 破裂
 execute if score @s[tag=!vibration_damage_flag,tag=!bleeding_damage_flag,tag=!burn_damage_flag,tag=!0damage_ent] rupture_time matches 1.. run function tm_rpg:system/abnormal/rupture_damage
@@ -76,7 +74,8 @@ execute if score @s damage_dealt_pmc_c matches 1.. run function tm_rpg:system/da
 execute if score @s damage_dealt_pmc_c matches 1.. run scoreboard players operation @s hp -= @s damage_dealt_pmc_c
 
 # ノックバック
-damage @s 1 minecraft:player_attack by @e[sort=nearest,limit=1,tag=damage_marker]
+# 近くの弾だけを探す（全体を並べ替えないように distance と type を付ける）
+damage @s 1 minecraft:player_attack by @n[type=#tm_rpg:delete_type,tag=damage_marker,distance=..3]
 
 #tellraw @a {"score": {"name": "@s", "objective": "damage_dealt_pmc"}}
 

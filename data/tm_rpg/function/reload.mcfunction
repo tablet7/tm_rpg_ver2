@@ -8,11 +8,13 @@ kill @e[type=#tm_rpg:mob_type,tag=enemy]
 kill @e[type=text_display,tag=mount_text]
 kill @e[type=item_display,tag=mob_model]
 kill @e[type=item]
+kill @e[type=#tm_rpg:delete_type,tag=delete_entity]
 
 # scoreboard
 
 # sysetm
 scoreboard objectives add ent_id dummy
+scoreboard objectives add summon_ent_id dummy
 scoreboard objectives add kill_time dummy
 scoreboard objectives add dash_kill_time dummy
 
@@ -124,6 +126,8 @@ scoreboard objectives add damage_give_m dummy
 scoreboard objectives add damage_give_c dummy
 scoreboard objectives add debuff_give_time dummy
 scoreboard objectives add debuff_give_power dummy
+scoreboard objectives add tama_hit_id dummy
+scoreboard objectives add hit_size dummy
 
 ### Stutas
 #### 基礎値

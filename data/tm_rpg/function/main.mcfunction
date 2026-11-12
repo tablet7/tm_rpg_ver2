@@ -5,6 +5,10 @@
 
 # main
 execute as @a at @s run function tm_rpg:player/main
+
+# 弾（スキルの飛び道具）。当たり判定・移動・見た目・消える時間をまとめて動かす（探すのは1回だけ）
+execute as @e[type=#tm_rpg:delete_type,tag=projectile] at @s run function tm_rpg:player/skill/main_projectile/tick
+
 # ボス（這い出る者）。部位の配置と行動。敵の処理（enemy/main）より前に動かす
 execute as @e[type=minecraft:marker,tag=crawler.master] at @s run function tm_rpg:enemy/boss/crawler/tick
 execute as @e[type=#tm_rpg:mob_type,tag=enemy] at @s run function tm_rpg:enemy/main
