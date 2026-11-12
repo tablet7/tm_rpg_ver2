@@ -7,6 +7,8 @@
 data modify storage tm_rpg:damage p_damage set value 0
 data modify storage tm_rpg:damage m_damage set value 0
 data modify storage tm_rpg:damage c_damage set value 0
+# 当たったときに実行する関数（変えたいスキルは、この関数を呼んだあとで上書きする）
+data modify storage tm_rpg:damage func set value "tm_rpg:system/naguri/non_func"
 
 # 参照ステータス（sanshou_type 1＝攻撃力、2＝魔法攻撃力）
 scoreboard players set @s temp 0

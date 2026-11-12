@@ -8,8 +8,6 @@
 # 自分は当たらないように
 tag @s add nodamage
 
-data modify storage tm_rpg:damage func set value "tm_rpg:system/naguri/non_func"
-
 # 当たる敵の数
 execute positioned ^ ^ ^3 positioned ~ ~1.8 ~ store result score #skill_hit temp if entity @e[type=#tm_rpg:mob_type,distance=..3,tag=mob,tag=hitdamage,tag=!nodamage]
 
