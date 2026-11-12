@@ -19,9 +19,9 @@ data modify storage tm_rpg:damage p_damage set value 0
 data modify storage tm_rpg:damage m_damage set value 0
 data modify storage tm_rpg:damage c_damage set value 0
 
-# 殴った側の武器の custom_data を storage に入れる
+# 殴った側の武器の custom_data を storage に入れる（プレイヤーの人参棒はスキルのアイテムなので読まない。素手と同じ扱い）
 data remove storage tm_rpg:weapon data
-execute on attacker if entity @s[type=player] run data modify storage tm_rpg:weapon data set from entity @s SelectedItem.components."minecraft:custom_data"
+execute on attacker if entity @s[type=player] unless items entity @s weapon.mainhand minecraft:carrot_on_a_stick run data modify storage tm_rpg:weapon data set from entity @s SelectedItem.components."minecraft:custom_data"
 execute on attacker if entity @s[type=!player] run data modify storage tm_rpg:weapon data set from entity @s equipment.mainhand.components."minecraft:custom_data"
 
 execute on attacker run scoreboard players set @s temp4 0
