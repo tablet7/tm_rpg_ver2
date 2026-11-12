@@ -10,7 +10,7 @@ summon skeleton ~ ~ ~ {\
     Team:"Enemy",\
     NoAI:0b,\
     Health:1000f,\
-    Tags:["test","enemy","new_mob","mob"],\
+    Tags:["test","enemy","new_mob","mob","hitdamage"],\
     CustomName:"Enemy team",\
     equipment:{head:{id:"minecraft:tnt",count:1}},\
     drop_chances:{head:0f,chest:0f,legs:0f,feet:0f,mainhand:0f,offhand:0f,body:0f,saddle:0f},\
