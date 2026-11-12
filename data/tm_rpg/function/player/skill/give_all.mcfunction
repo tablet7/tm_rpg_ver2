@@ -9,3 +9,4 @@ loot give @s loot tm_rpg:item/skill/move/front_dash
 loot give @s loot tm_rpg:item/skill/move/left_step
 loot give @s loot tm_rpg:item/skill/move/back_jump
 loot give @s loot tm_rpg:item/skill/move/up_jump
+loot give @s loot tm_rpg:item/skill/test_pro
