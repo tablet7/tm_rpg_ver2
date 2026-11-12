@@ -64,6 +64,18 @@ scoreboard objectives add hp_ratio dummy
 scoreboard objectives add hp_ratio_old dummy
 scoreboard objectives add player_deaths deathCount
 scoreboard objectives add used_carrot_on_a_stick minecraft.used:minecraft.carrot_on_a_stick
+scoreboard objectives add knockback_power dummy
+
+### skill_select
+scoreboard objectives add skill_on dummy
+scoreboard objectives add skillselect_skillcool dummy
+scoreboard objectives add skillselect_cooltime dummy
+scoreboard objectives add skillselect_mp dummy
+scoreboard objectives add skillselect_lv dummy
+scoreboard objectives add skillselect_kihon dummy
+scoreboard objectives add skillselect_per dummy
+scoreboard objectives add skillselect_damage_type dummy
+scoreboard objectives add skillselect_sanshou_type dummy
 
 # ダッシュ（player/dash/impulse の入力と、エンチャント tm_rpg:dash_impulse が見るビットごとのスコア）
 scoreboard objectives add dash_x dummy
