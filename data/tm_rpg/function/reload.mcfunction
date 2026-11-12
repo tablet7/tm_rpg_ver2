@@ -6,6 +6,7 @@
 # system
 kill @e[type=#tm_rpg:mob_type,tag=enemy]
 kill @e[type=text_display,tag=mount_text]
+kill @e[type=item_display,tag=mob_model]
 kill @e[type=item]
 
 # scoreboard

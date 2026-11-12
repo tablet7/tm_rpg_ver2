@@ -6,4 +6,6 @@
 
 # アイテムドロップとか
 
+# 見た目を item_display で乗せている敵（sealed_statue など）は、その見た目も消す
+execute on passengers run kill @s[type=minecraft:item_display]
 kill @s
