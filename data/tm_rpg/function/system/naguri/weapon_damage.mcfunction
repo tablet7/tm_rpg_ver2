@@ -25,3 +25,4 @@ scoreboard players operation @s temp += @s temp3
 # ダメージタイプ（damage_type 1＝物理、2＝魔法）
 execute if data storage tm_rpg:weapon data{damage_type:1} store result storage tm_rpg:damage p_damage int 1 run scoreboard players get @s temp
 execute if data storage tm_rpg:weapon data{damage_type:2} store result storage tm_rpg:damage m_damage int 1 run scoreboard players get @s temp
+execute if data storage tm_rpg:weapon data{damage_type:3} run scoreboard players operation @s temp4 = @s temp
