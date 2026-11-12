@@ -56,6 +56,4 @@ execute as @e[type=text_display,tag=mount_text] at @s unless entity @e[type=!#tm
 ## 燃やすためのヴィンディケーター
 execute as @e[type=vindicator,tag=fire_ent_delete] run function tm_rpg:system/abnormal/delete_dire
 
-## 矢
-# 地面に刺さっているかはセレクター引数・predicate で判定できないため nbt を使う
-execute as @e[type=arrow,nbt={inGround:1b}] at @s run kill
+## 矢（地面に刺さった矢を消す処理は time/time_tick_sec/tick11 で1秒に1回）
