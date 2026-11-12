@@ -1,0 +1,54 @@
+{
+  "type": "minecraft:command",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:carrot_on_a_stick",
+          "modifier": [
+            {
+              "type": "minecraft:set_name",
+              "name": {
+                "text": "真上",
+                "color": "white",
+                "italic": false
+              }
+            },
+            {
+              "type": "minecraft:set_lore",
+              "lore": [
+                [{"text": "Lv: ","color": "gold","italic": false},{"text": "1","color": "white","italic": false},{"text": "  (0)","color": "white","italic": false}],
+                [{"text": "スキル枠: ","color": "white","italic": false},{"text": "スキル5","color": "white","italic": false}],
+                [{"text": "消費MP: ","color": "blue","italic": false},{"text": "10","color": "white","italic": false}],
+                [{"text": "クールタイム: ","color": "green","italic": false},{"text": "10","color": "white","italic": false},{"text": "秒","color": "green","italic": false}],
+                {"text": "右クリック:スキル発動","color": "yellow","italic": false},
+                {"text": "真上へ高く跳ぶ","color": "white","italic": false}
+              ],
+              "mode": "append"
+            },
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:enchantments": {
+                  "tm_rpg:dash_impulse": 1
+                },
+                "minecraft:tooltip_display": {
+                  "hidden_components": [
+                    "minecraft:enchantments"
+                  ]
+                },
+                "minecraft:enchantment_glint_override": false
+              }
+            },
+            {
+              "type": "minecraft:set_custom_data",
+              "tag": "{skill:\"tm_rpg:player/skill/move/up_jump/skill1\",lv:1,skillcool:5,mp:10,cooltime:10,kihon:0,per:0,damage_type:1,sanshou_type:1,delete_item_reset:1,kaizou:0}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
