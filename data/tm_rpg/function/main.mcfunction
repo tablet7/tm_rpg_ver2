@@ -5,9 +5,16 @@
 
 # main
 execute as @a at @s run function tm_rpg:player/main
+
+# 弾（スキルの飛び道具）。当たり判定・移動・見た目・消える時間をまとめて動かす（探すのは1回だけ）
+execute as @e[type=#tm_rpg:delete_type,tag=projectile] at @s run function tm_rpg:player/skill/main_projectile/tick
+
+# ボス（這い出る者）。部位の配置と行動。敵の処理（enemy/main）より前に動かす
+execute as @e[type=minecraft:marker,tag=crawler.master] at @s run function tm_rpg:enemy/boss/crawler/tick
 execute as @e[type=#tm_rpg:mob_type,tag=enemy] at @s run function tm_rpg:enemy/main
 
-execute as @e[type=marker,tag=kaizoudai] at @s run function tm_rpg:system/item_mod/kaizoudai_main
+# ダメージ表記の操作
+execute as @e[type=text_display,tag=damage_display] at @s run tp ~ ~0.01 ~
 
 # 時間管理
 scoreboard players add System tick 1
@@ -38,13 +45,13 @@ scoreboard players add System 2tick 1
 execute if score System 2tick matches 40.. run function tm_rpg:system/_2second
 
 # system kill
-execute as @e[type=#tm_rpg:mob_type,scores={hp = ..0}] run kill @s
 execute as @e[type=#tm_rpg:delete_type,tag=delete_entity] at @s run scoreboard players remove @s kill_time 1
 
 execute as @e[type=#tm_rpg:delete_type,tag=delete_entity] at @s if score @s kill_time matches ..-1 run kill
 
 ## 岩盤
-kill @e[type=item,nbt={Item:{id:"minecraft:bedrock"}}]
+# アイテムの種類は if items（contents スロット）で判定する。nbt= より軽い
+execute as @e[type=item] if items entity @s contents minecraft:bedrock run kill @s
 clear @a bedrock
 
 ## テキストディスプレイ
@@ -52,7 +59,3 @@ execute as @e[type=text_display,tag=mount_text] at @s unless entity @e[type=!#tm
 
 ## 燃やすためのヴィンディケーター
 execute as @e[type=vindicator,tag=fire_ent_delete] run function tm_rpg:system/abnormal/delete_dire
-
-## 矢
-# 地面に刺さっているかはセレクター引数・predicate で判定できないため nbt を使う
-execute as @e[type=arrow,nbt={inGround:1b}] at @s run kill

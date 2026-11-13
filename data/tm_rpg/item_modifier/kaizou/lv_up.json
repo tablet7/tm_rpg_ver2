@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:sequence",
+  "functions": [
+    {
+      "type": "minecraft:copy_custom_data",
+      "source": {"type": "minecraft:storage","source": "tm_rpg:kaizou"},
+      "ops": [
+        {"source": "item.lv","target": "lv","op": "replace"},
+        {"source": "item.kaizou","target": "kaizou","op": "replace"}
+      ]
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        [{"text": "Lv: ","color": "gold","italic": false},{"score": {"name": "#kaizou_lv","objective": "item_roll"},"color": "white","italic": false},{"text": "  (","color": "white","italic": false},{"score": {"name": "#kaizou_count","objective": "item_roll"},"color": "white","italic": false},{"text": ")","color": "white","italic": false}]
+      ],
+      "mode": "replace_section",
+      "offset": 0,
+      "size": 1
+    }
+  ]
+}

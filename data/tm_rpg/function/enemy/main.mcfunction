@@ -4,6 +4,9 @@
 # 殴られた判定、HP割合とHPバーの更新、ステータスの再計算を行う
 # @s ＝ 敵（tag=enemy）
 
+# hp=0
+execute if entity @s[scores={hp = ..0}] run function tm_rpg:enemy/death_main
+
 # 殴られたとき 耐性MAXじゃないといけない
 execute as @s[nbt={HurtTime:10s}] unless block ~ ~ ~ fire unless block ~ ~ ~ lava at @s run function tm_rpg:system/naguri/on_hurt_by
 
@@ -20,3 +23,7 @@ execute as @e[type=text_display,tag=mount_text] if score @s ent_id = System temp
 
 # HP,MP,Armorなどの変動
 function tm_rpg:system/stutas/hendou_main
+
+# モブごとの毎tick処理（見た目の差し替えなど）。この関数は敵1体ごとに呼ばれているので、検索は増えない
+execute if entity @s[tag=mecha_mosquito] run function tm_rpg:enemy/mob/mecha_mosquito/tick
+execute if entity @s[tag=sealed_statue] run function tm_rpg:enemy/mob/sealed_statue/tick

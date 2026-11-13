@@ -32,11 +32,11 @@ data merge storage tm_rpg:ab_text {type:"振動爆発!!!"}
 execute store result storage tm_rpg:ab_text damage int 1 run scoreboard players get @s vibration_potency
 execute store result storage tm_rpg:ab_text time int 1 run scoreboard players get @s vibration_time
 
-function tm_rpg:system/abnormal/ab_text with storage tm_rpg:ab_text
+execute summon text_display run function tm_rpg:system/abnormal/ab_text
 
 scoreboard players remove @s vibration_time 10
 
-function tm_rpg:system/damage_ex/damage_dealt with storage tm_rpg:damage
+function tm_rpg:system/damage_ex/damage_dealt
 
 particle minecraft:block{block_state:gold_block} ~ ~1 ~ 0.2 0.3 0.2 0.2 10 normal
 

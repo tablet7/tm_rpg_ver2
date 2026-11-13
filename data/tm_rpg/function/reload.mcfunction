@@ -6,12 +6,15 @@
 # system
 kill @e[type=#tm_rpg:mob_type,tag=enemy]
 kill @e[type=text_display,tag=mount_text]
+kill @e[type=item_display,tag=mob_model]
 kill @e[type=item]
+kill @e[type=#tm_rpg:delete_type,tag=delete_entity]
 
 # scoreboard
 
 # sysetm
 scoreboard objectives add ent_id dummy
+scoreboard objectives add summon_ent_id dummy
 scoreboard objectives add kill_time dummy
 scoreboard objectives add dash_kill_time dummy
 
@@ -63,6 +66,42 @@ scoreboard objectives add hp_ratio dummy
 scoreboard objectives add hp_ratio_old dummy
 scoreboard objectives add player_deaths deathCount
 scoreboard objectives add used_carrot_on_a_stick minecraft.used:minecraft.carrot_on_a_stick
+scoreboard objectives add knockback_power dummy
+
+### skill_select
+scoreboard objectives add skill_on dummy
+scoreboard objectives add skillselect_skillcool dummy
+scoreboard objectives add skillselect_cooltime dummy
+scoreboard objectives add skillselect_mp dummy
+scoreboard objectives add skillselect_lv dummy
+scoreboard objectives add skillselect_kihon dummy
+scoreboard objectives add skillselect_per dummy
+scoreboard objectives add skillselect_damage_type dummy
+scoreboard objectives add skillselect_sanshou_type dummy
+
+# ダッシュ（player/dash/impulse の入力と、エンチャント tm_rpg:dash_impulse が見るビットごとのスコア）
+scoreboard objectives add dash_x dummy
+scoreboard objectives add dash_y dummy
+scoreboard objectives add dash_z dummy
+scoreboard objectives add dash_on dummy
+scoreboard objectives add dash_l1 dummy
+scoreboard objectives add dash_l2 dummy
+scoreboard objectives add dash_l4 dummy
+scoreboard objectives add dash_l8 dummy
+scoreboard objectives add dash_l16 dummy
+scoreboard objectives add dash_l32 dummy
+scoreboard objectives add dash_u1 dummy
+scoreboard objectives add dash_u2 dummy
+scoreboard objectives add dash_u4 dummy
+scoreboard objectives add dash_u8 dummy
+scoreboard objectives add dash_u16 dummy
+scoreboard objectives add dash_u32 dummy
+scoreboard objectives add dash_f1 dummy
+scoreboard objectives add dash_f2 dummy
+scoreboard objectives add dash_f4 dummy
+scoreboard objectives add dash_f8 dummy
+scoreboard objectives add dash_f16 dummy
+scoreboard objectives add dash_f32 dummy
 
 scoreboard objectives add x_pos dummy
 scoreboard objectives add y_pos dummy
@@ -87,6 +126,8 @@ scoreboard objectives add damage_give_m dummy
 scoreboard objectives add damage_give_c dummy
 scoreboard objectives add debuff_give_time dummy
 scoreboard objectives add debuff_give_power dummy
+scoreboard objectives add tama_hit_id dummy
+scoreboard objectives add hit_size dummy
 
 ### Stutas
 #### 基礎値

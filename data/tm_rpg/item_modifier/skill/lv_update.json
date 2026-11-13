@@ -1,7 +1,0 @@
-{
-  "type": "set_lore",
-  "lore": [[{"text": "Lv: ","color": "gold","italic": false},{"score": {"name": "System", "objective": "temp"}, "color": "white", "italic": false},{"text": "  (","color": "white","italic": false},{"score": {"name": "System", "objective": "temp2"}, "color": "white", "italic": false},{"text": ")","color": "white","italic": false}]],
-  "mode": "replace_section",
-  "offset": 0,
-  "size": 1
-}

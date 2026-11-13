@@ -18,4 +18,4 @@ execute store result score @s random_rand run random value -15..15
 execute store result storage tm_rpg:damage_text_dis z_rand float 0.1 run scoreboard players get @s random_rand
 
 
-function tm_rpg:system/damage_ex/evasion_text_display with storage tm_rpg:damage_text_dis
+execute summon text_display run function tm_rpg:system/damage_ex/evasion_text_display

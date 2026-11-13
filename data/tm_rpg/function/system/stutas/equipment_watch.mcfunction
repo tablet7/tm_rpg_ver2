@@ -8,8 +8,9 @@
 execute unless items entity @s weapon.mainhand *[custom_data] unless items entity @s weapon.offhand *[custom_data] unless items entity @s armor.* *[custom_data] run return 0
 
 # プレイヤーのメインハンド（プレイヤーは SelectedItem から読む）
-execute if entity @s[type=player] if items entity @s weapon.mainhand *[custom_data] run data modify storage tm_rpg:stutas item set from entity @s SelectedItem.components."minecraft:custom_data"
-execute if entity @s[type=player] if items entity @s weapon.mainhand *[custom_data] run function tm_rpg:system/stutas/stutas_watch
+# 人参棒はスキルのアイテムなので読まない（スキルの mp・cooltime などがステータスとして足されないように）
+execute if entity @s[type=player] if items entity @s weapon.mainhand *[custom_data] unless items entity @s weapon.mainhand minecraft:carrot_on_a_stick run data modify storage tm_rpg:stutas item set from entity @s SelectedItem.components."minecraft:custom_data"
+execute if entity @s[type=player] if items entity @s weapon.mainhand *[custom_data] unless items entity @s weapon.mainhand minecraft:carrot_on_a_stick run function tm_rpg:system/stutas/stutas_watch
 
 # プレイヤーでオフハンド・防具に custom_data がなければ、ここで終わる
 execute if entity @s[type=player] unless items entity @s weapon.offhand *[custom_data] unless items entity @s armor.* *[custom_data] run return 0
@@ -22,9 +23,9 @@ data remove storage tm_rpg:stutas item
 data modify storage tm_rpg:stutas item set from storage tm_rpg:stutas eq.mainhand.components."minecraft:custom_data"
 execute if data storage tm_rpg:stutas item run function tm_rpg:system/stutas/stutas_watch
 
-## offhand
+## offhand（人参棒はスキルのアイテムなので読まない）
 data remove storage tm_rpg:stutas item
-data modify storage tm_rpg:stutas item set from storage tm_rpg:stutas eq.offhand.components."minecraft:custom_data"
+execute unless items entity @s weapon.offhand minecraft:carrot_on_a_stick run data modify storage tm_rpg:stutas item set from storage tm_rpg:stutas eq.offhand.components."minecraft:custom_data"
 execute if data storage tm_rpg:stutas item run function tm_rpg:system/stutas/stutas_watch
 
 ## head

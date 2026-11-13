@@ -20,7 +20,7 @@ data merge storage tm_rpg:ab_text {type:"出血"}
 execute store result storage tm_rpg:ab_text damage int 1 run scoreboard players get @s bleeding_potency
 execute store result storage tm_rpg:ab_text time int 1 run scoreboard players get @s bleeding_time
 
-function tm_rpg:system/abnormal/ab_text with storage tm_rpg:ab_text
+execute summon text_display run function tm_rpg:system/abnormal/ab_text
 
 # ダメージ
 data modify storage tm_rpg:damage p_damage set value 0
@@ -31,7 +31,7 @@ data modify storage tm_rpg:damage c_damage set value 0
 data modify storage tm_rpg:damage func set value "tm_rpg:system/naguri/non_func"
 
 execute store result storage tm_rpg:damage p_damage int 1 run scoreboard players get @s bleeding_potency
-function tm_rpg:system/damage_ex/damage_dealt with storage tm_rpg:damage
+function tm_rpg:system/damage_ex/damage_dealt
 scoreboard players remove @s bleeding_time 1
 
 particle minecraft:block{block_state:redstone_block} ~ ~1 ~ 0.2 0.3 0.2 0.2 10 normal
