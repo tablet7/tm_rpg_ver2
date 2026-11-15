@@ -314,6 +314,7 @@ scoreboard players set お金 resource 0
 ### tag破壊用
 tag @a remove temp_victim
 scoreboard objectives add temp_victim_remove dummy
+scoreboard objectives add skill_kb_time dummy
 
 # team
 team add Player
