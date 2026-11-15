@@ -34,12 +34,24 @@
             "fallback": 3.1
           },
           "small_particle": {
-            "type": "minecraft:gust_emitter_small"
+            "type": "minecraft:dust",
+            "color": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "scale": 0.01
           },
           "large_particle": {
-            "type": "minecraft:gust_emitter_large"
+            "type": "minecraft:dust",
+            "color": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "scale": 0.01
           },
-          "sound": "minecraft:entity.wind_charge.wind_burst"
+          "sound": "minecraft:intentionally_empty"
         }
       },
       {
