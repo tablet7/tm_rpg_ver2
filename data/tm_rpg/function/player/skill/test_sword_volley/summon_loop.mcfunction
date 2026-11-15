@@ -1,7 +1,7 @@
 #> tm_rpg:player/skill/test_sword_volley/summon_loop
 
-# スキル「test剣の一斉射撃」で、待つ剣を #volley_count temp 本出すくり返し。skill1 から呼ばれる
-# @s ＝ スキルを使ったプレイヤー（実行位置 ＝ プレイヤーの足元、向き ＝ プレイヤーの横の向き）
+# スキル「test剣の一斉射撃」で、待つ剣を #volley_count temp 本出すくり返し。fire から呼ばれる
+# @s ＝ fire を呼んだもの（実行位置 ＝ 足元、向き ＝ 横の向き）
 
 execute summon minecraft:item_display run function tm_rpg:player/skill/test_sword_volley/skill5
 scoreboard players remove #volley_count temp 1

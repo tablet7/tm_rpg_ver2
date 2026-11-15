@@ -1,11 +1,11 @@
 #> tm_rpg:player/skill/test_sword_volley/skill2
 
-# スキル「test剣の一斉射撃」の管理役（見えない marker）の設定。skill1 から execute summon ... run function で呼ばれる
-# 何 tick ごと・進む距離・1本目までの待ち時間を、ここで変える（撃つ回数は skill1 の #volley_count temp）
+# スキル「test剣の一斉射撃」の管理役（見えない marker）の設定。fire から execute summon ... run function で呼ばれる
+# 何 tick ごと・進む距離・1本目までの待ち時間を、ここで変える（撃つ回数は fire の #volley_count temp）
 # 管理役のいる場所に向けて剣を撃つので、刺さる場所は spawn_step の間隔で並ぶ
 # @s ＝ 出したばかりの管理役（marker）
 
-# 向きをプレイヤーの横の向きに合わせる（skill1 の rotated ~ 0。この向きに進む）
+# 向きを横の向きに合わせる（fire の rotated ~ 0。この向きに進む）
 rotate @s ~ ~
 
 # 剣を撃つ関数を spawner/spawn が呼ぶためのタグ（skill3）
@@ -28,5 +28,5 @@ scoreboard players operation @s spawner_id = #spawner_id temp
 scoreboard players set @s spawn_timer 10
 scoreboard players add @s kill_time 9
 
-# 待つ剣の消える時間に使う（skill1）
+# 待つ剣の消える時間に使う（fire）
 scoreboard players operation #volley_wait temp = @s kill_time

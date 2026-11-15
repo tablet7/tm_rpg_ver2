@@ -138,6 +138,10 @@ scoreboard objectives add spawn_timer dummy
 scoreboard objectives add spawn_kill_time dummy
 scoreboard objectives add spawner_id dummy
 scoreboard objectives add bob_timer dummy
+scoreboard objectives add beam_length dummy
+scoreboard objectives add spin_step dummy
+scoreboard objectives add turret_interval dummy
+scoreboard objectives add turret_timer dummy
 
 ### Stutas
 #### 基礎値

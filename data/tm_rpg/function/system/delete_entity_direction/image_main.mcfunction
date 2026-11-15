@@ -18,3 +18,9 @@ execute if entity @s[tag=ender_chest_particle] run particle dragon_breath ~ ~ ~ 
 
 # 上下に揺れる（待っている剣など）
 execute if entity @s[tag=float_bob] run function tm_rpg:system/delete_entity_direction/float_bob
+
+# 太いレーザーの線に沿った end_rod（tag beam_end_rod）
+execute if entity @s[tag=beam_end_rod] run function tm_rpg:player/skill/main_projectile/beam/end_rod
+
+# 前後の軸のまわりに高速で回る（tag spin_roll。レーザーのガラスなど）
+execute if entity @s[tag=spin_roll] run function tm_rpg:system/delete_entity_direction/spin_roll

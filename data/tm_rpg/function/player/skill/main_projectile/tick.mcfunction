@@ -7,6 +7,8 @@
 
 # 時間差で設置物などを出す管理役（tag spawner）は、出す処理だけをする（main_projectile/spawner/tick）
 execute if entity @s[tag=spawner] run return run function tm_rpg:player/skill/main_projectile/spawner/tick
+# 一定の間隔でスキルを撃つタレット（tag turret）は、撃つ処理だけをする（main_projectile/turret/tick）
+execute if entity @s[tag=turret] run return run function tm_rpg:player/skill/main_projectile/turret/tick
 
 # 当たり判定と種類ごとの処理（1 が返ったら、貫通しない弾が当たったので消える。tag explode_hit の爆発は hit の中で起きる）
 execute if entity @s[tag=damage_marker] unless score @s hit_interval matches 1.. if function tm_rpg:system/delete_entity_direction/damage_main run return run kill @s

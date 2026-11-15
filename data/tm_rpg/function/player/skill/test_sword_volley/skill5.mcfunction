@@ -1,6 +1,6 @@
 #> tm_rpg:player/skill/test_sword_volley/skill5
 
-# スキル「test剣の一斉射撃」の待つ剣の設定。summon_loop から execute summon ... run function で呼ばれる
+# スキル「test剣の一斉射撃」の待つ剣の設定。summon_loop から execute summon ... run function で呼ばれる（fire 経由）
 # プレイヤーの頭上の箱（プレイヤーの向きに回る。左右5 × 足元から 3〜5 マス上 × 前後1）のランダムな位置に、前向きで出す
 # 当たり判定を外して、上下に揺れて待つ（image_marker の float_bob）。skill4 で撃たれるまで動かない
 # @s ＝ 出したばかりの剣（item_display）。実行位置 ＝ プレイヤーの足元、向き ＝ プレイヤーの横の向き
