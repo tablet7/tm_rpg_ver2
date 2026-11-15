@@ -6,4 +6,7 @@
 tag @s remove straight6
 tag @s remove straight10
 
+# 止まった弾が敵の方を向き続けないように、追尾もやめる
+tag @s remove homing
+
 tag @s remove stop_move
