@@ -6,9 +6,11 @@
 # @s ＝ スキルを使う敵（at @s。向き ＝ 使う向き）
 
 scoreboard players set #warn_time temp 30
+scoreboard players set #warn_shape temp 0
 scoreboard players set #warn_width temp 30
 scoreboard players set #warn_length temp 200
 scoreboard players set #warn_center temp 0
+scoreboard players set #warn_offset temp 0
 function tm_rpg:enemy/skill/warn/start
 
 tag @e[type=minecraft:marker,tag=warn_new,limit=1] add warn_do_test_laser

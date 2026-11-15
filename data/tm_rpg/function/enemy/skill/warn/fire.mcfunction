@@ -7,3 +7,4 @@
 
 execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_test_laser,limit=1] run return run function tm_rpg:enemy/skill/test_laser
 execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_test_push,limit=1] run return run function tm_rpg:enemy/skill/test_push
+execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_test_sword_rain,limit=1] run return run function tm_rpg:enemy/skill/test_sword_rain

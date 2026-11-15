@@ -11,6 +11,8 @@ execute as @e[type=#tm_rpg:delete_type,tag=projectile] at @s run function tm_rpg
 
 # 敵の技の予兆（enemy/skill/warn）。時間が来たら敵に技を使わせる
 execute as @e[type=minecraft:marker,tag=warn_marker] at @s run function tm_rpg:enemy/skill/warn/tick
+# 予兆の輪（enemy/skill/warn/ring）の点から赤いパーティクルを出す
+execute as @e[type=minecraft:marker,tag=warn_ring] at @s run particle minecraft:dust{color:[1.0f,0.1f,0.1f],scale:1.5f} ~ ~ ~ 0 0 0 0 1
 
 # 敵の吹き飛ばし（enemy/skill/push_burst）で、エンチャントが動かずに残った防具立ての片付け（ふつうは動かない）
 execute if score #push_burst_wait temp matches 1.. run function tm_rpg:enemy/skill/push_burst/safety
