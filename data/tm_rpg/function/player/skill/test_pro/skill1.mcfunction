@@ -1,6 +1,6 @@
 #> tm_rpg:player/skill/test_pro/skill1
 
-# スキル「test飛び道具ダメージ（前方に飛び道具を飛ばす）」の入口。custom_data の skill から player/skill/run 経由で呼ばれる
+# スキル「test飛び道具ダメージ（前方と、近くの敵に向けて飛び道具を1つずつ飛ばす）」の入口。custom_data の skill から player/skill/run 経由で呼ばれる
 # 当たる敵がいなくても成功（1）を返す（空振りでも MP・クールタイムを使い、演出も出す）
 # 弾の見た目と種類は skill2、弾の毎 tick の処理は skill3 に書く
 # @s ＝ スキルを使ったプレイヤー（at @s）
@@ -12,7 +12,14 @@ function tm_rpg:player/skill/skill_damage
 # 消えるまでの tick（30 ＝ 1.5秒。0 だと次の tick で消える）
 data modify storage tm_rpg:damage kill_time set value 30
 
-# 弾を出す（出したばかりの弾が @s になって skill2 が動く。弾を探さなくてよい）
+# 1つ目の弾: 向いている方向に出す（出したばかりの弾が @s になって skill2 が動く。弾を探さなくてよい）
 execute positioned ~ ~1.5 ~ summon minecraft:item_display run function tm_rpg:player/skill/test_pro/skill2
+
+# 2つ目の弾: 16マス以内でいちばん近い敵（弾が当たる敵と同じ tag mob・hitdamage）の目の高さに向けて出す
+# facing で向きを変えて skill2 を呼ぶ（skill2 の rotate @s ~ ~ がこの向きを使う）。敵がいなければ出さない
+# 自分（PvP で hitdamage が付いているとき）を狙わないように、自分に一時的なタグ skill_self を付けて除く
+tag @s add skill_self
+execute positioned ~ ~1.5 ~ facing entity @e[type=#tm_rpg:mob_type,tag=mob,tag=hitdamage,tag=!skill_self,distance=..16,sort=nearest,limit=1] eyes summon minecraft:item_display run function tm_rpg:player/skill/test_pro/skill2
+tag @s remove skill_self
 
 return 1
