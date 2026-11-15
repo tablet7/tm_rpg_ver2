@@ -1,6 +1,6 @@
 #> tm_rpg:test/enemy_skill/start
 
-# 敵用スキル（enemy/skill/）をまとめて試す関数。目の前 3 マスに動かないテスト用の敵を出し、5 秒ごとに1つずつ（20 個）、自分に向けて使わせる
+# 敵用スキル（enemy/skill/）をまとめて試す関数。目の前 3 マスに動かないテスト用の敵を出し、5 秒ごとに1つずつ（21 個）、自分に向けて使わせる
 # 手動で実行する: function tm_rpg:test/enemy_skill/start
 #   途中のスキルから始める: function tm_rpg:test/enemy_skill/start のあとで scoreboard players set #step test_skill <番号>（番号は test/enemy_skill/use）
 #   途中で止める: function tm_rpg:test/enemy_skill/stop

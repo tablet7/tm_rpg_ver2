@@ -154,6 +154,12 @@ scoreboard objectives add circle_oy dummy
 scoreboard objectives add test_skill dummy
 # 敵の技の予兆（enemy/skill/warn）のタイマー
 scoreboard objectives add warn_timer dummy
+# 敵の技を選ぶ仕組み（enemy/ai）。次に技を使うまでの待ち時間と、技ごとのクールタイム
+scoreboard objectives add ai_cool dummy
+scoreboard objectives add ai_cd1 dummy
+scoreboard objectives add ai_cd2 dummy
+scoreboard objectives add ai_cd3 dummy
+scoreboard objectives add ai_cd4 dummy
 scoreboard objectives add spin_step dummy
 scoreboard objectives add turret_interval dummy
 scoreboard objectives add turret_timer dummy

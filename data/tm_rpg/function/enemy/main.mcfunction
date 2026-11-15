@@ -24,6 +24,9 @@ execute as @e[type=text_display,tag=mount_text] if score @s ent_id = System temp
 # HP,MP,Armorなどの変動
 function tm_rpg:system/stutas/hendou_main
 
+# 技を選んで使う（tag enemy_ai の敵だけ。enemy/ai/think）
+execute if entity @s[tag=enemy_ai] run function tm_rpg:enemy/ai/think
+
 # モブごとの毎tick処理（見た目の差し替えなど）。この関数は敵1体ごとに呼ばれているので、検索は増えない
 execute if entity @s[tag=mecha_mosquito] run function tm_rpg:enemy/mob/mecha_mosquito/tick
 execute if entity @s[tag=sealed_statue] run function tm_rpg:enemy/mob/sealed_statue/tick

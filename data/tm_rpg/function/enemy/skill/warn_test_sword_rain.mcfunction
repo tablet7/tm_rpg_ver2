@@ -3,7 +3,7 @@
 # 敵がスキル「test剣の雨」を、予兆を出してから使う関数。敵の行動の関数から呼ぶ
 # 剣が刺さる場所（前方 3〜13 マスに 2.5 マスごと。player/skill/test_sword_rain/skill2）に、前方 2〜14 マス・幅 3 マスの赤い板を 1.5 秒出し、
 # そのあと同じ場所・同じ向きから enemy/skill/test_sword_rain を使う（enemy/skill/warn）
-#   例: execute as <敵> at @s facing entity @p[distance=..16] eyes run function tm_rpg:enemy/skill/warn_test_sword_rain
+#   例: execute as <敵> at @s facing entity @p[distance=..16] feet run function tm_rpg:enemy/skill/warn_test_sword_rain
 # @s ＝ スキルを使う敵（at @s。向き ＝ 使う向き）
 
 scoreboard players set #warn_time temp 30
