@@ -16,3 +16,5 @@ execute if entity @s[tag=star_light] run particle end_rod ~ ~ ~ 0.15 0.3 0.15 0.
 execute if entity @s[tag=ender_chest_particle] run particle dragon_breath ~ ~ ~ 0.1 0.1 0.1 0.01 1
 
 
+# 上下に揺れる（待っている剣など）
+execute if entity @s[tag=float_bob] run function tm_rpg:system/delete_entity_direction/float_bob

@@ -26,6 +26,7 @@ scoreboard players operation #spawn_hit_interval temp = @s hit_interval
 # 子を出す（スキルごと。<スキル>/skill3 は @s ＝ 管理役で呼ばれ、execute summon ... run function で子を出す）
 execute if entity @s[tag=test_obj_line] run function tm_rpg:player/skill/test_obj_line/skill3
 execute if entity @s[tag=test_sword_rain] run function tm_rpg:player/skill/test_sword_rain/skill3
+execute if entity @s[tag=test_sword_volley] run function tm_rpg:player/skill/test_sword_volley/skill3
 
 # 次の場所へ、管理役の向き（横の向き）のまま spawn_step（0.1 マス単位）だけまっすぐ進む。マス目には合わせない（斜めでも等間隔）
 scoreboard players operation #move temp = @s spawn_step
