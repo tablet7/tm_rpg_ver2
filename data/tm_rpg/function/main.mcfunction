@@ -12,6 +12,9 @@ execute as @e[type=#tm_rpg:delete_type,tag=projectile] at @s run function tm_rpg
 # 敵の吹き飛ばし（enemy/skill/push_burst）で、エンチャントが動かずに残った防具立ての片付け（ふつうは動かない）
 execute if score #push_burst_wait temp matches 1.. run function tm_rpg:enemy/skill/push_burst/safety
 
+# 敵用スキルのまとめテスト（test/enemy_skill/start で始めたときだけ）
+execute if score #step test_skill matches 1.. run function tm_rpg:test/enemy_skill/tick
+
 # ボス（這い出る者）。部位の配置と行動。敵の処理（enemy/main）より前に動かす
 execute as @e[type=minecraft:marker,tag=crawler.master] at @s run function tm_rpg:enemy/boss/crawler/tick
 execute as @e[type=#tm_rpg:mob_type,tag=enemy] at @s run function tm_rpg:enemy/main

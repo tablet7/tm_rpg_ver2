@@ -150,6 +150,8 @@ scoreboard objectives add circle_dir dummy
 scoreboard objectives add circle_k dummy
 scoreboard objectives add circle_ox dummy
 scoreboard objectives add circle_oy dummy
+# 敵用スキルのまとめテスト（test/enemy_skill）の #step・#timer
+scoreboard objectives add test_skill dummy
 scoreboard objectives add spin_step dummy
 scoreboard objectives add turret_interval dummy
 scoreboard objectives add turret_timer dummy
