@@ -139,6 +139,11 @@ scoreboard objectives add spawn_kill_time dummy
 scoreboard objectives add spawner_id dummy
 scoreboard objectives add bob_timer dummy
 scoreboard objectives add beam_length dummy
+scoreboard objectives add beam_max_len dummy
+scoreboard objectives add sweep_yaw dummy
+scoreboard objectives add sweep_pitch dummy
+scoreboard objectives add sweep_rot_y dummy
+scoreboard objectives add sweep_rot_x dummy
 scoreboard objectives add spin_step dummy
 scoreboard objectives add turret_interval dummy
 scoreboard objectives add turret_timer dummy

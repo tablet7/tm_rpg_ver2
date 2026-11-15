@@ -24,3 +24,6 @@ execute if entity @s[tag=move_entity] run function tm_rpg:system/delete_entity_d
 
 # 見た目（tag image_marker）。移動したあとの場所で出す
 execute if entity @s[tag=image_marker] at @s run function tm_rpg:system/delete_entity_direction/image_main
+
+# 向きが変わる太いレーザー（tag beam_sweep）。当たり判定・見た目のあとで向きを変え、次の tick から新しい向きで動く
+execute if entity @s[tag=beam_sweep] run function tm_rpg:player/skill/main_projectile/beam/sweep
