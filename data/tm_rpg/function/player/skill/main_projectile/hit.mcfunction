@@ -32,6 +32,9 @@ execute if score @s hit_size matches 1 positioned ~-0.5 ~-0.5 ~-0.5 as @e[type=#
 execute if score @s hit_size matches 2 positioned ~-1 ~-1 ~-1 as @e[type=#tm_rpg:mob_type,tag=mob,tag=hitdamage,dx=1,dy=1,dz=1] unless score @s tama_hit_id = #tama_id temp unless score @s ent_id = #tama_owner temp at @s run function tm_rpg:player/skill/main_projectile/hit_target
 execute if score @s hit_size matches 3 positioned ~-1.5 ~-1.5 ~-1.5 as @e[type=#tm_rpg:mob_type,tag=mob,tag=hitdamage,dx=2,dy=2,dz=2] unless score @s tama_hit_id = #tama_id temp unless score @s ent_id = #tama_owner temp at @s run function tm_rpg:player/skill/main_projectile/hit_target
 
+# 敵に当たったら爆発する弾（tag explode_hit）。#tama_hit は実際に当たった敵の数なので、貫通する弾でも当たった tick だけ爆発する
+execute if entity @s[tag=explode_hit] if score #tama_hit temp matches 1.. run function tm_rpg:player/skill/main_projectile/explode
+
 # 貫通しない弾が当たったら 1 を返す（ここで kill しないのは、呼んだ側で続きの処理を止めるため）
 execute if entity @s[tag=!pierce] if score #tama_hit temp matches 1.. run return 1
 return 0
