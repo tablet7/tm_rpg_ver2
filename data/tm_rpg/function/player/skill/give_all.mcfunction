@@ -17,3 +17,4 @@ loot give @s loot tm_rpg:item/skill/test_sword_rain
 loot give @s loot tm_rpg:item/skill/test_sword_volley
 loot give @s loot tm_rpg:item/skill/test_laser
 loot give @s loot tm_rpg:item/skill/test_turret
+loot give @s loot tm_rpg:item/skill/test_push
