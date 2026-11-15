@@ -129,6 +129,13 @@ scoreboard objectives add debuff_give_power dummy
 scoreboard objectives add tama_hit_id dummy
 scoreboard objectives add hit_size dummy
 scoreboard objectives add hit_interval dummy
+scoreboard objectives add hit_start dummy
+scoreboard objectives add hit_base_id dummy
+scoreboard objectives add spawn_interval dummy
+scoreboard objectives add spawn_count dummy
+scoreboard objectives add spawn_step dummy
+scoreboard objectives add spawn_timer dummy
+scoreboard objectives add spawn_kill_time dummy
 
 ### Stutas
 #### 基礎値

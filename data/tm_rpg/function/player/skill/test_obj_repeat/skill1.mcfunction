@@ -9,7 +9,7 @@
 # ダメージ計算（storage tm_rpg:damage に入る）
 function tm_rpg:player/skill/skill_damage
 
-# 消えるまでの tick（20 ＝ 1秒）。skill2 の hit_interval（10）の倍数にして、置いた瞬間から当たるようにする（0・0.5・1秒の3回）
+# 消えるまでの tick（20 ＝ 1秒）。skill2 の hit_interval（10）ごとに、置いた瞬間から当たる（0・0.5・1秒の3回）
 data modify storage tm_rpg:damage kill_time set value 20
 
 # 前方3マスのマスに置く（rotated ~ 0 で上下の向きを無視し、align xyz でマスの中心に合わせる）。高さは skill2 の common/snap_ground で地面に合わせる

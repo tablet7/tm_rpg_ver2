@@ -5,6 +5,9 @@
 # 消える時間（kill_time）は、ほかの消えるエンティティと同じく main の system kill（tag delete_entity）が減らして消す
 # @s ＝ 弾（at @s）
 
+# 時間差で設置物などを出す管理役（tag spawner）は、出す処理だけをする（main_projectile/spawner/tick）
+execute if entity @s[tag=spawner] run return run function tm_rpg:player/skill/main_projectile/spawner/tick
+
 # 当たり判定と種類ごとの処理（1 が返ったら、貫通しない弾が当たったので消える。tag explode_hit の爆発は hit の中で起きる）
 execute if entity @s[tag=damage_marker] unless score @s hit_interval matches 1.. if function tm_rpg:system/delete_entity_direction/damage_main run return run kill @s
 # 一定の間隔で当たる弾（スコア hit_interval が 1 以上）は、hit_interval の tick ごとにだけ当たり判定をする（main_projectile/interval）
