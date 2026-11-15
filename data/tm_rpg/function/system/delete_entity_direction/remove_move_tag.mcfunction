@@ -11,6 +11,9 @@ tag @s remove homing
 
 tag @s remove stop_move
 
+# 止まったら当たらなくなる弾（tag stop_harmless。地面に刺さった剣など）は、当たり判定をやめる（見た目だけ kill_time まで残る）
+execute if entity @s[tag=stop_harmless] run tag @s remove damage_marker
+
 # 壁で爆発する弾（tag explode_wall）は、ここで爆発して、この tick の最後に main の system kill で消える（kill_time 0 → -1）
 # ここで kill しないのは、呼んだ側（move_main・tick）の残りの行が消えた弾に対して動かないようにするため
 # explode_time を外して、時間切れの爆発と二重にならないようにする

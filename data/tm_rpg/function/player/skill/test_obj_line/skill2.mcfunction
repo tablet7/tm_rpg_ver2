@@ -12,12 +12,14 @@ function tm_rpg:player/skill/common/snap_ground
 
 # 子を出す関数を spawner/spawn が呼ぶためのタグ（skill3）
 tag @s add test_obj_line
+# 進むたびに地面の高さに合わせる（壁の中ならそこでやめる）
+tag @s add spawn_ground
 
 # 10 tick（0.5秒）ごとに、5個出す
 scoreboard players set @s spawn_interval 10
 scoreboard players set @s spawn_count 5
 
-# 1個出すごとに前へ 1.5マス進む（0.1 マス単位。15 ＝ 1.5 マス。1〜63）。マス目には合わせず、斜めでも等間隔に並ぶ
+# 1個出すごとに前へ 1.5マス進む（0.1 マス単位。15 ＝ 1.5 マス。1〜255）。マス目には合わせず、斜めでも等間隔に並ぶ
 scoreboard players set @s spawn_step 15
 
 # 子は 10 tick ごとに当たる（全部のマグマブロックで共有。この行を消すと、全部で1体1回だけ当たる）

@@ -13,3 +13,4 @@ loot give @s loot tm_rpg:item/skill/test_pro
 loot give @s loot tm_rpg:item/skill/test_obj
 loot give @s loot tm_rpg:item/skill/test_obj_repeat
 loot give @s loot tm_rpg:item/skill/test_obj_line
+loot give @s loot tm_rpg:item/skill/test_sword_rain

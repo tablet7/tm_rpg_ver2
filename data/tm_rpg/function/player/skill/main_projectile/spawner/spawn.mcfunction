@@ -16,31 +16,22 @@ execute if data entity @s data.func run data modify storage tm_rpg:damage func s
 scoreboard players operation #skill_owner temp = @s summon_ent_id
 
 # グループの id・開始時刻・当たる間隔（spawner/child_init が子に写す。間隔が無ければ reset のまま）
-scoreboard players operation #spawn_id temp = @s ent_id
+# tag spawn_separate の管理役は id を写さない（子はそれぞれ別の id で、別々に当たる）
+scoreboard players reset #spawn_id temp
+execute unless entity @s[tag=spawn_separate] run scoreboard players operation #spawn_id temp = @s ent_id
 scoreboard players operation #spawn_start temp = @s hit_start
 scoreboard players reset #spawn_hit_interval temp
 scoreboard players operation #spawn_hit_interval temp = @s hit_interval
 
 # 子を出す（スキルごと。<スキル>/skill3 は @s ＝ 管理役で呼ばれ、execute summon ... run function で子を出す）
 execute if entity @s[tag=test_obj_line] run function tm_rpg:player/skill/test_obj_line/skill3
+execute if entity @s[tag=test_sword_rain] run function tm_rpg:player/skill/test_sword_rain/skill3
 
-# 次の場所へ、横の向きのまま spawn_step（0.1 マス単位）だけまっすぐ進む。マス目には合わせない（斜めでも等間隔）
-# マクロを使わずに好きな距離を進めるように、3.2 / 1.6 / 0.8 / 0.4 / 0.2 / 0.1 マスを大きい順に組み合わせる（最大 6.3 マス）
-# tp の ^ は実行位置が基準なので、1回ごとに at @s で今の位置から進める
-scoreboard players operation #spawn_step temp = @s spawn_step
-execute if score #spawn_step temp matches 32.. at @s run tp @s ^ ^ ^3.2
-execute if score #spawn_step temp matches 32.. run scoreboard players remove #spawn_step temp 32
-execute if score #spawn_step temp matches 16.. at @s run tp @s ^ ^ ^1.6
-execute if score #spawn_step temp matches 16.. run scoreboard players remove #spawn_step temp 16
-execute if score #spawn_step temp matches 8.. at @s run tp @s ^ ^ ^0.8
-execute if score #spawn_step temp matches 8.. run scoreboard players remove #spawn_step temp 8
-execute if score #spawn_step temp matches 4.. at @s run tp @s ^ ^ ^0.4
-execute if score #spawn_step temp matches 4.. run scoreboard players remove #spawn_step temp 4
-execute if score #spawn_step temp matches 2.. at @s run tp @s ^ ^ ^0.2
-execute if score #spawn_step temp matches 2.. run scoreboard players remove #spawn_step temp 2
-execute if score #spawn_step temp matches 1.. at @s run tp @s ^ ^ ^0.1
+# 次の場所へ、管理役の向き（横の向き）のまま spawn_step（0.1 マス単位）だけまっすぐ進む。マス目には合わせない（斜めでも等間隔）
+scoreboard players operation #move temp = @s spawn_step
+execute rotated as @s run function tm_rpg:player/skill/common/move_forward
 
-# 地面の高さに合わせる。合わせても壁の中なら 1 を返す
-execute at @s run function tm_rpg:player/skill/common/snap_ground
-execute at @s unless block ~ ~ ~ #minecraft:replaceable run return 1
+# tag spawn_ground の管理役だけ、地面の高さに合わせる。合わせても壁の中なら 1 を返す（付けなければ高さはそのまま。軽い）
+execute if entity @s[tag=spawn_ground] at @s run function tm_rpg:player/skill/common/snap_ground
+execute if entity @s[tag=spawn_ground] at @s unless block ~ ~ ~ #minecraft:replaceable run return 1
 return 0
