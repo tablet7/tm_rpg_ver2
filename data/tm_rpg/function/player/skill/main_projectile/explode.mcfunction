@@ -23,5 +23,9 @@ execute if entity @s[tag=explode_fx_blast] run function tm_rpg:player/skill/main
 execute if entity @s[tag=explode_fx_end_rod] run function tm_rpg:player/skill/main_projectile/explode_fx/end_rod
 
 # ダメージ（半径内の敵ごとに hit_target が storage tm_rpg:damage に入れ直して damage_dealt_tama を呼ぶ）
-execute if entity @s[tag=explode3] as @e[type=#tm_rpg:mob_type,tag=mob,tag=hitdamage,distance=..3] unless score @s tama_hit_id = #tama_id temp unless score @s ent_id = #tama_owner temp at @s run function tm_rpg:player/skill/main_projectile/hit_target
-execute if entity @s[tag=explode5] as @e[type=#tm_rpg:mob_type,tag=mob,tag=hitdamage,distance=..5] unless score @s tama_hit_id = #tama_id temp unless score @s ent_id = #tama_owner temp at @s run function tm_rpg:player/skill/main_projectile/hit_target
+execute if entity @s[tag=!enemy_shot] if entity @s[tag=explode3] as @e[type=#tm_rpg:mob_type,tag=mob,tag=hitdamage,distance=..3] unless score @s tama_hit_id = #tama_id temp unless score @s ent_id = #tama_owner temp at @s run function tm_rpg:player/skill/main_projectile/hit_target
+# 敵が撃った弾（tag enemy_shot）は、プレイヤーにだけ当たる
+execute if entity @s[tag=enemy_shot] if entity @s[tag=explode3] as @a[tag=mob,gamemode=!spectator,distance=..3] unless score @s tama_hit_id = #tama_id temp unless score @s ent_id = #tama_owner temp at @s run function tm_rpg:player/skill/main_projectile/hit_target
+execute if entity @s[tag=!enemy_shot] if entity @s[tag=explode5] as @e[type=#tm_rpg:mob_type,tag=mob,tag=hitdamage,distance=..5] unless score @s tama_hit_id = #tama_id temp unless score @s ent_id = #tama_owner temp at @s run function tm_rpg:player/skill/main_projectile/hit_target
+# 敵が撃った弾（tag enemy_shot）は、プレイヤーにだけ当たる
+execute if entity @s[tag=enemy_shot] if entity @s[tag=explode5] as @a[tag=mob,gamemode=!spectator,distance=..5] unless score @s tama_hit_id = #tama_id temp unless score @s ent_id = #tama_owner temp at @s run function tm_rpg:player/skill/main_projectile/hit_target

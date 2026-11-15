@@ -11,10 +11,7 @@
 # ダメージ計算（storage tm_rpg:damage に入る。管理役が覚えて、剣を出すたびに使う）
 function tm_rpg:player/skill/skill_damage
 
-# 剣1本の消えるまでの tick（50 ＝ 2.5秒。落ちるのに 5〜8 tick、残りは地面に刺さったまま残る）
-data modify storage tm_rpg:damage kill_time set value 50
-
-# 管理役を前方3マスに、足元の高さで出す（rotated ~ 0 で上下の向きを無視する。高さは地面に合わせない（軽い））
-execute rotated ~ 0 positioned ^ ^ ^3 align y positioned ~ ~0.5 ~ summon minecraft:marker run function tm_rpg:player/skill/test_sword_rain/skill2
+# 本体（敵も enemy/skill/test_sword_rain から使う）
+function tm_rpg:player/skill/test_sword_rain/fire
 
 return 1

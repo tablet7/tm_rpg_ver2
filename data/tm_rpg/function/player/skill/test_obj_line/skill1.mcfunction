@@ -11,13 +11,7 @@
 # ダメージ計算（storage tm_rpg:damage に入る。管理役が覚えて、子を出すたびに使う）
 function tm_rpg:player/skill/skill_damage
 
-# 子（マグマブロック）1個の消えるまでの tick（20 ＝ 1秒）
-data modify storage tm_rpg:damage kill_time set value 20
-
-# 管理役を前方3マスに、足元の高さのマスの中心の高さで出す（rotated ~ 0 で上下の向きを無視する。横はマス目に合わせず、まっすぐ進めるようにする）
-execute rotated ~ 0 positioned ^ ^ ^3 align y positioned ~ ~0.5 ~ summon minecraft:marker run function tm_rpg:player/skill/test_obj_line/skill2
-
-# 音
-playsound minecraft:block.lava.extinguish player @a ~ ~ ~ 1 1
+# 本体（敵も enemy/skill/test_obj_line から使う）
+function tm_rpg:player/skill/test_obj_line/fire
 
 return 1

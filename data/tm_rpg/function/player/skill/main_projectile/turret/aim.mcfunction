@@ -6,5 +6,7 @@
 # @s ＝ タレット（at @s）。先に turret/restore で #skill_owner temp を入れておくこと
 
 execute as @a if score @s ent_id = #skill_owner temp run tag @s add turret_owner
-execute facing entity @e[type=#tm_rpg:mob_type,tag=mob,tag=hitdamage,tag=!turret_owner,distance=..16,sort=nearest,limit=1] feet rotated ~ 0 run rotate @s ~ ~
+execute if entity @s[tag=!enemy_shot] facing entity @e[type=#tm_rpg:mob_type,tag=mob,tag=hitdamage,tag=!turret_owner,distance=..16,sort=nearest,limit=1] feet rotated ~ 0 run rotate @s ~ ~
+# 敵が置いたタレット（tag enemy_shot）は、いちばん近いプレイヤーの方を向く
+execute if entity @s[tag=enemy_shot] facing entity @a[tag=mob,gamemode=!spectator,distance=..16,sort=nearest,limit=1] feet rotated ~ 0 run rotate @s ~ ~
 tag @a[tag=turret_owner] remove turret_owner

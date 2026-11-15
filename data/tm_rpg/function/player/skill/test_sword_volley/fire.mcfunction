@@ -1,7 +1,7 @@
 #> tm_rpg:player/skill/test_sword_volley/fire
 
 # スキル「test剣の一斉射撃」の本体（剣を出して、管理役を出す）。skill1 と、タレット（test_turret/skill3）から呼ばれる
-# 先に storage tm_rpg:damage（p/m/c_damage・func）と #skill_owner temp を入れておくこと（skill1 は skill_damage、タレットは turret/restore）
+# 先に storage tm_rpg:damage（p/m/c_damage・func）と #skill_owner temp・#skill_side temp を入れておくこと（skill1 は skill_damage、敵は enemy/skill/test_sword_volley、タレットは turret/restore）
 # 実行位置 ＝ 足元（剣の箱と管理役の高さの基準）、向き ＝ 撃つ向き（横の向きだけ使う）
 # @s ＝ だれでもよい（使わない）
 

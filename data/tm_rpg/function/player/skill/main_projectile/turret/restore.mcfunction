@@ -10,3 +10,6 @@ execute store result storage tm_rpg:damage c_damage int 1 run scoreboard players
 data modify storage tm_rpg:damage func set value "tm_rpg:system/naguri/non_func"
 execute if data entity @s item.components."minecraft:custom_data".func run data modify storage tm_rpg:damage func set from entity @s item.components."minecraft:custom_data".func
 scoreboard players operation #skill_owner temp = @s summon_ent_id
+
+# 敵が置いたタレット（tag enemy_shot）なら、撃つ弾も敵の弾にする（turret/tick が撃ったあと 0 に戻す）
+execute store result score #skill_side temp if entity @s[tag=enemy_shot]

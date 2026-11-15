@@ -12,6 +12,8 @@ scoreboard players operation #homing_owner temp = @s summon_ent_id
 execute as @a if score @s ent_id = #homing_owner temp run tag @s add homing_owner
 
 # いちばん近い敵の方を向いた状態で turn を呼ぶ（@s は弾のまま。敵がいなければ呼ばれない）
-execute facing entity @e[type=#tm_rpg:mob_type,tag=mob,tag=hitdamage,tag=!homing_owner,distance=..16,sort=nearest,limit=1] eyes run function tm_rpg:system/delete_entity_direction/homing/turn
+execute if entity @s[tag=!enemy_shot] facing entity @e[type=#tm_rpg:mob_type,tag=mob,tag=hitdamage,tag=!homing_owner,distance=..16,sort=nearest,limit=1] eyes run function tm_rpg:system/delete_entity_direction/homing/turn
+# 敵が撃った弾（tag enemy_shot）は、いちばん近いプレイヤーを追う
+execute if entity @s[tag=enemy_shot] facing entity @a[tag=mob,gamemode=!spectator,distance=..16,sort=nearest,limit=1] eyes run function tm_rpg:system/delete_entity_direction/homing/turn
 
 tag @a[tag=homing_owner] remove homing_owner

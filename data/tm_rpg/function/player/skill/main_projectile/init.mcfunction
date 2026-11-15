@@ -25,6 +25,9 @@ execute if score @s hit_interval matches 1.. store result score @s hit_start run
 # 撃った人（player/skill/start が #skill_owner temp に入れている）
 scoreboard players operation @s summon_ent_id = #skill_owner temp
 
+# 敵が撃った弾（#skill_side temp が 1。enemy/skill/start が入れる）は tag enemy_shot。当たる相手・狙う相手がプレイヤーになる
+execute if score #skill_side temp matches 1 run tag @s add enemy_shot
+
 # ダメージ（当たり判定の hit_prepare が読む）
 execute store result score @s damage_give_p run data get storage tm_rpg:damage p_damage
 execute store result score @s damage_give_m run data get storage tm_rpg:damage m_damage

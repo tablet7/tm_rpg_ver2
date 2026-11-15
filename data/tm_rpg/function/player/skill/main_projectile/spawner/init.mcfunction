@@ -31,6 +31,8 @@ execute store result score @s hit_start run time query gametime
 
 # スキルを使った tick の値を覚える（子を出すときに spawner/spawn が storage と #skill_owner に戻す）
 scoreboard players operation @s summon_ent_id = #skill_owner temp
+# 敵が出した管理役（#skill_side temp が 1）は tag enemy_shot（子を出すときに spawner/spawn が #skill_side に戻す）
+execute if score #skill_side temp matches 1 run tag @s add enemy_shot
 execute store result score @s damage_give_p run data get storage tm_rpg:damage p_damage
 execute store result score @s damage_give_m run data get storage tm_rpg:damage m_damage
 execute store result score @s damage_give_c run data get storage tm_rpg:damage c_damage

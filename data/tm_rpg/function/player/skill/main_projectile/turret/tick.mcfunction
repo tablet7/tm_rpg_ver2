@@ -16,3 +16,5 @@ function tm_rpg:player/skill/main_projectile/turret/aim
 
 # 撃つ（スキルごと。<スキル>/skill3 は @s ＝ タレット、実行位置 ＝ タレットの足元、向き ＝ タレットの向き）
 execute if entity @s[tag=test_turret] at @s run function tm_rpg:player/skill/test_turret/skill3
+
+scoreboard players set #skill_side temp 0
