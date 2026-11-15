@@ -152,6 +152,8 @@ scoreboard objectives add circle_ox dummy
 scoreboard objectives add circle_oy dummy
 # 敵用スキルのまとめテスト（test/enemy_skill）の #step・#timer
 scoreboard objectives add test_skill dummy
+# 敵の技の予兆（enemy/skill/warn）のタイマー
+scoreboard objectives add warn_timer dummy
 scoreboard objectives add spin_step dummy
 scoreboard objectives add turret_interval dummy
 scoreboard objectives add turret_timer dummy

@@ -15,8 +15,8 @@ execute if score #timer test_skill matches 1.. run return 0
 execute as @e[type=minecraft:skeleton,tag=skill_tester,limit=1] at @s facing entity @p[gamemode=!spectator] eyes run function tm_rpg:test/enemy_skill/use
 
 # 全部終わったら止める（use が #step を最後の次まで進める）
-execute if score #step test_skill matches 18.. run tellraw @a [{"text":"[敵スキルテスト] ","color":"gold"},{"text":"全部終わりました","color":"green"}]
-execute if score #step test_skill matches 18.. run return run function tm_rpg:test/enemy_skill/stop
+execute if score #step test_skill matches 20.. run tellraw @a [{"text":"[敵スキルテスト] ","color":"gold"},{"text":"全部終わりました","color":"green"}]
+execute if score #step test_skill matches 20.. run return run function tm_rpg:test/enemy_skill/stop
 
 # 次まで 5 秒
 scoreboard players set #timer test_skill 100
