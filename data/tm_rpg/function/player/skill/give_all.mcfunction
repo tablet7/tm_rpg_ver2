@@ -10,3 +10,5 @@ loot give @s loot tm_rpg:item/skill/move/left_step
 loot give @s loot tm_rpg:item/skill/move/back_jump
 loot give @s loot tm_rpg:item/skill/move/up_jump
 loot give @s loot tm_rpg:item/skill/test_pro
+loot give @s loot tm_rpg:item/skill/test_obj
+loot give @s loot tm_rpg:item/skill/test_obj_repeat

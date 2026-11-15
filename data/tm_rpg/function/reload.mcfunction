@@ -128,6 +128,7 @@ scoreboard objectives add debuff_give_time dummy
 scoreboard objectives add debuff_give_power dummy
 scoreboard objectives add tama_hit_id dummy
 scoreboard objectives add hit_size dummy
+scoreboard objectives add hit_interval dummy
 
 ### Stutas
 #### 基礎値

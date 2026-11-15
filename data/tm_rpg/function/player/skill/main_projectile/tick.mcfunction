@@ -6,7 +6,9 @@
 # @s ＝ 弾（at @s）
 
 # 当たり判定と種類ごとの処理（1 が返ったら、貫通しない弾が当たったので消える。tag explode_hit の爆発は hit の中で起きる）
-execute if entity @s[tag=damage_marker] if function tm_rpg:system/delete_entity_direction/damage_main run return run kill @s
+execute if entity @s[tag=damage_marker] unless score @s hit_interval matches 1.. if function tm_rpg:system/delete_entity_direction/damage_main run return run kill @s
+# 一定の間隔で当たる弾（スコア hit_interval が 1 以上）は、hit_interval の tick ごとにだけ当たり判定をする（main_projectile/interval）
+execute if entity @s[tag=damage_marker] if score @s hit_interval matches 1.. if function tm_rpg:player/skill/main_projectile/interval if function tm_rpg:system/delete_entity_direction/damage_main run return run kill @s
 
 # 時間切れで爆発する弾（tag explode_time）。main は弾の tick のあとで kill_time を減らして -1 で消すので、0 の tick が最後
 # ここで爆発し、消すのは main の system kill に任せる（壁で爆発した弾は remove_move_tag が explode_time を外すので二重にならない）
