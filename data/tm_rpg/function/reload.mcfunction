@@ -144,6 +144,12 @@ scoreboard objectives add sweep_yaw dummy
 scoreboard objectives add sweep_pitch dummy
 scoreboard objectives add sweep_rot_y dummy
 scoreboard objectives add sweep_rot_x dummy
+scoreboard objectives add circle_radius dummy
+scoreboard objectives add circle_period dummy
+scoreboard objectives add circle_dir dummy
+scoreboard objectives add circle_k dummy
+scoreboard objectives add circle_ox dummy
+scoreboard objectives add circle_oy dummy
 scoreboard objectives add spin_step dummy
 scoreboard objectives add turret_interval dummy
 scoreboard objectives add turret_timer dummy
