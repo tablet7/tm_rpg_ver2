@@ -15,6 +15,8 @@ kill @e[type=#tm_rpg:delete_type,tag=delete_entity]
 # sysetm
 scoreboard objectives add ent_id dummy
 scoreboard objectives add summon_ent_id dummy
+# 管理役が狙う相手の ent_id（例: player/skill/light_cross。十字架を落とす相手）
+scoreboard objectives add spawn_target_id dummy
 scoreboard objectives add kill_time dummy
 scoreboard objectives add dash_kill_time dummy
 

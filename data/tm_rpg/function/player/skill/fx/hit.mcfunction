@@ -6,3 +6,5 @@
 # @s ＝ 弾（at @s）
 execute if entity @s[tag=fx_fly_slash] run return run function tm_rpg:player/skill/fly_slash/fx/hit
 execute if entity @s[tag=fx_fire_dash] run return run function tm_rpg:player/skill/fire_dash/fx/hit
+execute if entity @s[tag=fx_light_cross] run return run function tm_rpg:player/skill/light_cross/fx/hit
+execute if entity @s[tag=fx_light_cross_cross] run return run function tm_rpg:player/skill/light_cross/cross/fx/hit
