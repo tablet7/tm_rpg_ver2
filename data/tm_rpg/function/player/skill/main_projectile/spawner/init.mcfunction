@@ -37,6 +37,8 @@ execute store result score @s damage_give_p run data get storage tm_rpg:damage p
 execute store result score @s damage_give_m run data get storage tm_rpg:damage m_damage
 execute store result score @s damage_give_c run data get storage tm_rpg:damage c_damage
 execute store result score @s spawn_kill_time run data get storage tm_rpg:damage kill_time
+execute store result score @s sustain_power run data get storage tm_rpg:damage sustain_power
+execute store result score @s sustain_time run data get storage tm_rpg:damage sustain_time
 execute unless data storage tm_rpg:damage {func:"tm_rpg:system/naguri/non_func"} run data modify entity @s data.func set from storage tm_rpg:damage func
 
 # 1個目は、この tick に出す（spawner/tick が 1 減らして 0 になったら出す）

@@ -11,6 +11,8 @@ execute store result storage tm_rpg:damage p_damage int 1 run scoreboard players
 execute store result storage tm_rpg:damage m_damage int 1 run scoreboard players get @s damage_give_m
 execute store result storage tm_rpg:damage c_damage int 1 run scoreboard players get @s damage_give_c
 execute store result storage tm_rpg:damage kill_time int 1 run scoreboard players get @s spawn_kill_time
+execute store result storage tm_rpg:damage sustain_power int 1 run scoreboard players get @s sustain_power
+execute store result storage tm_rpg:damage sustain_time int 1 run scoreboard players get @s sustain_time
 data modify storage tm_rpg:damage func set value "tm_rpg:system/naguri/non_func"
 execute if data entity @s data.func run data modify storage tm_rpg:damage func set from entity @s data.func
 scoreboard players operation #skill_owner temp = @s summon_ent_id

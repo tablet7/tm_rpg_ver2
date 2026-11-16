@@ -33,6 +33,10 @@ execute store result score @s damage_give_p run data get storage tm_rpg:damage p
 execute store result score @s damage_give_m run data get storage tm_rpg:damage m_damage
 execute store result score @s damage_give_c run data get storage tm_rpg:damage c_damage
 
+# 撃った人の付与効果増加・持続時間増加（player/skill/skill_damage が storage に入れる。hit_prepare が #tama_sustain_power / #tama_sustain_time temp に写し、func が読む）
+execute store result score @s sustain_power run data get storage tm_rpg:damage sustain_power
+execute store result score @s sustain_time run data get storage tm_rpg:damage sustain_time
+
 # 当たったときに実行する関数。文字列のまま弾に持たせる（何もしない non_func のときは書かない。書くのは出すときの1回だけ）
 execute unless data storage tm_rpg:damage {func:"tm_rpg:system/naguri/non_func"} if entity @s[type=minecraft:item_display] run data modify entity @s item.components."minecraft:custom_data".func set from storage tm_rpg:damage func
 execute unless data storage tm_rpg:damage {func:"tm_rpg:system/naguri/non_func"} if entity @s[type=minecraft:marker] run data modify entity @s data.func set from storage tm_rpg:damage func
