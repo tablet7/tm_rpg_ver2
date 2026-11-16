@@ -11,6 +11,11 @@ scoreboard players operation #tama_owner temp = @s summon_ent_id
 scoreboard players operation #tama_p temp = @s damage_give_p
 scoreboard players operation #tama_m temp = @s damage_give_m
 scoreboard players operation #tama_c temp = @s damage_give_c
+# 撃った人の付与効果増加・持続時間増加（func が状態異常の威力・時間に足す。入っていない弾は 0）
+scoreboard players set #tama_sustain_power temp 0
+scoreboard players set #tama_sustain_time temp 0
+scoreboard players operation #tama_sustain_power temp += @s sustain_power
+scoreboard players operation #tama_sustain_time temp += @s sustain_time
 
 # 当たったときに実行する関数。main_projectile/init が弾に入れたものがあれば使う（無ければ何もしない）
 data modify storage tm_rpg:tama func set value "tm_rpg:system/naguri/non_func"

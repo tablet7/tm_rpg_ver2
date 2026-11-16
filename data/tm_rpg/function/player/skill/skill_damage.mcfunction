@@ -2,7 +2,8 @@
 
 # スキルのダメージを計算し、storage tm_rpg:damage の p_damage / m_damage / c_damage に入れる関数。各スキルの関数から呼ばれる
 # ダメージ = skillselect_kihon + 参照ステータス × skillselect_per / 100（値は used_carrot_on_a_stick_skill で読み込み済み）
-# @s ＝ スキルを使ったプレイヤー
+# 使った人の付与効果増加（sustain_power）・持続時間増加（sustain_time）も storage に入れる（弾が持ち、当たったときの関数 func が #tama_sustain_power / #tama_sustain_time temp で読む）
+# @s ＝ スキルを使ったプレイヤーか敵
 
 data modify storage tm_rpg:damage p_damage set value 0
 data modify storage tm_rpg:damage m_damage set value 0
@@ -35,3 +36,7 @@ execute if score @s skillselect_damage_type matches 3 run scoreboard players ope
 execute store result score @s random_rand run random value 1..100
 execute if score @s crit_per >= @s random_rand run scoreboard players operation @s temp4 += @s crit_damage
 execute store result storage tm_rpg:damage c_damage int 1 run scoreboard players get @s temp4
+
+# 付与効果増加・持続時間増加（状態異常を付けるスキルの func が使う。main_projectile/init が弾に写す）
+execute store result storage tm_rpg:damage sustain_power int 1 run scoreboard players get @s sustain_power
+execute store result storage tm_rpg:damage sustain_time int 1 run scoreboard players get @s sustain_time

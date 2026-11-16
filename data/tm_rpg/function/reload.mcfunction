@@ -15,6 +15,8 @@ kill @e[type=#tm_rpg:delete_type,tag=delete_entity]
 # sysetm
 scoreboard objectives add ent_id dummy
 scoreboard objectives add summon_ent_id dummy
+# 管理役が狙う相手の ent_id（例: player/skill/light_cross。十字架を落とす相手）
+scoreboard objectives add spawn_target_id dummy
 scoreboard objectives add kill_time dummy
 scoreboard objectives add dash_kill_time dummy
 
@@ -152,6 +154,8 @@ scoreboard objectives add circle_ox dummy
 scoreboard objectives add circle_oy dummy
 # 敵用スキルのまとめテスト（test/enemy_skill）の #step・#timer
 scoreboard objectives add test_skill dummy
+# 敵が技を使っているあいだ（予兆中・出し続けているあいだ）自分から動けない残り tick（enemy/skill/lock）
+scoreboard objectives add skill_lock dummy
 # 敵の技の予兆（enemy/skill/warn）のタイマー
 scoreboard objectives add warn_timer dummy
 # スキルの時間差の演出（player/skill/fx/seq）。進行役を出してからの tick 数

@@ -24,6 +24,9 @@ execute as @e[type=text_display,tag=mount_text] if score @s ent_id = System temp
 # HP,MP,Armorなどの変動
 function tm_rpg:system/stutas/hendou_main
 
+# 技を使っているあいだ自分から動けない敵の、残り tick を減らす（enemy/skill/lock）
+execute if score @s skill_lock matches 1.. run function tm_rpg:enemy/skill/lock_tick
+
 # 技を選んで使う（tag enemy_ai の敵だけ。enemy/ai/think）
 execute if entity @s[tag=enemy_ai] run function tm_rpg:enemy/ai/think
 

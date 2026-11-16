@@ -18,6 +18,9 @@ scoreboard players remove @s[scores={ai_cd4=1..}] ai_cd4 1
 # 次に技を使うまでの待ち時間
 execute if score @s ai_cool matches 1.. run return run scoreboard players remove @s ai_cool 1
 
+# 技を使っているあいだ（予兆中・出し続けているあいだ。スコア skill_lock。enemy/skill/lock）は、次の技を選ばない（終わった次の tick に選ぶ）
+execute if score @s skill_lock matches 1.. run return 0
+
 # 狙うプレイヤー（いちばん近い。いなければ 10 tick 後にもう一度）
 tag @p[tag=mob,gamemode=!spectator,distance=..32] add ai_target
 execute unless entity @a[tag=ai_target,limit=1] run return run scoreboard players set @s ai_cool 10

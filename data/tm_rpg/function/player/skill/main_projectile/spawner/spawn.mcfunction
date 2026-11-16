@@ -11,6 +11,8 @@ execute store result storage tm_rpg:damage p_damage int 1 run scoreboard players
 execute store result storage tm_rpg:damage m_damage int 1 run scoreboard players get @s damage_give_m
 execute store result storage tm_rpg:damage c_damage int 1 run scoreboard players get @s damage_give_c
 execute store result storage tm_rpg:damage kill_time int 1 run scoreboard players get @s spawn_kill_time
+execute store result storage tm_rpg:damage sustain_power int 1 run scoreboard players get @s sustain_power
+execute store result storage tm_rpg:damage sustain_time int 1 run scoreboard players get @s sustain_time
 data modify storage tm_rpg:damage func set value "tm_rpg:system/naguri/non_func"
 execute if data entity @s data.func run data modify storage tm_rpg:damage func set from entity @s data.func
 scoreboard players operation #skill_owner temp = @s summon_ent_id
@@ -30,6 +32,10 @@ execute store result score #skill_side temp if entity @s[tag=enemy_shot]
 execute if entity @s[tag=test_obj_line] run function tm_rpg:player/skill/test_obj_line/skill3
 execute if entity @s[tag=test_sword_rain] run function tm_rpg:player/skill/test_sword_rain/skill3
 execute if entity @s[tag=test_sword_volley] run function tm_rpg:player/skill/test_sword_volley/skill3
+# 炎の突進は、溜めが終わった tick に、使った人をダッシュさせる（子は出さない。当たり判定は使った人が出す）
+execute if entity @s[tag=fire_dash] run function tm_rpg:player/skill/fire_dash/skill3
+# 光の十字架は、当たった相手の上から十字架を1本落とす（敵が使ったときは、落ちる先に予兆の輪を出す）
+execute if entity @s[tag=light_cross] run function tm_rpg:player/skill/light_cross/skill3
 scoreboard players set #skill_side temp 0
 
 # 次の場所へ、管理役の向き（横の向き）のまま spawn_step（0.1 マス単位）だけまっすぐ進む。マス目には合わせない（斜めでも等間隔）
