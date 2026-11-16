@@ -165,6 +165,7 @@ scoreboard objectives add ai_cd4 dummy
 scoreboard objectives add spin_step dummy
 scoreboard objectives add turret_interval dummy
 scoreboard objectives add turret_timer dummy
+scoreboard objectives add turret_warn dummy
 
 ### Stutas
 #### 基礎値

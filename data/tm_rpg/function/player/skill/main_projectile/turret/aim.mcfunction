@@ -1,6 +1,6 @@
 #> tm_rpg:player/skill/main_projectile/turret/aim
 
-# タレットを、16 マス以内の一番近い敵の方へ横の向きだけ変える（いなければ変えない）。turret/tick から呼ばれる
+# タレットを、16 マス以内の一番近い敵の方へ横の向きだけ変える（いなければ変えない）。turret/tick（プレイヤーのタレット。撃つとき）と turret/warn（敵のタレット。予兆を出すとき）から呼ばれる
 # 置いた人（ent_id が #skill_owner temp と同じプレイヤー）は選ばない（PvP で hitdamage が付いていても狙わない）
 # 範囲を変えるときは distance=..16 を書きかえる
 # @s ＝ タレット（at @s）。先に turret/restore で #skill_owner temp を入れておくこと

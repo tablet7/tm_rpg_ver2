@@ -7,6 +7,7 @@
 # 先にスキル側で入れておくもの
 #   スコア turret_interval … 何 tick ごとに撃つか（無ければ 80）
 #   スコア turret_timer    … 1回目を撃つまでの tick（無ければ turret_interval）
+#   スコア turret_warn     … 敵が置いたとき、撃つ何 tick 前に予兆を出すか（無ければ 20。プレイヤーのタレットは使わない）。turret_interval より短くすること（長いと2回目から予兆が出ない）
 #   スキル名のタグ（例: test_turret）… turret/tick がこのタグで撃つ関数を呼ぶ
 #   見た目（item）。init が func をアイテムに書くので、見た目はこれより前に入れる
 # タレット本体は地面の高さ（マスの中心 ＋ 0.5）に置き、浮かせるのは transformation の translation だけにする
@@ -21,3 +22,6 @@ tag @s add turret
 
 execute unless score @s turret_interval matches 1.. run scoreboard players set @s turret_interval 80
 execute unless score @s turret_timer matches 1.. run scoreboard players operation @s turret_timer = @s turret_interval
+# 敵が置いたタレット（tag enemy_shot）は、撃つ前に予兆を出す（turret/warn）。1回目も予兆の時間ぶんは待つ
+execute unless score @s turret_warn matches 1.. run scoreboard players set @s turret_warn 20
+execute if entity @s[tag=enemy_shot] if score @s turret_timer < @s turret_warn run scoreboard players operation @s turret_timer = @s turret_warn

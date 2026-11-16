@@ -12,7 +12,7 @@
 # ダメージ計算（タレットが置いた瞬間の値を覚えて、撃つたびに使う）
 function tm_rpg:player/skill/skill_damage
 
-# 本体（敵も enemy/skill/test_turret から使う）
+# 本体（敵も enemy/skill/test_turret から使う。置くときは予兆なし）
 function tm_rpg:player/skill/test_turret/fire
 
 return 1

@@ -16,6 +16,8 @@ tag @s add test_turret
 # 4 秒（80 tick）ごとに撃つ。1回目は置いてから 1 秒後
 scoreboard players set @s turret_interval 80
 scoreboard players set @s turret_timer 20
+# 敵が置いたときは、撃つ 1 秒（20 tick）前に向きを決めて予兆を出す（main_projectile/turret/warn → test_turret/warn）
+scoreboard players set @s turret_warn 20
 
 # 見た目（ディスペンサーを 1 マス浮かせる。口の向きが逆なら left_rotation を [0f,1f,0f,0f] にする。teleport_duration で向きを変えるのをなめらかにする）
 data merge entity @s {teleport_duration:3,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,1f,0f],scale:[0.8f,0.8f,0.8f]},item:{id:"minecraft:dispenser",count:1}}
