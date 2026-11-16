@@ -44,6 +44,9 @@ execute if entity @s[tag=!enemy_shot] if score @s hit_size matches 3 positioned 
 # 敵が撃った弾（tag enemy_shot）は、プレイヤーにだけ当たる
 execute if entity @s[tag=enemy_shot] if score @s hit_size matches 3 positioned ~-1.5 ~-1.5 ~-1.5 as @a[tag=mob,gamemode=!spectator,dx=2,dy=2,dz=2] unless score @s tama_hit_id = #tama_id temp unless score @s ent_id = #tama_owner temp at @s run function tm_rpg:player/skill/main_projectile/hit_target
 
+# 当たったときの演出（tag fx_hit。スキルごとの <スキル>/fx/hit を呼ぶ。player/skill/fx/hit）
+execute if entity @s[tag=fx_hit] if score #tama_hit temp matches 1.. run function tm_rpg:player/skill/fx/hit
+
 # 敵に当たったら爆発する弾（tag explode_hit）。#tama_hit は実際に当たった敵の数なので、貫通する弾でも当たった tick だけ爆発する
 execute if entity @s[tag=explode_hit] if score #tama_hit temp matches 1.. run function tm_rpg:player/skill/main_projectile/explode
 

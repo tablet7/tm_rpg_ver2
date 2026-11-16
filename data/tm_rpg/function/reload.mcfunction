@@ -154,6 +154,8 @@ scoreboard objectives add circle_oy dummy
 scoreboard objectives add test_skill dummy
 # 敵の技の予兆（enemy/skill/warn）のタイマー
 scoreboard objectives add warn_timer dummy
+# スキルの時間差の演出（player/skill/fx/seq）。進行役を出してからの tick 数
+scoreboard objectives add fx_t dummy
 # 敵の技を選ぶ仕組み（enemy/ai）。次に技を使うまでの待ち時間と、技ごとのクールタイム
 scoreboard objectives add ai_cool dummy
 scoreboard objectives add ai_cd1 dummy

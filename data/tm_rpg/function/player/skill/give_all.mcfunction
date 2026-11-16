@@ -21,3 +21,4 @@ loot give @s loot tm_rpg:item/skill/test_push
 loot give @s loot tm_rpg:item/skill/test_laser_sweep
 loot give @s loot tm_rpg:item/skill/test_laser_circle
 loot give @s loot tm_rpg:item/skill/test_laser_twin
+loot give @s loot tm_rpg:item/skill/fly_slash
