@@ -6,6 +6,8 @@
 
 # レーザーが出ている tick（40 ＝ 2秒）
 data modify storage tm_rpg:damage kill_time set value 40
+# 敵が使ったときは、出しているあいだ（40 tick）自分から動けない（enemy/skill/end → enemy/skill/lock。プレイヤーには関係ない）
+scoreboard players set #skill_lock temp 40
 
 # 目の高さの1マス前から、左右は使う向きのまま、上下は下向き 40 度で出す（skill2 の sweep_pitch で上へ振り上げる）
 # ほかの向きの変わり方: 上から下 ＝ rotated ~ -40 と sweep_pitch 20、右から左 ＝ rotated ~40 ~ と sweep_yaw -20、左から右 ＝ rotated ~-40 ~ と sweep_yaw 20

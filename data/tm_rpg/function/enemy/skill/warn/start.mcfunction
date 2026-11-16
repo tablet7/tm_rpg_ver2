@@ -17,6 +17,11 @@
 #     #warn_radius … 輪の半径（0.1 マス単位。1〜255。50 ＝ 5 マス）。中心は足元
 # @s ＝ スキルを使う敵（実行位置 ＝ 技を出す場所（足元）、向き ＝ 技を出す向き）
 
+# 予兆のあいだ、敵は自分から動けない（enemy/skill/lock。技が出る tick をまたぐように 2 tick 長くする）
+scoreboard players operation #skill_lock temp = #warn_time temp
+scoreboard players add #skill_lock temp 2
+function tm_rpg:enemy/skill/lock
+
 # タイマー（marker）。技を出す場所と向き（上下も）と、技を使う敵（ent_id）を覚える
 scoreboard players operation #warn_owner temp = @s ent_id
 execute summon minecraft:marker run function tm_rpg:enemy/skill/warn/init_marker
