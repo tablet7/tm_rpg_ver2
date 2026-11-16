@@ -9,7 +9,7 @@
 # ダメージ計算（storage tm_rpg:damage に入る）
 function tm_rpg:player/skill/skill_damage
 
-# 本体（敵も enemy/skill/test_laser_sweep から使う）
+# 本体（敵も enemy/skill/warn_test_laser_sweep から、予兆のあとに使う）
 function tm_rpg:player/skill/test_laser_sweep/fire
 
 return 1

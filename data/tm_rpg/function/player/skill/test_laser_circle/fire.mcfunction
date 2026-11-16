@@ -1,6 +1,6 @@
 #> tm_rpg:player/skill/test_laser_circle/fire
 
-# スキル「test円レーザー」の本体（ダメージ計算のあと）。プレイヤーは skill1 から、敵は enemy/skill/test_laser_circle から呼ばれる
+# スキル「test円レーザー」の本体（ダメージ計算のあと）。プレイヤーは skill1 から、敵は enemy/skill/warn_test_laser_circle（予兆のあと）から呼ばれる
 # 先に storage tm_rpg:damage（p/m/c_damage・func）と #skill_owner temp・#skill_side temp を入れておくこと（ダメージは player/skill/skill_damage）
 # @s ＝ 使ったプレイヤーか敵（at @s。向き ＝ 使う向き）
 

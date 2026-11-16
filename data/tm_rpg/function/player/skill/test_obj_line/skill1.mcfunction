@@ -11,7 +11,7 @@
 # ダメージ計算（storage tm_rpg:damage に入る。管理役が覚えて、子を出すたびに使う）
 function tm_rpg:player/skill/skill_damage
 
-# 本体（敵も enemy/skill/test_obj_line から使う）
+# 本体（敵も enemy/skill/warn_test_obj_line から、予兆のあとに使う）
 function tm_rpg:player/skill/test_obj_line/fire
 
 return 1

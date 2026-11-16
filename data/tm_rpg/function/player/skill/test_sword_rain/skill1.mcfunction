@@ -11,7 +11,7 @@
 # ダメージ計算（storage tm_rpg:damage に入る。管理役が覚えて、剣を出すたびに使う）
 function tm_rpg:player/skill/skill_damage
 
-# 本体（敵も enemy/skill/test_sword_rain から使う）
+# 本体（敵も enemy/skill/warn_test_sword_rain から使う）
 function tm_rpg:player/skill/test_sword_rain/fire
 
 return 1

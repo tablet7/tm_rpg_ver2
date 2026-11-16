@@ -12,4 +12,7 @@ execute if score @s warn_timer matches 1.. run return 0
 tag @s add warn_firing
 scoreboard players operation #warn_owner temp = @s summon_ent_id
 execute as @e[type=#tm_rpg:mob_type,tag=enemy] if score @s ent_id = #warn_owner temp positioned as @e[type=minecraft:marker,tag=warn_firing,limit=1] rotated as @e[type=minecraft:marker,tag=warn_firing,limit=1] run function tm_rpg:enemy/skill/warn/fire
+# 予兆付きの入口（warn_<スキル>）は、tag warn_firing のタイマーがあるかで「予兆が終わった2回目」を見分ける。
+# 同じ tick に、ほかの敵が同じ技の1回目（予兆を出す）を呼んでも2回目と間違えないように、使い終わったらすぐ外す
+tag @s remove warn_firing
 kill @s

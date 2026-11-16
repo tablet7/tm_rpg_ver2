@@ -7,7 +7,7 @@
 # ダメージ計算
 function tm_rpg:player/skill/skill_damage
 
-# 本体（敵も enemy/skill/test から使う）
+# 本体（敵も enemy/skill/warn_test から、予兆のあとに使う）
 function tm_rpg:player/skill/test/fire
 
 return 1
