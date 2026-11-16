@@ -12,3 +12,7 @@ tp @s[tag=straight10] ^ ^ ^1
 
 ## 回転
 execute if entity @s[tag=rotate37] run rotate @s ~37 ~
+
+## 追尾（tag homing）。移動したあとの場所で敵の方へ曲げ、次の tick の壁判定と移動がその向きを使う
+# （この関数の ^ は呼ばれたときの向きなので、曲げるのは最後にする）
+execute if entity @s[tag=homing] at @s run function tm_rpg:system/delete_entity_direction/homing/main

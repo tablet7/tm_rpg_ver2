@@ -1,6 +1,6 @@
 #> tm_rpg:player/reload
 
-# プレイヤーの状態をリセットする関数。tm_rpg:reload、player/first_reload、player/death/on_death から呼ばれる
+# プレイヤーの状態をリセットする関数。tm_rpg:reload、player/first_reload、player/death/on_respawn から呼ばれる
 # HP・MP・リキャスト・状態異常などを元に戻し、HPバー（text_display）を作り直す
 # @s ＝ プレイヤー
 

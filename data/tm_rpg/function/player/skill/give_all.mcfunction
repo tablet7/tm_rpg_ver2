@@ -10,3 +10,15 @@ loot give @s loot tm_rpg:item/skill/move/left_step
 loot give @s loot tm_rpg:item/skill/move/back_jump
 loot give @s loot tm_rpg:item/skill/move/up_jump
 loot give @s loot tm_rpg:item/skill/test_pro
+loot give @s loot tm_rpg:item/skill/test_obj
+loot give @s loot tm_rpg:item/skill/test_obj_repeat
+loot give @s loot tm_rpg:item/skill/test_obj_line
+loot give @s loot tm_rpg:item/skill/test_sword_rain
+loot give @s loot tm_rpg:item/skill/test_sword_volley
+loot give @s loot tm_rpg:item/skill/test_laser
+loot give @s loot tm_rpg:item/skill/test_turret
+loot give @s loot tm_rpg:item/skill/test_push
+loot give @s loot tm_rpg:item/skill/test_laser_sweep
+loot give @s loot tm_rpg:item/skill/test_laser_circle
+loot give @s loot tm_rpg:item/skill/test_laser_twin
+loot give @s loot tm_rpg:item/skill/fly_slash

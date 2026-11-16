@@ -2,9 +2,9 @@
 
 # スキル「test飛び道具ダメージ」の弾の設定（見た目・種類・動き）。skill1 から execute summon ... run function で呼ばれる
 # 最後に共通の main_projectile/init を呼ぶ（見た目はそれより前に入れる）
-# @s ＝ 出したばかりの弾（item_display）。向きはプレイヤーのまま
+# @s ＝ 出したばかりの弾（item_display）。実行時の向きはプレイヤーの向きか、敵に向けた向き
 
-# 向きをプレイヤーに合わせる（execute summon は向きを引き継がない）
+# 向きを実行時の向き（プレイヤーの向き、または skill1 の facing で敵に向けた向き）に合わせる（execute summon は向きを引き継がない）
 rotate @s ~ ~
 
 # 種類（damage_main がこのタグで、毎 tick test_pro/skill3 を呼ぶ）

@@ -128,6 +128,44 @@ scoreboard objectives add debuff_give_time dummy
 scoreboard objectives add debuff_give_power dummy
 scoreboard objectives add tama_hit_id dummy
 scoreboard objectives add hit_size dummy
+scoreboard objectives add hit_interval dummy
+scoreboard objectives add hit_start dummy
+scoreboard objectives add hit_base_id dummy
+scoreboard objectives add spawn_interval dummy
+scoreboard objectives add spawn_count dummy
+scoreboard objectives add spawn_step dummy
+scoreboard objectives add spawn_timer dummy
+scoreboard objectives add spawn_kill_time dummy
+scoreboard objectives add spawner_id dummy
+scoreboard objectives add bob_timer dummy
+scoreboard objectives add beam_length dummy
+scoreboard objectives add beam_max_len dummy
+scoreboard objectives add sweep_yaw dummy
+scoreboard objectives add sweep_pitch dummy
+scoreboard objectives add sweep_rot_y dummy
+scoreboard objectives add sweep_rot_x dummy
+scoreboard objectives add circle_radius dummy
+scoreboard objectives add circle_period dummy
+scoreboard objectives add circle_dir dummy
+scoreboard objectives add circle_k dummy
+scoreboard objectives add circle_ox dummy
+scoreboard objectives add circle_oy dummy
+# 敵用スキルのまとめテスト（test/enemy_skill）の #step・#timer
+scoreboard objectives add test_skill dummy
+# 敵の技の予兆（enemy/skill/warn）のタイマー
+scoreboard objectives add warn_timer dummy
+# スキルの時間差の演出（player/skill/fx/seq）。進行役を出してからの tick 数
+scoreboard objectives add fx_t dummy
+# 敵の技を選ぶ仕組み（enemy/ai）。次に技を使うまでの待ち時間と、技ごとのクールタイム
+scoreboard objectives add ai_cool dummy
+scoreboard objectives add ai_cd1 dummy
+scoreboard objectives add ai_cd2 dummy
+scoreboard objectives add ai_cd3 dummy
+scoreboard objectives add ai_cd4 dummy
+scoreboard objectives add spin_step dummy
+scoreboard objectives add turret_interval dummy
+scoreboard objectives add turret_timer dummy
+scoreboard objectives add turret_warn dummy
 
 ### Stutas
 #### 基礎値
@@ -300,6 +338,7 @@ scoreboard players set お金 resource 0
 ### tag破壊用
 tag @a remove temp_victim
 scoreboard objectives add temp_victim_remove dummy
+scoreboard objectives add skill_kb_time dummy
 
 # team
 team add Player

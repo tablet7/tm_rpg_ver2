@@ -5,6 +5,12 @@
 
 # @s ＝ 殴られた側
 
+# スキルの弾・範囲攻撃のノックバック（damage_ex/damage_dealt_tama・damage_dealt の damage）で動いたときは何もしない
+# （ダメージはスキル側で与え済み。ここで動くと、回避の表示や破裂・沈潜のダメージがもう一度出る）
+# skill_kb_time ＝ ノックバックを与えた tick の時刻
+execute store result score #kb_now temp run time query gametime
+execute if score @s skill_kb_time = #kb_now temp run return 0
+
 #say @s なぐられた
 
 # 殴った側への処理は execute on attacker を使う

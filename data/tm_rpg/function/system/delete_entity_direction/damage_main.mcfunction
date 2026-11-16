@@ -8,5 +8,8 @@
 # スキルごとの処理（スキルを足したら、ここに1行足す）
 execute if entity @s[tag=test_pro] run return run function tm_rpg:player/skill/test_pro/skill3
 
+# 太いレーザー（tag beam）は、線に沿って当たり判定を動かす（main_projectile/beam/hit）
+execute if entity @s[tag=beam] run return run function tm_rpg:player/skill/main_projectile/beam/hit
+
 # 共通の当たり判定
 return run function tm_rpg:player/skill/main_projectile/hit

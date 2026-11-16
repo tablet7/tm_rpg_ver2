@@ -75,6 +75,9 @@ execute if score @s damage_dealt_pmc_c matches 1.. run function tm_rpg:system/da
 execute if score @s damage_dealt_pmc_c matches 1.. run scoreboard players operation @s hp -= @s damage_dealt_pmc_c
 
 # ノックバック
+# スキル（shape/front3 など。使った人に tag temp_victim）のノックバックのときは、このダメージで「殴られた」判定が動いても
+# naguri/process_damage が何もしないように、今の時刻を skill_kb_time に入れる（同じ tick だけ飛ばす）
+execute if entity @e[type=#tm_rpg:mob_type,tag=temp_victim,limit=1] store result score @s skill_kb_time run time query gametime
 damage @s 1 minecraft:player_attack by @e[tag=temp_victim,limit=1,sort=nearest]
 
 #tellraw @a {"score": {"name": "@s", "objective": "damage_dealt_pmc"}}

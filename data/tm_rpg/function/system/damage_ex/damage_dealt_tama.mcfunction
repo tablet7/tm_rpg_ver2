@@ -74,6 +74,9 @@ execute if score @s damage_dealt_pmc_c matches 1.. run function tm_rpg:system/da
 execute if score @s damage_dealt_pmc_c matches 1.. run scoreboard players operation @s hp -= @s damage_dealt_pmc_c
 
 # ノックバック
+# このダメージで「殴られた」判定（enemy/main の HurtTime・進捗 naguri/hurt_by・hurt_other）が動いても、naguri/process_damage が何もしないように、
+# 今の時刻を skill_kb_time に入れる（同じ tick だけ飛ばす。タグと違って消し忘れが無い）
+execute store result score @s skill_kb_time run time query gametime
 # 近くの弾だけを探す（全体を並べ替えないように distance と type を付ける）
 damage @s 1 minecraft:player_attack by @n[type=#tm_rpg:delete_type,tag=damage_marker,distance=..3]
 

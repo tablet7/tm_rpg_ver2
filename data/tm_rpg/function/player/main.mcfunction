@@ -4,6 +4,9 @@
 # ステータス計算、アクションバー表示、HPバー更新、死亡検知、移動判定、弓・攻撃タイマーの管理を行う
 # @s ＝ プレイヤー
 
+# 死んだあと、リスポーンしたらリセットする（player/death/on_death が tag respawn_wait を付ける。hp=0 の判定より前に置く）
+execute if entity @s[tag=respawn_wait] run function tm_rpg:player/death/respawn_check
+
 # hp=0
 execute if entity @s[scores={hp = ..0}] run function tm_rpg:player/death/death_main
 

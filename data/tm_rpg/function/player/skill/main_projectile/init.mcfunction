@@ -18,8 +18,15 @@ execute unless score @s hit_size matches 1.. run scoreboard players set @s hit_s
 # 弾の id（当たり判定で、同じ敵に2回当たらないように使う）
 execute store result score @s ent_id run random value 0..2147483646
 
+# 一定の間隔で当たる弾（hit_interval。スキル側で init より前に入れる）は、id のもとと出した時刻を覚える（main_projectile/interval が使う）
+execute if score @s hit_interval matches 1.. run scoreboard players operation @s hit_base_id = @s ent_id
+execute if score @s hit_interval matches 1.. store result score @s hit_start run time query gametime
+
 # 撃った人（player/skill/start が #skill_owner temp に入れている）
 scoreboard players operation @s summon_ent_id = #skill_owner temp
+
+# 敵が撃った弾（#skill_side temp が 1。enemy/skill/start が入れる）は tag enemy_shot。当たる相手・狙う相手がプレイヤーになる
+execute if score #skill_side temp matches 1 run tag @s add enemy_shot
 
 # ダメージ（当たり判定の hit_prepare が読む）
 execute store result score @s damage_give_p run data get storage tm_rpg:damage p_damage
