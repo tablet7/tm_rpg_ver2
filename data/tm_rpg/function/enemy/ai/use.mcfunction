@@ -5,3 +5,4 @@
 # @s ＝ 敵（at @s）。狙うプレイヤーに tag ai_target
 
 execute if entity @s[tag=ai_test] run return run function tm_rpg:enemy/ai/test/use
+execute if entity @s[tag=ai_mecha_mosquito] run return run function tm_rpg:enemy/ai/mecha_mosquito/use
