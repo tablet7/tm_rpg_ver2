@@ -12,8 +12,8 @@ scoreboard players remove #timer test_skill 1
 execute if score #timer test_skill matches 1.. run return 0
 
 # 全部終わったら止める（最後のスキルを使った次の回に止める。同じ tick に止めると、最後のスキルの予兆のあとに技が出ない）
-execute if score #step test_skill matches 20.. run tellraw @a [{"text":"[敵スキルテスト] ","color":"gold"},{"text":"全部終わりました","color":"green"}]
-execute if score #step test_skill matches 20.. run return run function tm_rpg:test/enemy_skill/stop
+execute if score #step test_skill matches 21.. run tellraw @a [{"text":"[敵スキルテスト] ","color":"gold"},{"text":"全部終わりました","color":"green"}]
+execute if score #step test_skill matches 21.. run return run function tm_rpg:test/enemy_skill/stop
 
 # 次のスキル（敵の目の位置から、いちばん近いプレイヤーの目の方を向いて使う。実行位置は足元のまま。anchored feet で戻す）
 #   足元から狙うと、目の高さから撃つ技（レーザー・弾）が目の高さぶん上を通るため

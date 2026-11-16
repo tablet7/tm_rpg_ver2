@@ -32,6 +32,8 @@ execute store result score #skill_side temp if entity @s[tag=enemy_shot]
 execute if entity @s[tag=test_obj_line] run function tm_rpg:player/skill/test_obj_line/skill3
 execute if entity @s[tag=test_sword_rain] run function tm_rpg:player/skill/test_sword_rain/skill3
 execute if entity @s[tag=test_sword_volley] run function tm_rpg:player/skill/test_sword_volley/skill3
+# 炎の突進は、溜めが終わった tick に、使った人をダッシュさせる（子は出さない。当たり判定は使った人が出す）
+execute if entity @s[tag=fire_dash] run function tm_rpg:player/skill/fire_dash/skill3
 scoreboard players set #skill_side temp 0
 
 # 次の場所へ、管理役の向き（横の向き）のまま spawn_step（0.1 マス単位）だけまっすぐ進む。マス目には合わせない（斜めでも等間隔）

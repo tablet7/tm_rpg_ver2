@@ -1,6 +1,6 @@
 #> tm_rpg:test/enemy_skill/start
 
-# 敵用スキル（enemy/skill/）をまとめて試す関数。目の前 3 マスに動かないテスト用の敵を出し、6 秒ごとに1つずつ（19 個）、自分に向けて使わせる
+# 敵用スキル（enemy/skill/）をまとめて試す関数。目の前 3 マスに動かないテスト用の敵を出し、6 秒ごとに1つずつ（20 個）、自分に向けて使わせる
 # 手動で実行する: function tm_rpg:test/enemy_skill/start
 #   途中のスキルから始める: function tm_rpg:test/enemy_skill/start のあとで scoreboard players set #step test_skill <番号>（番号は test/enemy_skill/use）
 #   途中で止める: function tm_rpg:test/enemy_skill/stop
@@ -11,7 +11,7 @@
 function tm_rpg:test/enemy_skill/stop
 
 # テスト用の敵（NoAI のスケルトン）を目の前 3 マス（足元の高さ）に出して、tag skill_tester を付ける
-execute rotated ~ 0 positioned ^ ^ ^3 run function tm_rpg:enemy/summon/test/no_move_test_enemy
+execute rotated ~ 0 positioned ^ ^ ^3 run function tm_rpg:enemy/summon/test/move_test_enemy
 execute rotated ~ 0 positioned ^ ^ ^3 run tag @n[type=minecraft:skeleton,tag=test,tag=!skill_tester,distance=..1] add skill_tester
 execute as @n[type=minecraft:skeleton,tag=skill_tester,distance=..6] run rotate @s facing entity @p[distance=..6] feet
 

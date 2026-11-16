@@ -18,3 +18,4 @@ execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_test_lase
 execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_test_laser_circle,limit=1] run return run function tm_rpg:enemy/skill/warn_test_laser_circle
 execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_test_laser_twin,limit=1] run return run function tm_rpg:enemy/skill/warn_test_laser_twin
 execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_ice_breath,limit=1] run return run function tm_rpg:enemy/skill/warn_ice_breath
+execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_fire_dash,limit=1] run return run function tm_rpg:enemy/skill/warn_fire_dash

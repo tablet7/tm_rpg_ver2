@@ -6,3 +6,4 @@
 # @s ＝ 弾（at @s。移動したあとの場所）
 execute if entity @s[tag=fx_fly_slash] run return run function tm_rpg:player/skill/fly_slash/fx/tick
 execute if entity @s[tag=fx_ice_breath] run return run function tm_rpg:player/skill/ice_breath/fx/tick
+execute if entity @s[tag=fx_fire_dash] run return run function tm_rpg:player/skill/fire_dash/fx/tick
