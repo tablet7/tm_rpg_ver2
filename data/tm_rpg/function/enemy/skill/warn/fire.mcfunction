@@ -21,3 +21,4 @@ execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_ice_breat
 execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_fire_dash,limit=1] run return run function tm_rpg:enemy/skill/warn_fire_dash
 execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_light_cross_fall,limit=1] run return run function tm_rpg:enemy/skill/warn_light_cross_fall
 execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_light_cross,limit=1] run return run function tm_rpg:enemy/skill/warn_light_cross
+execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_fairy,limit=1] run return run function tm_rpg:enemy/skill/warn_fairy
