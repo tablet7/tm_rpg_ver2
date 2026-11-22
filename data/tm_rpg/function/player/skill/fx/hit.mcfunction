@@ -8,3 +8,6 @@ execute if entity @s[tag=fx_fly_slash] run return run function tm_rpg:player/ski
 execute if entity @s[tag=fx_fire_dash] run return run function tm_rpg:player/skill/fire_dash/fx/hit
 execute if entity @s[tag=fx_light_cross] run return run function tm_rpg:player/skill/light_cross/fx/hit
 execute if entity @s[tag=fx_light_cross_cross] run return run function tm_rpg:player/skill/light_cross/cross/fx/hit
+execute if entity @s[tag=fx_wolf_dash] run return run function tm_rpg:player/skill/wolf_dash/fx/hit
+execute if entity @s[tag=fx_wolf_wave] run return run function tm_rpg:player/skill/wolf_wave/fx/hit
+execute if entity @s[tag=fx_wolf_ring] run return run function tm_rpg:player/skill/wolf_ring/fx/hit

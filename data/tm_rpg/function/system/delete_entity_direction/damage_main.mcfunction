@@ -9,6 +9,8 @@
 execute if entity @s[tag=test_pro] run return run function tm_rpg:player/skill/test_pro/skill3
 # 炎の突進の当たり判定は、毎 tick 使った人の場所へ動いてから当たる
 execute if entity @s[tag=fire_dash_hit] run return run function tm_rpg:player/skill/fire_dash/skill5
+# ボス「ガーディアンウルフ」の突進の当たり判定は、毎 tick ボスの体の前半へ動いてから当たる
+execute if entity @s[tag=wolf_dash_hit] run return run function tm_rpg:player/skill/wolf_dash/skill3
 
 # 太いレーザー（tag beam）は、線に沿って当たり判定を動かす（main_projectile/beam/hit）
 execute if entity @s[tag=beam] run return run function tm_rpg:player/skill/main_projectile/beam/hit

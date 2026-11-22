@@ -9,3 +9,6 @@ execute if entity @s[tag=fx_ice_breath] run return run function tm_rpg:player/sk
 execute if entity @s[tag=fx_fire_dash] run return run function tm_rpg:player/skill/fire_dash/fx/tick
 execute if entity @s[tag=fx_light_cross] run return run function tm_rpg:player/skill/light_cross/fx/tick
 execute if entity @s[tag=fx_light_cross_cross] run return run function tm_rpg:player/skill/light_cross/cross/fx/tick
+execute if entity @s[tag=fx_wolf_dash] run return run function tm_rpg:player/skill/wolf_dash/fx/tick
+execute if entity @s[tag=fx_wolf_wave] run return run function tm_rpg:player/skill/wolf_wave/fx/tick
+execute if entity @s[tag=fx_wolf_ring] run return run function tm_rpg:player/skill/wolf_ring/fx/tick
