@@ -1,10 +1,10 @@
 #> tm_rpg:system/item_drop/hit_mark/take
 
-# 倒した敵の印（tag item_drop.hit.<ent_id>）が付いたプレイヤー全員を、アイテムを受け取る人（tag item_drop.receiver）にして、印を外す関数
+# 倒した敵の ent_id が印の枠（スコア hit_mark_1〜16）に入っているプレイヤー全員を、アイテムを受け取る人（tag item_drop.receiver）にして、その枠を空ける関数
 # enemy/death_main から呼ばれる。tag item_drop.receiver は、呼んだ側がアイテムを渡したあとに外す
-# 印を外せるのはオンラインのプレイヤーだけ（オフラインの人の印は残るが、ent_id は使い回さないので次の敵には効かない）
+# オフラインの人の枠は空けられないが、ent_id は使い回さないので次の敵には効かない。/reload で全員分を空にする（tm_rpg:reload）
 # @s ＝ 倒した敵
 
 execute unless score @s ent_id matches -2147483648.. run return 0
-execute store result storage tm_rpg:hit_mark id int 1 run scoreboard players get @s ent_id
-function tm_rpg:system/item_drop/hit_mark/take_macro with storage tm_rpg:hit_mark
+scoreboard players operation #hit_mark_id temp = @s ent_id
+execute as @a run function tm_rpg:system/item_drop/hit_mark/take_player

@@ -64,8 +64,45 @@ scoreboard players set System hours 0
 ## player
 scoreboard objectives add Lv dummy
 scoreboard objectives add item_roll dummy
-# 最後に印を付けた敵の ent_id（system/item_drop/hit_mark/add。同じ敵に続けてダメージを与えたときはマクロを呼ばない）
+# 敵にダメージを与えたときの印（system/item_drop/hit_mark）。倒したときにアイテムを渡す相手を決める
+# hit_mark_1〜16 ＝ ダメージを与えた敵の ent_id を入れる枠、hit_mark_last ＝ 最後に入れた敵の ent_id
+# 上で敵を全部消しているので、remove してから add し直して、オフラインの人の分も含めて空にする
+scoreboard objectives remove hit_mark_last
 scoreboard objectives add hit_mark_last dummy
+scoreboard objectives remove hit_mark_1
+scoreboard objectives add hit_mark_1 dummy
+scoreboard objectives remove hit_mark_2
+scoreboard objectives add hit_mark_2 dummy
+scoreboard objectives remove hit_mark_3
+scoreboard objectives add hit_mark_3 dummy
+scoreboard objectives remove hit_mark_4
+scoreboard objectives add hit_mark_4 dummy
+scoreboard objectives remove hit_mark_5
+scoreboard objectives add hit_mark_5 dummy
+scoreboard objectives remove hit_mark_6
+scoreboard objectives add hit_mark_6 dummy
+scoreboard objectives remove hit_mark_7
+scoreboard objectives add hit_mark_7 dummy
+scoreboard objectives remove hit_mark_8
+scoreboard objectives add hit_mark_8 dummy
+scoreboard objectives remove hit_mark_9
+scoreboard objectives add hit_mark_9 dummy
+scoreboard objectives remove hit_mark_10
+scoreboard objectives add hit_mark_10 dummy
+scoreboard objectives remove hit_mark_11
+scoreboard objectives add hit_mark_11 dummy
+scoreboard objectives remove hit_mark_12
+scoreboard objectives add hit_mark_12 dummy
+scoreboard objectives remove hit_mark_13
+scoreboard objectives add hit_mark_13 dummy
+scoreboard objectives remove hit_mark_14
+scoreboard objectives add hit_mark_14 dummy
+scoreboard objectives remove hit_mark_15
+scoreboard objectives add hit_mark_15 dummy
+scoreboard objectives remove hit_mark_16
+scoreboard objectives add hit_mark_16 dummy
+# 次に入れる枠の番号（1〜16 を順番に回す。空にしなくてよい）
+scoreboard objectives add hit_mark_next dummy
 scoreboard objectives add hp_ratio dummy
 scoreboard objectives add hp_ratio_old dummy
 scoreboard objectives add player_deaths deathCount

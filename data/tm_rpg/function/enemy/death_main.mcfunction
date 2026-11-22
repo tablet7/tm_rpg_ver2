@@ -5,7 +5,7 @@
 # @s ＝ 敵（tag=enemy）
 
 # アイテムドロップ
-# この敵に1回でもダメージを与えたプレイヤー全員（印 tag item_drop.hit.<ent_id>）を受け取る人にして、アクセサリーを直接渡す
+# この敵に1回でもダメージを与えたプレイヤー全員（印の枠 hit_mark_1〜16 にこの敵の ent_id が入っている人）を受け取る人にして、アクセサリーを直接渡す
 function tm_rpg:system/item_drop/hit_mark/take
 execute if entity @a[tag=item_drop.receiver,limit=1] run function tm_rpg:system/item_drop/accessories/default
 tag @a remove item_drop.receiver
