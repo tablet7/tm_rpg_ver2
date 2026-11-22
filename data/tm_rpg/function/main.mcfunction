@@ -24,6 +24,8 @@ execute if score #step test_skill matches 1.. run function tm_rpg:test/enemy_ski
 
 # ボス（這い出る者）。部位の配置と行動。敵の処理（enemy/main）より前に動かす
 execute as @e[type=minecraft:marker,tag=crawler.master] at @s run function tm_rpg:enemy/boss/crawler/tick
+# ボス（ガーディアンウルフ）。部位の配置と行動。敵の処理（enemy/main）より前に動かす
+execute as @e[type=minecraft:marker,tag=guardian_wolf.master] at @s run function tm_rpg:enemy/boss/guardian_wolf/tick
 execute as @e[type=#tm_rpg:mob_type,tag=enemy] at @s run function tm_rpg:enemy/main
 
 # ダメージ表記の操作

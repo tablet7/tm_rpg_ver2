@@ -1,0 +1,19 @@
+#> tm_rpg:enemy/boss/guardian_wolf/move/dash/v_arm_r
+
+# 行動 dash の見た目 arm_r の姿勢。guardian_wolf/v/arm_r から呼ばれる
+# @s ＝ 見た目（item_display）
+
+execute if score #t boss_tmp matches 1 run return run data merge entity @s {transformation:{translation:[-1.6f,2.239f,3.3428f],left_rotation:[-0.4384f,0f,0f,0.8988f],right_rotation:[0f,0f,0f,1f],scale:[2.2f,2.2f,2.2f]},start_interpolation:0,interpolation_duration:3}
+execute if score #t boss_tmp matches 4 run return run data merge entity @s {transformation:{translation:[-1.6f,3.4515f,3.4248f],left_rotation:[-0.788f,0f,0f,0.6157f],right_rotation:[0f,0f,0f,1f],scale:[2.2f,2.2f,2.2f]},start_interpolation:0,interpolation_duration:3}
+execute if score #t boss_tmp matches 7 run return run data merge entity @s {transformation:{translation:[-1.6f,4.3093f,2.5626f],left_rotation:[-0.9781f,0f,0f,0.2079f],right_rotation:[0f,0f,0f,1f],scale:[2.2f,2.2f,2.2f]},start_interpolation:0,interpolation_duration:3}
+execute if score #t boss_tmp matches 28 run return run data merge entity @s {transformation:{translation:[-1.6f,3.6751f,3.0027f],left_rotation:[-0.9455f,0f,0f,0.3256f],right_rotation:[0f,0f,0f,1f],scale:[2.2f,2.2f,2.2f]},start_interpolation:0,interpolation_duration:3}
+execute if score #t boss_tmp matches 45 run return run data merge entity @s {transformation:{translation:[-1.6f,3.867f,2.8929f],left_rotation:[-0.9563f,0f,0f,0.2924f],right_rotation:[0f,0f,0f,1f],scale:[2.2f,2.2f,2.2f]},start_interpolation:0,interpolation_duration:1}
+execute if score #t boss_tmp matches 46 run return run data merge entity @s {transformation:{translation:[-1.6f,4.3905f,2.4875f],left_rotation:[-0.9816f,0f,0f,0.1908f],right_rotation:[0f,0f,0f,1f],scale:[2.2f,2.2f,2.2f]},start_interpolation:0,interpolation_duration:3}
+execute if score #t boss_tmp matches 62 run return run data merge entity @s {transformation:{translation:[-1.6f,2.7094f,3.5894f],left_rotation:[-0.6561f,0f,0f,0.7547f],right_rotation:[0f,0f,0f,1f],scale:[2.2f,2.2f,2.2f]},start_interpolation:0,interpolation_duration:2}
+execute if score #t boss_tmp matches 64 run return run data merge entity @s {transformation:{translation:[-1.6f,1.0576f,2.6314f],left_rotation:[-0.0523f,0f,0f,0.9986f],right_rotation:[0f,0f,0f,1f],scale:[2.2f,2.2f,2.2f]},start_interpolation:0,interpolation_duration:2}
+execute if score #t boss_tmp matches 66 run return run data merge entity @s {transformation:{translation:[-1.6f,1.14f,2.6018f],left_rotation:[-0.0436f,0f,0f,0.999f],right_rotation:[0f,0f,0f,1f],scale:[2.2f,2.2f,2.2f]},start_interpolation:0,interpolation_duration:3}
+execute if score #t boss_tmp matches 69 run return run data merge entity @s {transformation:{translation:[-1.6f,1.2226f,2.5686f],left_rotation:[-0.0349f,0f,0f,0.9994f],right_rotation:[0f,0f,0f,1f],scale:[2.2f,2.2f,2.2f]},start_interpolation:0,interpolation_duration:3}
+execute if score #t boss_tmp matches 72 run return run data merge entity @s {transformation:{translation:[-1.6f,1.305f,2.5318f],left_rotation:[-0.0262f,0f,0f,0.9997f],right_rotation:[0f,0f,0f,1f],scale:[2.2f,2.2f,2.2f]},start_interpolation:0,interpolation_duration:3}
+execute if score #t boss_tmp matches 75 run return run data merge entity @s {transformation:{translation:[-1.6f,1.3871f,2.4914f],left_rotation:[-0.0175f,0f,0f,0.9999f],right_rotation:[0f,0f,0f,1f],scale:[2.2f,2.2f,2.2f]},start_interpolation:0,interpolation_duration:3}
+execute if score #t boss_tmp matches 78 run return run data merge entity @s {transformation:{translation:[-1.6f,1.4688f,2.4474f],left_rotation:[-0.0087f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],scale:[2.2f,2.2f,2.2f]},start_interpolation:0,interpolation_duration:3}
+execute if score #t boss_tmp matches 81 run return run data merge entity @s {transformation:{translation:[-1.6f,1.55f,2.4f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],scale:[2.2f,2.2f,2.2f]},start_interpolation:0,interpolation_duration:3}
