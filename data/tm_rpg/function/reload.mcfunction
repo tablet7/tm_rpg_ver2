@@ -64,6 +64,8 @@ scoreboard players set System hours 0
 ## player
 scoreboard objectives add Lv dummy
 scoreboard objectives add item_roll dummy
+# 最後に印を付けた敵の ent_id（system/item_drop/hit_mark/add。同じ敵に続けてダメージを与えたときはマクロを呼ばない）
+scoreboard objectives add hit_mark_last dummy
 scoreboard objectives add hp_ratio dummy
 scoreboard objectives add hp_ratio_old dummy
 scoreboard objectives add player_deaths deathCount
