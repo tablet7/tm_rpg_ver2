@@ -103,6 +103,8 @@ scoreboard objectives remove hit_mark_16
 scoreboard objectives add hit_mark_16 dummy
 # 次に入れる枠の番号（1〜16 を順番に回す。空にしなくてよい）
 scoreboard objectives add hit_mark_next dummy
+# サーバーから抜けた回数（統計。抜けると増える）。2回目以降のログインを見分けて player/reload を呼ぶ（player/main）
+scoreboard objectives add leave_game minecraft.custom:minecraft.leave_game
 scoreboard objectives add hp_ratio dummy
 scoreboard objectives add hp_ratio_old dummy
 scoreboard objectives add player_deaths deathCount
