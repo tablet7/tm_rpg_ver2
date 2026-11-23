@@ -6,3 +6,6 @@
 function tm_rpg:reload
 #reloadの確認テキスト
 tellraw @a {"text":"{tm_rpg} Reloaded"}
+
+function test_weapon_motion:load
+tellraw @a {"text":"{test_weapon_motion} Reloaded"}
