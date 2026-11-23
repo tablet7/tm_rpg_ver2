@@ -5,6 +5,9 @@
 # p_damage＝物理、m_damage＝魔法、c_damage＝確定ダメージ、func＝計算前に実行する関数（何もしないときは "tm_rpg:system/naguri/non_func"）
 # @s ＝ ダメージを受けるエンティティ
 
+# 減る前の hp（下の「倒したときにアイテムを渡す相手の印」で、hp が減ったかを見る）
+scoreboard players operation #hit_mark_hp temp = @s hp
+
 # ダメージの計算・表記
 scoreboard players set @s damage_dealt_per 100
 
@@ -73,6 +76,14 @@ data modify storage tm_rpg:damage_d color set value "white"
 execute if score @s damage_dealt_pmc_c matches 1.. run function tm_rpg:system/damage_ex/damage_dealt_m
 
 execute if score @s damage_dealt_pmc_c matches 1.. run scoreboard players operation @s hp -= @s damage_dealt_pmc_c
+
+# 倒したときにアイテムを渡す相手の印（system/item_drop/hit_mark/add）
+# 敵の hp が減ったら、ダメージを与えたプレイヤーに印を付ける
+# 殴り（naguri/process_damage）は殴った人に tag item_drop.hit_now が付いている。範囲スキル（shape/front3 など）は使った人（tag temp_victim）に付ける
+# 状態異常の継続ダメージは与えた人が分からないので付けない（状態異常を付けたときの攻撃で付いている）
+execute if entity @s[tag=enemy] if score @s hp < #hit_mark_hp temp run tag @a[tag=temp_victim] add item_drop.hit_now
+execute if entity @s[tag=enemy] if score @s hp < #hit_mark_hp temp if entity @a[tag=item_drop.hit_now,limit=1] run function tm_rpg:system/item_drop/hit_mark/add
+tag @a remove item_drop.hit_now
 
 # ノックバック
 # スキル（shape/front3 など。使った人に tag temp_victim）のノックバックのときは、このダメージで「殴られた」判定が動いても

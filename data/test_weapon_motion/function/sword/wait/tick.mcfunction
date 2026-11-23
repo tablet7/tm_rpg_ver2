@@ -1,0 +1,10 @@
+#> test_weapon_motion:sword/wait/tick
+
+# 技の終わりのコマのまま、次の右クリックを待つ（twm_sw 2）毎 tick の処理。sword/tick から呼ばれる
+# 受付時間内に右クリックすれば次の技、過ぎたら構えに戻る
+# @s ＝ プレイヤー（at @s）
+
+scoreboard players add @s twm_sw_t 1
+execute if score #use twm_tmp matches 1 run return run function test_weapon_motion:sword/attack/next
+# 受付時間を変えるときは、この行の数字（受付時間 + 1）だけを変える（今は 10 tick = 0.5 秒）
+execute if score @s twm_sw_t matches 11.. run function test_weapon_motion:sword/back/start

@@ -25,3 +25,4 @@ loot give @s loot tm_rpg:item/skill/fly_slash
 loot give @s loot tm_rpg:item/skill/ice_breath
 loot give @s loot tm_rpg:item/skill/fire_dash
 loot give @s loot tm_rpg:item/skill/light_cross
+loot give @s loot tm_rpg:item/skill/fairy

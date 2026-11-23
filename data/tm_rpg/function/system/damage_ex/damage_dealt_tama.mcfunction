@@ -5,6 +5,9 @@
 # 使い方: storage tm_rpg:damage に p_damage, m_damage, c_damage, func を入れてから function tm_rpg:system/damage_ex/damage_dealt_tama
 # @s ＝ ダメージを受けるエンティティ
 
+# 減る前の hp（下の「倒したときにアイテムを渡す相手の印」で、hp が減ったかを見る）
+scoreboard players operation #hit_mark_hp temp = @s hp
+
 # ダメージの計算・表記
 scoreboard players set @s damage_dealt_per 100
 
@@ -72,6 +75,11 @@ data modify storage tm_rpg:damage_d color set value "white"
 execute if score @s damage_dealt_pmc_c matches 1.. run function tm_rpg:system/damage_ex/damage_dealt_m
 
 execute if score @s damage_dealt_pmc_c matches 1.. run scoreboard players operation @s hp -= @s damage_dealt_pmc_c
+
+# 倒したときにアイテムを渡す相手の印（system/item_drop/hit_mark/add）
+# 敵の hp が減ったら、弾を撃ったプレイヤー（ent_id が #tama_owner temp。main_projectile/hit_prepare が入れる）に印を付ける
+execute if entity @s[tag=enemy] if score @s hp < #hit_mark_hp temp as @a if score @s ent_id = #tama_owner temp run tag @s add item_drop.hit_now
+execute if entity @a[tag=item_drop.hit_now,limit=1] run function tm_rpg:system/item_drop/hit_mark/add
 
 # ノックバック
 # このダメージで「殴られた」判定（enemy/main の HurtTime・進捗 naguri/hurt_by・hurt_other）が動いても、naguri/process_damage が何もしないように、

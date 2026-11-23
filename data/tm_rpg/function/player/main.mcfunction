@@ -13,6 +13,10 @@ execute if entity @s[scores={hp = ..0}] run function tm_rpg:player/death/death_m
 # first_login
 execute if entity @s[tag=!joined] run function tm_rpg:player/first_reload
 
+# 2回目以降のログイン（一度抜けてから入り直した）ときもリセットする
+# leave_game ＝ サーバーから抜けると増える統計（tm_rpg:reload で作る）。抜けたあと最初の tick にだけ動くよう、呼んだら消す
+execute if score @s leave_game matches 1.. run function tm_rpg:player/login_sec
+
 # HP,MP,Armorなどの変動
 function tm_rpg:system/stutas/hendou_main
 

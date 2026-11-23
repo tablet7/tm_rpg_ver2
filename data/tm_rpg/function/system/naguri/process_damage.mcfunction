@@ -49,5 +49,9 @@ execute on attacker run scoreboard players set @s attack_timer 0
 # ノックバックしたときは判定しない
 execute on attacker if entity @s[tag=temp_victim] run function tm_rpg:system/naguri/0damage
 
+# 敵を殴ったのがプレイヤーなら、倒したときにアイテムを渡す相手の候補にする
+# （tag item_drop.hit_now。敵の hp が減ったら damage_ex/damage_dealt が印を付ける: system/item_drop/hit_mark/add）
+execute if entity @s[tag=enemy] on attacker if entity @s[type=player] run tag @s add item_drop.hit_now
+
 # ダメージを与える
 function tm_rpg:system/damage_ex/damage_dealt

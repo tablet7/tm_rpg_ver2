@@ -1,7 +1,7 @@
 #> tm_rpg:player/reload
 
-# プレイヤーの状態をリセットする関数。tm_rpg:reload、player/first_reload、player/death/on_respawn から呼ばれる
-# HP・MP・リキャスト・状態異常などを元に戻し、HPバー（text_display）を作り直す
+# プレイヤーの状態をリセットする関数。tm_rpg:reload、player/first_reload、player/death/on_respawn、player/main（2回目以降のログイン）から呼ばれる
+# HP・MP・リキャスト・状態異常・敵にダメージを与えたときの印などを元に戻し、HPバー（text_display）を作り直す
 # @s ＝ プレイヤー
 
 effect give @s minecraft:instant_health infinite 10 true
@@ -34,6 +34,26 @@ scoreboard players reset @s hp_ratio_old
 
 tag @s remove temp_victim
 scoreboard players set @s temp_victim_remove 0
+
+# 敵にダメージを与えたときの印（system/item_drop/hit_mark）を空にする
+scoreboard players reset @s hit_mark_1
+scoreboard players reset @s hit_mark_2
+scoreboard players reset @s hit_mark_3
+scoreboard players reset @s hit_mark_4
+scoreboard players reset @s hit_mark_5
+scoreboard players reset @s hit_mark_6
+scoreboard players reset @s hit_mark_7
+scoreboard players reset @s hit_mark_8
+scoreboard players reset @s hit_mark_9
+scoreboard players reset @s hit_mark_10
+scoreboard players reset @s hit_mark_11
+scoreboard players reset @s hit_mark_12
+scoreboard players reset @s hit_mark_13
+scoreboard players reset @s hit_mark_14
+scoreboard players reset @s hit_mark_15
+scoreboard players reset @s hit_mark_16
+scoreboard players reset @s hit_mark_last
+scoreboard players reset @s hit_mark_next
 
 function tm_rpg:system/stutas/potion_reset
 

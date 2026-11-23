@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:command",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:player_head",
+          "modifier": [
+            {
+              "type": "minecraft:fill_player_head",
+              "entity": "this"
+            },
+            {
+              "type": "minecraft:set_item",
+              "item": "minecraft:warped_fungus_on_a_stick"
+            },
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:item_model": "test_weapon_motion:skin_arm",
+                "minecraft:item_name": {"text": "スキンの腕（テスト）", "color": "light_purple"},
+                "minecraft:lore": [
+                  {"text": "メインハンドに持つと、一人称で自分のスキンの両腕が出る", "color": "gray", "italic": false},
+                  {"text": "素手（本物の腕）と見比べる", "color": "gray", "italic": false}
+                ]
+              }
+            },
+            {
+              "type": "minecraft:set_custom_model_data",
+              "strings": {"values": ["slim"], "mode": "replace_all"},
+              "condition": {"type": "minecraft:entity_scores", "entity": "this", "scores": {"twm_slim": 1}}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -20,7 +20,8 @@
           "lore": [
             [{"text": "Lv: ","color": "gold","italic": false},{"score": {"name": "#lv","objective": "item_roll"},"color": "white","italic": false},{"text": "  (0)","color": "white","italic": false}],
             {"text": "胴体に装備することで効果が発揮される","color": "yellow","italic": false},
-            {"text": "HP関連に特化している","color": "white","italic": false}
+            {"text": "HP関連に特化している","color": "white","italic": false},
+            {"text": "最大HPを10%増加させる","color": "white", "italic": false}
           ],
           "mode": "append"
         },

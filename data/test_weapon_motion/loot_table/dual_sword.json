@@ -1,0 +1,59 @@
+{
+  "type": "minecraft:command",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:player_head",
+          "modifier": [
+            {
+              "type": "minecraft:fill_player_head",
+              "entity": "this"
+            },
+            {
+              "type": "minecraft:set_item",
+              "item": "minecraft:warped_fungus_on_a_stick"
+            },
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:item_model": "test_weapon_motion:dual_sword",
+                "minecraft:item_name": {"text": "二刀流（テスト）", "color": "aqua"},
+                "minecraft:lore": [
+                  [{"text": "Lv: ","color": "gold","italic": false},{"text": "1","color": "white","italic": false},{"text": "  (0)","color": "white","italic": false}],
+                  [{"text": "参照ステータス: ","color": "white","italic": false},{"text": "攻撃力","color": "red","italic": false}],
+                  [{"text": "ダメージタイプ: ","color": "white","italic": false},{"text": "物理ダメージ","color": "red","italic": false}],
+                  {"text": "基本ダメージ: 3 + 30%","color": "white","italic": false},
+                  [{"text": "戦技: ","color": "yellow","italic": false},{"text": "[バックステップ]  5s","color": "white","italic": false}]
+                ],
+                "minecraft:attack_animation": {"type": "none"},
+                "minecraft:interact_animation": {"type": "none"},
+                "minecraft:enchantments": {"tm_rpg:dash_impulse": 1},
+                "minecraft:tooltip_display": {"hidden_components": ["minecraft:enchantments"]},
+                "minecraft:enchantment_glint_override": false,
+                "minecraft:attribute_modifiers": [
+                  {"type": "minecraft:attack_speed", "id": "test_weapon_motion:swap_speed", "amount": 100, "operation": "add_value", "slot": "hand", "display": {"type": "hidden"}}
+                ]
+              }
+            },
+            {
+              "type": "minecraft:set_custom_model_data",
+              "floats": {"values": [0], "mode": "replace_all"}
+            },
+            {
+              "type": "minecraft:set_custom_model_data",
+              "strings": {"values": ["slim"], "mode": "replace_all"},
+              "condition": {"type": "minecraft:entity_scores", "entity": "this", "scores": {"twm_slim": 1}}
+            },
+            {
+              "type": "minecraft:set_custom_data",
+              "tag": "{weapon_type:\"two_hand\",lv:1,kihon:3,per:30,damage_type:1,sanshou_type:1,kinsetu:1,kaizou:0,sengi:\"test_weapon_motion:sengi/back_step/skill1\"}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

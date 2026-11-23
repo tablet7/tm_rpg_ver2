@@ -21,3 +21,12 @@ execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_ice_breat
 execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_fire_dash,limit=1] run return run function tm_rpg:enemy/skill/warn_fire_dash
 execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_light_cross_fall,limit=1] run return run function tm_rpg:enemy/skill/warn_light_cross_fall
 execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_light_cross,limit=1] run return run function tm_rpg:enemy/skill/warn_light_cross
+execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_fairy,limit=1] run return run function tm_rpg:enemy/skill/warn_fairy
+execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_wolf_swipe,limit=1] run return run function tm_rpg:enemy/skill/warn_wolf_swipe
+execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_wolf_dash,limit=1] run return run function tm_rpg:enemy/skill/warn_wolf_dash
+execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_wolf_slam,limit=1] run return run function tm_rpg:enemy/skill/warn_wolf_slam
+execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_wolf_tail,limit=1] run return run function tm_rpg:enemy/skill/warn_wolf_tail
+execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_wolf_leap,limit=1] run return run function tm_rpg:enemy/skill/warn_wolf_leap
+execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_wolf_thunder,limit=1] run return run function tm_rpg:enemy/skill/warn_wolf_thunder
+execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_wolf_wave,limit=1] run return run function tm_rpg:enemy/skill/warn_wolf_wave
+execute if entity @e[type=minecraft:marker,tag=warn_firing,tag=warn_do_wolf_ring,limit=1] run return run function tm_rpg:enemy/skill/warn_wolf_ring

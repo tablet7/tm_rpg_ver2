@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:command",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:warped_fungus_on_a_stick",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:item_model": "test_weapon_motion:weapon",
+                "minecraft:item_name": {"text": "変形武器（テスト）", "color": "light_purple"},
+                "minecraft:lore": [
+                  {"text": "オフハンドに持つ（メインハンドは空ける）", "color": "gray", "italic": false},
+                  {"text": "右クリック: 双剣 → 斧 に合体 / 斧を振り下ろす", "color": "gray", "italic": false},
+                  {"text": "しゃがんで右クリック: 斧 → 双剣 に分離", "color": "gray", "italic": false}
+                ],
+                "minecraft:attack_animation": {"type": "none"},
+                "minecraft:interact_animation": {"type": "none"},
+                "minecraft:attribute_modifiers": [
+                  {"type": "minecraft:attack_speed", "id": "test_weapon_motion:swap_speed", "amount": 100, "operation": "add_value", "slot": "hand", "display": {"type": "hidden"}}
+                ]
+              }
+            },
+            {
+              "type": "minecraft:set_custom_model_data",
+              "floats": {"values": [0], "mode": "replace_all"},
+              "strings": {"values": ["dual"], "mode": "replace_all"},
+              "colors": {
+                "values": [
+                  {"type": "minecraft:score", "target": {"type": "minecraft:fixed", "name": "#skin"}, "score": "twm_tmp"},
+                  {"type": "minecraft:score", "target": {"type": "minecraft:fixed", "name": "#sleeve"}, "score": "twm_tmp"}
+                ],
+                "mode": "replace_all"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
