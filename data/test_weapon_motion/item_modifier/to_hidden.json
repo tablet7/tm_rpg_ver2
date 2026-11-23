@@ -1,0 +1,4 @@
+{
+  "type": "minecraft:set_custom_model_data",
+  "strings": {"values": ["hidden"], "mode": "replace_all"}
+}
