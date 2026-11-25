@@ -375,15 +375,16 @@ scoreboard objectives add sinking_time dummy
 scoreboard objectives add vibration_potency dummy
 scoreboard objectives add vibration_time dummy
 
-### 資源
-scoreboard objectives add resource dummy {"text":"資源","color":"green"}
-scoreboard objectives setdisplay sidebar resource
-scoreboard players set お金 resource 0
-
 ### tag破壊用
 tag @a remove temp_victim
 scoreboard objectives add temp_victim_remove dummy
 scoreboard objectives add skill_kb_time dummy
+
+### 資源
+scoreboard objectives add resource_page dummy
+scoreboard objectives add gold dummy
+scoreboard objectives add exp dummy
+scoreboard objectives add next_exp dummy
 
 # team
 team add Player
