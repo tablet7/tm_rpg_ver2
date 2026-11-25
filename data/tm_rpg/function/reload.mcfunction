@@ -61,7 +61,8 @@ scoreboard players set System seconds 0
 scoreboard players set System minutes 0
 scoreboard players set System hours 0
 
-## player
+## Player
+scoreboard objectives add job_type dummy
 scoreboard objectives add Lv dummy
 scoreboard objectives add item_roll dummy
 # 敵にダメージを与えたときの印（system/item_drop/hit_mark）。倒したときにアイテムを渡す相手を決める
