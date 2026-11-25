@@ -27,6 +27,10 @@ execute if score @s buff_next <= #now temp run function tm_rpg:system/buff/expir
 # HP,MP,Armorなどの変動
 function tm_rpg:system/stutas/hendou_main
 
+# 最大HP・最大MP が下がったとき（バフが切れた・装備を外したなど）、今の HP・MP を最大値まで下げる
+execute if score @s hp > @s HP_MAX run scoreboard players operation @s hp = @s HP_MAX
+execute if score @s mp > @s MP_MAX run scoreboard players operation @s mp = @s MP_MAX
+
 # hp変動
 scoreboard players operation @s hp_ratio = @s hp
 scoreboard players operation @s hp_ratio *= System CONTACT_20
