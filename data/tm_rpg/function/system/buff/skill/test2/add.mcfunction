@@ -30,4 +30,7 @@ scoreboard players operation @s buff_e_test2 += #now temp
 # 一番早く切れる時刻を更新する
 execute unless score @s buff_next matches -2147483648.. run scoreboard players operation @s buff_next = @s buff_e_test2
 scoreboard players operation @s buff_next < @s buff_e_test2
+
+# ステータスを組み立て直す（stutas/hendou_main）
+scoreboard players set @s stat_dirty 1
 return 1

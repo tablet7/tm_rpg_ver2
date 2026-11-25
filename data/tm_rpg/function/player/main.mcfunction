@@ -24,8 +24,13 @@ execute if score @s kaizou_open matches 1.. run function tm_rpg:system/item_mod/
 # バフ（スキル・ポーション）の時間切れ。一番早く切れる時刻 buff_next になった相手だけ外す（system/buff/expire）
 execute if score @s buff_next <= #now temp run function tm_rpg:system/buff/expire
 
-# HP,MP,Armorなどの変動
-function tm_rpg:system/stutas/hendou_main
+# 装備が変わったか。RPG の装備には目印の運（luck）の属性がランダムな値で付いていて、持ち替え・付け外しで合計が変わる（md/system_md/stutas.md）
+# データは読まないので軽い。変わっていたら装備を読み直してステータスを組み立て直す
+execute store result score @s eq_sig run attribute @s minecraft:luck get 1000000
+execute unless score @s eq_sig = @s eq_sig_old run function tm_rpg:system/stutas/eq_changed
+
+# HP,MP,Armorなどの変動（材料が変わったときだけ。stat_dirty が 0 でなければ組み立て直す）
+execute unless score @s stat_dirty matches 0 run function tm_rpg:system/stutas/hendou_main
 
 # 最大HP・最大MP が下がったとき（バフが切れた・装備を外したなど）、今の HP・MP を最大値まで下げる
 execute if score @s hp > @s HP_MAX run scoreboard players operation @s hp = @s HP_MAX

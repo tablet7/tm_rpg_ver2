@@ -24,8 +24,8 @@ execute as @e[type=text_display,tag=mount_text] if score @s ent_id = System temp
 # バフ（スキル・ポーション）の時間切れ。一番早く切れる時刻 buff_next になった相手だけ外す（system/buff/expire）
 execute if score @s buff_next <= #now temp run function tm_rpg:system/buff/expire
 
-# HP,MP,Armorなどの変動
-function tm_rpg:system/stutas/hendou_main
+# HP,MP,Armorなどの変動（材料が変わったときだけ。召喚直後・バフの付け外しで stat_dirty が 0 でなくなる）
+execute unless score @s stat_dirty matches 0 run function tm_rpg:system/stutas/hendou_main
 
 # 技を使っているあいだ自分から動けない敵の、残り tick を減らす（enemy/skill/lock）
 execute if score @s skill_lock matches 1.. run function tm_rpg:enemy/skill/lock_tick

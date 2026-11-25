@@ -12,3 +12,6 @@ scoreboard players reset @s buff_v_test2_armor
 scoreboard players operation @s skill_hp_buff -= @s buff_v_test2_hp
 scoreboard players reset @s buff_v_test2_hp
 scoreboard players reset @s buff_e_test2
+
+# ステータスを組み立て直す（stutas/hendou_main）
+scoreboard players set @s stat_dirty 1

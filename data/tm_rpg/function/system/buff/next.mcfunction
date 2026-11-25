@@ -5,6 +5,9 @@
 # @s ＝ プレイヤーまたは敵
 # このファイルは md/system_md/buff/gen_buff.py が作る（手で直さない。直すときは buff_skills.json か gen_buff.py を変えて作り直す）
 
+# バフが外れた・リセットしたあとに呼ばれるので、ステータスを組み立て直す（stutas/hendou_main）
+scoreboard players set @s stat_dirty 1
+
 scoreboard players set @s buff_next 2147483647
 execute if score @s buff_e_test1 matches -2147483648.. run scoreboard players operation @s buff_next < @s buff_e_test1
 execute if score @s buff_e_test2 matches -2147483648.. run scoreboard players operation @s buff_next < @s buff_e_test2

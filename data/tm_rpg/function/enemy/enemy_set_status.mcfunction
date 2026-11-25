@@ -30,6 +30,10 @@ execute store result score @s JOB_BONUS_MAX_LEV run data get storage tm_rpg:enem
 execute store result score @s EVASION_MAX_LEV run data get storage tm_rpg:enemy_status data.evasin
 execute store result score @s LUCK_MAX_LEV run data get storage tm_rpg:enemy_status data.luck
 
+# 次の tick にステータスを組み立てる（武器は召喚関数がこのあと持たせるので、装備もそのとき読む）
+scoreboard players set @s eq_dirty 1
+scoreboard players set @s stat_dirty 1
+
 scoreboard players set @s attack_timer 0
 scoreboard players set @s ATTACK_TIMER_LEV 0
 scoreboard players set @s burn_time 0

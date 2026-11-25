@@ -8,3 +8,6 @@
 scoreboard players operation @s skill_pattack_buff -= @s buff_v_test1_pattack
 scoreboard players reset @s buff_v_test1_pattack
 scoreboard players reset @s buff_e_test1
+
+# ステータスを組み立て直す（stutas/hendou_main）
+scoreboard players set @s stat_dirty 1

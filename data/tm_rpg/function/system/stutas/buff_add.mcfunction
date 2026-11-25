@@ -1,6 +1,6 @@
 #> tm_rpg:system/stutas/buff_add
 
-# スキル・ポーションのバフの値をステータスに足す関数。stutas/buff_debuff_main から毎 tick 呼ばれる
+# スキル・ポーションのバフの値をステータスに足す関数。stutas/buff_debuff_main から（ステータスを組み立てるときだけ）呼ばれる
 # バフがかかっている相手（buff_next が入っている）のときだけ呼ばれる。バフが無ければ値はすべて 0 なので、足さなくてよい
 # @s ＝ プレイヤーまたは敵
 

@@ -278,6 +278,32 @@ scoreboard objectives add job_bonus_score dummy
 scoreboard objectives add evasion_score dummy
 scoreboard objectives add luck_score dummy
 
+#### ステータスの組み立て（材料が変わったときだけ。system/stutas/hendou_main）
+scoreboard objectives add stat_dirty dummy
+scoreboard objectives add eq_dirty dummy
+# 装備の目印（運の属性の合計 ×1000000）と、前の tick の値
+scoreboard objectives add eq_sig dummy
+scoreboard objectives add eq_sig_old dummy
+# 装備によるステータスの合計（system/stutas/eq_update）
+scoreboard objectives add eq_hp dummy
+scoreboard objectives add eq_mp dummy
+scoreboard objectives add eq_hp_rege dummy
+scoreboard objectives add eq_mp_rege dummy
+scoreboard objectives add eq_armor dummy
+scoreboard objectives add eq_magic_armor dummy
+scoreboard objectives add eq_p_attack dummy
+scoreboard objectives add eq_m_attack dummy
+scoreboard objectives add eq_cooltime dummy
+scoreboard objectives add eq_sustain_time dummy
+scoreboard objectives add eq_sustain_power dummy
+scoreboard objectives add eq_crit_per dummy
+scoreboard objectives add eq_crit_damage dummy
+scoreboard objectives add eq_job_bonus dummy
+scoreboard objectives add eq_luck dummy
+scoreboard objectives add eq_evasion dummy
+# 特化装備の割合（%）の倍率（system/stutas/percent_watch）
+scoreboard objectives add eq_pct_hp dummy
+
 #### スキルポイント
 scoreboard objectives add ADD_POINT_ALL_LEV dummy
 

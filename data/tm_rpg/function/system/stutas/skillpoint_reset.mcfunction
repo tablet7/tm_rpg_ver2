@@ -5,6 +5,9 @@
 
 scoreboard players operation @s add_point_all = @s ADD_POINT_ALL_LEV
 
+# ステータスを組み立て直す
+scoreboard players set @s stat_dirty 1
+
 scoreboard players set @s add_point_hp_buff 0
 
 scoreboard players set @s add_point_mp_buff 0

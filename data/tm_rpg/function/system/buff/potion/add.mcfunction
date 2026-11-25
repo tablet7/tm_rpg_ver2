@@ -35,6 +35,9 @@ scoreboard players operation #buff_end temp += #now temp
 execute unless score @s buff_next matches -2147483648.. run scoreboard players operation @s buff_next = #buff_end temp
 scoreboard players operation @s buff_next < #buff_end temp
 
+# ステータスを組み立て直す（stutas/hendou_main）
+scoreboard players set @s stat_dirty 1
+
 # 値と時刻を上書きする
 execute if score #buff_stat temp matches 1 run scoreboard players operation @s potion_hp_buff = #buff_power temp
 execute if score #buff_stat temp matches 1 run return run scoreboard players operation @s potion_hp_buff_end = #buff_end temp

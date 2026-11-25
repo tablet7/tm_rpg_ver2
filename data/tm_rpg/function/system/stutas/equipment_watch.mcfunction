@@ -1,6 +1,6 @@
 #> tm_rpg:system/stutas/equipment_watch
 
-# 装備（メインハンド・オフハンド・防具）の custom_data のステータスを加算する関数。stutas/hendou_main から毎 tick 呼ばれる
+# 装備（メインハンド・オフハンド・防具）の custom_data のステータスを、装備の合計 eq_<ステータス> に加算する関数。stutas/eq_update から、装備が変わったときだけ呼ばれる
 # エンティティのデータ読み込みは重いので、custom_data 付きの装備があるときだけ、なるべく1回で読む
 # @s ＝ プレイヤーまたは敵
 

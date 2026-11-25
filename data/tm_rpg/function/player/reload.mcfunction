@@ -8,6 +8,10 @@ effect give @s minecraft:instant_health infinite 10 true
 effect give @s minecraft:saturation infinite 10 true
 effect give @s minecraft:resistance infinite 10 true
 
+# ステータスを組み立て直す（装備も読み直す）
+scoreboard players set @s eq_dirty 1
+scoreboard players set @s stat_dirty 1
+
 scoreboard players operation @s hp = @s HP_MAX
 scoreboard players operation @s mp = @s MP_MAX
 scoreboard players set @s skill1_recast 0
