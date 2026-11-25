@@ -1,5 +1,6 @@
 {
      "values":[
-          "main:main"
+          "main:main",
+          "no_trample_lite:tick"
      ]
 }
