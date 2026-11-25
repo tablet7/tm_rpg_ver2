@@ -5,6 +5,10 @@
 # 4スロット目の案内用アイテムも岩盤（item_model でレッドストーンブロックの見た目にする）なので、取り出されても tm_rpg:main の clear で消える
 # @s ＝ 改造台の marker（ドロッパーと同じ位置）
 
+# 鍵がかかっていたら（だれかが使っている。system/item_mod/lock）、閉じたかどうかを調べて、閉じていたら鍵を外す
+# 60 秒開いたままなら中身を返して置き直すので、岩盤で埋めるより先に行う
+execute if entity @s[tag=kaizou_using] run function tm_rpg:system/item_mod/lock/check
+
 execute unless items block ~ ~ ~ container.0 * run item replace block ~ ~ ~ container.0 with minecraft:bedrock
 execute unless items block ~ ~ ~ container.2 * run item replace block ~ ~ ~ container.2 with minecraft:bedrock
 execute unless items block ~ ~ ~ container.3 * run item replace block ~ ~ ~ container.3 with minecraft:bedrock
