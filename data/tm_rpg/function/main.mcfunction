@@ -3,6 +3,9 @@
 # tm_rpg の毎tick処理。main:main から呼ばれる
 # プレイヤー・敵の毎tick処理、時間管理（1〜20tickへの振り分け、2秒ごとの処理）、不要エンティティの削除を行う
 
+# 今の時刻（バフの切れる時刻と比べる。system/buff/）。プレイヤー・敵の処理より前に1回だけ取る
+execute store result score #now temp run time query gametime
+
 # main
 execute as @a at @s run function tm_rpg:player/main
 

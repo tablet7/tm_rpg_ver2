@@ -55,7 +55,9 @@ scoreboard players reset @s hit_mark_16
 scoreboard players reset @s hit_mark_last
 scoreboard players reset @s hit_mark_next
 
-function tm_rpg:system/stutas/potion_reset
+# バフを外す（スキル・ポーション）
+function tm_rpg:system/buff/skill/reset
+function tm_rpg:system/buff/potion/reset
 
 tag @s add player_reload
 

@@ -299,55 +299,8 @@ scoreboard objectives add add_point_job_buff dummy
 scoreboard objectives add add_point_evasion_buff dummy
 scoreboard objectives add add_point_luck_buff dummy
 
-#### ポーション
-##### ポーション
-scoreboard objectives add potion_hp_buff_time dummy
-scoreboard objectives add potion_hp_buff dummy
-
-scoreboard objectives add potion_mp_buff_time dummy
-scoreboard objectives add potion_mp_buff dummy
-
-scoreboard objectives add potion_hp_rage_buff_time dummy
-scoreboard objectives add potion_hp_rage_buff dummy
-
-scoreboard objectives add potion_mp_rage_buff_time dummy
-scoreboard objectives add potion_mp_rage_buff dummy
-
-scoreboard objectives add potion_armor_buff_time dummy
-scoreboard objectives add potion_armor_buff dummy
-
-scoreboard objectives add potion_magicarmor_buff_time dummy
-scoreboard objectives add potion_magicarmor_buff dummy
-
-scoreboard objectives add potion_pattack_buff_time dummy
-scoreboard objectives add potion_pattack_buff dummy
-
-scoreboard objectives add potion_mattack_buff_time dummy
-scoreboard objectives add potion_mattack_buff dummy
-
-scoreboard objectives add potion_cooltime_buff_time dummy
-scoreboard objectives add potion_cooltime_buff dummy
-
-scoreboard objectives add potion_sustain_buff_time dummy
-scoreboard objectives add potion_sustain_buff dummy
-
-scoreboard objectives add potion_sustainP_buff_time dummy
-scoreboard objectives add potion_sustainP_buff dummy
-
-scoreboard objectives add potion_critper_buff_time dummy
-scoreboard objectives add potion_critper_buff dummy
-
-scoreboard objectives add potion_critdamage_buff_time dummy
-scoreboard objectives add potion_critdamage_buff dummy
-
-scoreboard objectives add potion_job_buff_time dummy
-scoreboard objectives add potion_job_buff dummy
-
-scoreboard objectives add potion_evasion_buff_time dummy
-scoreboard objectives add potion_evasion_buff dummy
-
-scoreboard objectives add potion_luck_buff_time dummy
-scoreboard objectives add potion_luck_buff dummy
+#### バフ（スキル・ポーション。system/buff/ は md/system_md/buff/gen_buff.py が作る）
+function tm_rpg:system/buff/objectives
 
 ### クールタイム
 scoreboard objectives add ATTACK_TIMER_LEV dummy

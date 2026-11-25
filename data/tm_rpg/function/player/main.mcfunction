@@ -21,6 +21,9 @@ execute if score @s leave_game matches 1.. run function tm_rpg:player/login_sec
 # ほかの人が開く前にかけたいので、5tick おきの改造台の処理ではなく毎 tick 見る
 execute if score @s kaizou_open matches 1.. run function tm_rpg:system/item_mod/lock/on_open
 
+# バフ（スキル・ポーション）の時間切れ。一番早く切れる時刻 buff_next になった相手だけ外す（system/buff/expire）
+execute if score @s buff_next <= #now temp run function tm_rpg:system/buff/expire
+
 # HP,MP,Armorなどの変動
 function tm_rpg:system/stutas/hendou_main
 

@@ -21,6 +21,9 @@ scoreboard players operation System temp = @s ent_id
 execute as @e[type=text_display,tag=mount_text] if score @s ent_id = System temp run function tm_rpg:system/hp_text_update
 
 
+# バフ（スキル・ポーション）の時間切れ。一番早く切れる時刻 buff_next になった相手だけ外す（system/buff/expire）
+execute if score @s buff_next <= #now temp run function tm_rpg:system/buff/expire
+
 # HP,MP,Armorなどの変動
 function tm_rpg:system/stutas/hendou_main
 
