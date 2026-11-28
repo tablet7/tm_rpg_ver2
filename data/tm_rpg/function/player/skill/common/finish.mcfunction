@@ -15,5 +15,17 @@ execute if score @s skillselect_skillcool matches 4 run scoreboard players opera
 execute if score @s skillselect_skillcool matches 5 run scoreboard players operation @s skill5_recast = @s skillselect_cooltime
 execute if score @s skillselect_skillcool matches 6 run scoreboard players operation @s skill6_recast = @s skillselect_cooltime
 
+# HUD のリングの割合の分母（使ったときのクールタイム）
+execute if score @s skillselect_skillcool matches 1 run scoreboard players operation @s skill1_cdmax = @s skillselect_cooltime
+execute if score @s skillselect_skillcool matches 2 run scoreboard players operation @s skill2_cdmax = @s skillselect_cooltime
+execute if score @s skillselect_skillcool matches 3 run scoreboard players operation @s skill3_cdmax = @s skillselect_cooltime
+execute if score @s skillselect_skillcool matches 4 run scoreboard players operation @s skill4_cdmax = @s skillselect_cooltime
+execute if score @s skillselect_skillcool matches 5 run scoreboard players operation @s skill5_cdmax = @s skillselect_cooltime
+execute if score @s skillselect_skillcool matches 6 run scoreboard players operation @s skill6_cdmax = @s skillselect_cooltime
+function tm_rpg:player/hud/ring
+
 # MP消費
 scoreboard players operation @s mp -= @s skillselect_mp
+
+# HUD を組み立て直して送る（リングと MP をすぐ出す）
+function tm_rpg:player/hud/update

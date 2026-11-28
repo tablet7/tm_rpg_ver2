@@ -1,0 +1,205 @@
+{
+  "type": "minecraft:set_lore",
+  "entity": "this",
+  "lore": [
+    {
+      "text": "",
+      "italic": false
+    },
+    {
+      "text": "木系素材",
+      "color": "gray",
+      "italic": false
+    },
+    [
+      {
+        "text": "木のかけら：　",
+        "color": "white",
+        "italic": false
+      },
+      {
+        "score": {
+          "name": "@s",
+          "objective": "mat_wood1"
+        },
+        "color": "white",
+        "italic": false
+      }
+    ],
+    [
+      {
+        "text": "木材：　",
+        "color": "green",
+        "italic": false
+      },
+      {
+        "score": {
+          "name": "@s",
+          "objective": "mat_wood2"
+        },
+        "color": "white",
+        "italic": false
+      }
+    ],
+    [
+      {
+        "text": "まとまった木：　",
+        "color": "aqua",
+        "italic": false
+      },
+      {
+        "score": {
+          "name": "@s",
+          "objective": "mat_wood3"
+        },
+        "color": "white",
+        "italic": false
+      }
+    ],
+    [
+      {
+        "text": "原木：　",
+        "color": "light_purple",
+        "italic": false
+      },
+      {
+        "score": {
+          "name": "@s",
+          "objective": "mat_wood4"
+        },
+        "color": "white",
+        "italic": false
+      }
+    ],
+    [
+      {
+        "text": "古代の木：　",
+        "color": "gold",
+        "italic": false
+      },
+      {
+        "score": {
+          "name": "@s",
+          "objective": "mat_wood5"
+        },
+        "color": "white",
+        "italic": false
+      }
+    ],
+    [
+      {
+        "text": "古代の苗：　",
+        "color": "red",
+        "italic": false
+      },
+      {
+        "score": {
+          "name": "@s",
+          "objective": "mat_wood6"
+        },
+        "color": "white",
+        "italic": false
+      }
+    ],
+    {
+      "text": "",
+      "italic": false
+    },
+    {
+      "text": "石系素材",
+      "color": "gray",
+      "italic": false
+    },
+    [
+      {
+        "text": "石のかけら：　",
+        "color": "white",
+        "italic": false
+      },
+      {
+        "score": {
+          "name": "@s",
+          "objective": "mat_stone1"
+        },
+        "color": "white",
+        "italic": false
+      }
+    ],
+    [
+      {
+        "text": "石材：　",
+        "color": "green",
+        "italic": false
+      },
+      {
+        "score": {
+          "name": "@s",
+          "objective": "mat_stone2"
+        },
+        "color": "white",
+        "italic": false
+      }
+    ],
+    [
+      {
+        "text": "磨かれた石：　",
+        "color": "aqua",
+        "italic": false
+      },
+      {
+        "score": {
+          "name": "@s",
+          "objective": "mat_stone3"
+        },
+        "color": "white",
+        "italic": false
+      }
+    ],
+    [
+      {
+        "text": "加工された石：　",
+        "color": "light_purple",
+        "italic": false
+      },
+      {
+        "score": {
+          "name": "@s",
+          "objective": "mat_stone4"
+        },
+        "color": "white",
+        "italic": false
+      }
+    ],
+    [
+      {
+        "text": "古代の石：　",
+        "color": "gold",
+        "italic": false
+      },
+      {
+        "score": {
+          "name": "@s",
+          "objective": "mat_stone5"
+        },
+        "color": "white",
+        "italic": false
+      }
+    ],
+    [
+      {
+        "text": "加工された古代の石：　",
+        "color": "red",
+        "italic": false
+      },
+      {
+        "score": {
+          "name": "@s",
+          "objective": "mat_stone6"
+        },
+        "color": "white",
+        "italic": false
+      }
+    ]
+  ],
+  "mode": "append"
+}

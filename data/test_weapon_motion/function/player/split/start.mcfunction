@@ -4,6 +4,8 @@
 # 分離の最後にオフハンドへ武器を戻すので、オフハンドが空いていないときは知らせて終わる
 # @s ＝ プレイヤー（at @s）
 
+# HUD（tm_rpg:player/hud/show）がこのメッセージを上書きしないよう、2秒止める
+execute if items entity @s weapon.offhand * run scoreboard players set @s hud_hold 40
 execute if items entity @s weapon.offhand * run return run title @s actionbar {"text":"オフハンドを空けてから分離してください","color":"red"}
 
 # 振り下ろしのあとは 41 コマ目（19 と同じ姿勢）のままなので、19 にそろえる

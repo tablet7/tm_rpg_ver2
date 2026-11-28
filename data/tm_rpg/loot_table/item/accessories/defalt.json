@@ -29,7 +29,19 @@
         {
           "type": "minecraft:set_custom_model_data",
           "floats": {"values": [1],"mode": "append"}
-        }
+        },
+        {
+          "type": "minecraft:set_attributes",
+          "replace": false,
+          "modifiers": [
+            {"attribute": "minecraft:luck", "id": "tm_rpg:eq_sig_offhand", "amount": {"type": "minecraft:uniform", "min": 0.001, "max": 1}, "operation": "add_value", "slot": "offhand"}
+          ]
+        },
+        {
+          "type": "minecraft:set_components",
+          "components": {"minecraft:tooltip_display": {"hidden_components": ["minecraft:attribute_modifiers"]}}
+        },
+        "tm_rpg:upgrade_res_random"
       ]
     }
   ]

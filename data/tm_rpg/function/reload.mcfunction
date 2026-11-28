@@ -41,6 +41,10 @@ scoreboard objectives add CONTACT_20 dummy
 scoreboard players set System CONTACT_20 20
 scoreboard objectives add CONTACT_3 dummy
 scoreboard players set System CONTACT_3 3
+scoreboard objectives add CONTACT_9 dummy
+scoreboard players set System CONTACT_9 9
+scoreboard objectives add CONTACT_54 dummy
+scoreboard players set System CONTACT_54 54
 scoreboard objectives add CONTACT_5 dummy
 scoreboard players set System CONTACT_5 5
 scoreboard objectives add CONTACT_10 dummy
@@ -61,7 +65,8 @@ scoreboard players set System seconds 0
 scoreboard players set System minutes 0
 scoreboard players set System hours 0
 
-## player
+## Player
+scoreboard objectives add job_type dummy
 scoreboard objectives add Lv dummy
 scoreboard objectives add item_roll dummy
 # 敵にダメージを与えたときの印（system/item_drop/hit_mark）。倒したときにアイテムを渡す相手を決める
@@ -269,6 +274,32 @@ scoreboard objectives add job_bonus_score dummy
 scoreboard objectives add evasion_score dummy
 scoreboard objectives add luck_score dummy
 
+#### ステータスの組み立て（材料が変わったときだけ。system/stutas/hendou_main）
+scoreboard objectives add stat_dirty dummy
+scoreboard objectives add eq_dirty dummy
+# 装備の目印（運の属性の合計 ×1000000）と、前の tick の値
+scoreboard objectives add eq_sig dummy
+scoreboard objectives add eq_sig_old dummy
+# 装備によるステータスの合計（system/stutas/eq_update）
+scoreboard objectives add eq_hp dummy
+scoreboard objectives add eq_mp dummy
+scoreboard objectives add eq_hp_rege dummy
+scoreboard objectives add eq_mp_rege dummy
+scoreboard objectives add eq_armor dummy
+scoreboard objectives add eq_magic_armor dummy
+scoreboard objectives add eq_p_attack dummy
+scoreboard objectives add eq_m_attack dummy
+scoreboard objectives add eq_cooltime dummy
+scoreboard objectives add eq_sustain_time dummy
+scoreboard objectives add eq_sustain_power dummy
+scoreboard objectives add eq_crit_per dummy
+scoreboard objectives add eq_crit_damage dummy
+scoreboard objectives add eq_job_bonus dummy
+scoreboard objectives add eq_luck dummy
+scoreboard objectives add eq_evasion dummy
+# 特化装備の割合（%）の倍率（system/stutas/percent_watch）
+scoreboard objectives add eq_pct_hp dummy
+
 #### スキルポイント
 scoreboard objectives add ADD_POINT_ALL_LEV dummy
 
@@ -290,55 +321,8 @@ scoreboard objectives add add_point_job_buff dummy
 scoreboard objectives add add_point_evasion_buff dummy
 scoreboard objectives add add_point_luck_buff dummy
 
-#### ポーション
-##### ポーション
-scoreboard objectives add potion_hp_buff_time dummy
-scoreboard objectives add potion_hp_buff dummy
-
-scoreboard objectives add potion_mp_buff_time dummy
-scoreboard objectives add potion_mp_buff dummy
-
-scoreboard objectives add potion_hp_rage_buff_time dummy
-scoreboard objectives add potion_hp_rage_buff dummy
-
-scoreboard objectives add potion_mp_rage_buff_time dummy
-scoreboard objectives add potion_mp_rage_buff dummy
-
-scoreboard objectives add potion_armor_buff_time dummy
-scoreboard objectives add potion_armor_buff dummy
-
-scoreboard objectives add potion_magicarmor_buff_time dummy
-scoreboard objectives add potion_magicarmor_buff dummy
-
-scoreboard objectives add potion_pattack_buff_time dummy
-scoreboard objectives add potion_pattack_buff dummy
-
-scoreboard objectives add potion_mattack_buff_time dummy
-scoreboard objectives add potion_mattack_buff dummy
-
-scoreboard objectives add potion_cooltime_buff_time dummy
-scoreboard objectives add potion_cooltime_buff dummy
-
-scoreboard objectives add potion_sustain_buff_time dummy
-scoreboard objectives add potion_sustain_buff dummy
-
-scoreboard objectives add potion_sustainP_buff_time dummy
-scoreboard objectives add potion_sustainP_buff dummy
-
-scoreboard objectives add potion_critper_buff_time dummy
-scoreboard objectives add potion_critper_buff dummy
-
-scoreboard objectives add potion_critdamage_buff_time dummy
-scoreboard objectives add potion_critdamage_buff dummy
-
-scoreboard objectives add potion_job_buff_time dummy
-scoreboard objectives add potion_job_buff dummy
-
-scoreboard objectives add potion_evasion_buff_time dummy
-scoreboard objectives add potion_evasion_buff dummy
-
-scoreboard objectives add potion_luck_buff_time dummy
-scoreboard objectives add potion_luck_buff dummy
+#### バフ（スキル・ポーション。system/buff/ は md/system_md/buff/gen_buff.py が作る）
+function tm_rpg:system/buff/objectives
 
 ### クールタイム
 scoreboard objectives add ATTACK_TIMER_LEV dummy
@@ -352,6 +336,40 @@ scoreboard objectives add skill3_recast dummy
 scoreboard objectives add skill4_recast dummy
 scoreboard objectives add skill5_recast dummy
 scoreboard objectives add skill6_recast dummy
+
+### HUD（player/hud/。説明書: md/font_md/hud/hud.md）
+# スキル枠のリング: 使ったときのクールタイム（割合の分母）と、0〜9 の段階
+scoreboard objectives add skill1_cdmax dummy
+scoreboard objectives add skill2_cdmax dummy
+scoreboard objectives add skill3_cdmax dummy
+scoreboard objectives add skill4_cdmax dummy
+scoreboard objectives add skill5_cdmax dummy
+scoreboard objectives add skill6_cdmax dummy
+scoreboard objectives add skill1_ring dummy
+scoreboard objectives add skill2_ring dummy
+scoreboard objectives add skill3_ring dummy
+scoreboard objectives add skill4_ring dummy
+scoreboard objectives add skill5_ring dummy
+scoreboard objectives add skill6_ring dummy
+# HP・MP バーの6つの区切り（0〜9）
+scoreboard objectives add hud_hp_g0 dummy
+scoreboard objectives add hud_hp_g1 dummy
+scoreboard objectives add hud_hp_g2 dummy
+scoreboard objectives add hud_hp_g3 dummy
+scoreboard objectives add hud_hp_g4 dummy
+scoreboard objectives add hud_hp_g5 dummy
+scoreboard objectives add hud_mp_g0 dummy
+scoreboard objectives add hud_mp_g1 dummy
+scoreboard objectives add hud_mp_g2 dummy
+scoreboard objectives add hud_mp_g3 dummy
+scoreboard objectives add hud_mp_g4 dummy
+scoreboard objectives add hud_mp_g5 dummy
+# 変化の判定用の前回の値と、HUD を送らない時間（tick）
+scoreboard objectives add hud_hp_old dummy
+scoreboard objectives add hud_mp_old dummy
+scoreboard objectives add hud_hpmax_old dummy
+scoreboard objectives add hud_mpmax_old dummy
+scoreboard objectives add hud_hold dummy
 
 ### 状態異常
 #### 火傷
@@ -375,15 +393,16 @@ scoreboard objectives add sinking_time dummy
 scoreboard objectives add vibration_potency dummy
 scoreboard objectives add vibration_time dummy
 
-### 資源
-scoreboard objectives add resource dummy {"text":"資源","color":"green"}
-scoreboard objectives setdisplay sidebar resource
-scoreboard players set お金 resource 0
-
 ### tag破壊用
 tag @a remove temp_victim
 scoreboard objectives add temp_victim_remove dummy
 scoreboard objectives add skill_kb_time dummy
+
+### 資源
+scoreboard objectives add resource_page dummy
+scoreboard objectives add gold dummy
+scoreboard objectives add exp dummy
+scoreboard objectives add next_exp dummy
 
 # team
 team add Player

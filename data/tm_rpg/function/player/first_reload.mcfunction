@@ -31,7 +31,13 @@ scoreboard players set @s LUCK_MAX_LEV 5
 scoreboard players set @s ADD_POINT_ALL_LEV 5
 
 function tm_rpg:system/stutas/skillpoint_reset
-function tm_rpg:system/stutas/potion_reset
+function tm_rpg:system/buff/skill/reset
+function tm_rpg:system/buff/potion/reset
+
+scoreboard players set @s resource_page 1
+scoreboard players set @s gold 0
+scoreboard players set @s exp 0
+scoreboard players set @s next_exp 10
 
 team join Player @s
 tag @s add mob

@@ -1,16 +1,18 @@
 #> tm_rpg:system/hp_text_update
 
-# HPバー（text_display）の表示を hp_ratio に合わせて更新する関数。player/main、enemy/main から呼ばれる
-# @s ＝ HPバーの text_display（一番近いエンティティの hp_ratio を参照する）
+# HPバー（text_display）の表示を HP の割合に合わせて更新する関数（マクロなし）
+# system/stutas/hp_ratio_watch から、hp_ratio が変わったときだけ呼ばれる
+# 入力: #hpbar_ratio temp ＝ 持ち主の hp_ratio（HP × 20 ÷ 最大HP）
+# @s ＝ HPバーの text_display
 
-execute if score @e[limit=1,sort=nearest] hp_ratio matches 21.. run data modify entity @s text set value {"color":"green","text":"❚❚❚❚❚❚❚❚❚❚+"}
-execute if score @e[limit=1,sort=nearest] hp_ratio matches 19..20 run data modify entity @s text set value {"color":"green","text":"❚❚❚❚❚❚❚❚❚❚"}
-execute if score @e[limit=1,sort=nearest] hp_ratio matches 17..18 run data modify entity @s text set value [{"color":"green","text":"❚❚❚❚❚❚❚❚❚"},{"color":"red","text":"❚"}]
-execute if score @e[limit=1,sort=nearest] hp_ratio matches 15..16 run data modify entity @s text set value [{"color":"green","text":"❚❚❚❚❚❚❚❚"},{"color":"red","text":"❚❚"}]
-execute if score @e[limit=1,sort=nearest] hp_ratio matches 13..14 run data modify entity @s text set value [{"color":"green","text":"❚❚❚❚❚❚❚"},{"color":"red","text":"❚❚❚"}]
-execute if score @e[limit=1,sort=nearest] hp_ratio matches 11..12 run data modify entity @s text set value [{"color":"green","text":"❚❚❚❚❚❚"},{"color":"red","text":"❚❚❚❚"}]
-execute if score @e[limit=1,sort=nearest] hp_ratio matches 9..10 run data modify entity @s text set value [{"color":"green","text":"❚❚❚❚❚"},{"color":"red","text":"❚❚❚❚❚"}]
-execute if score @e[limit=1,sort=nearest] hp_ratio matches 7..8 run data modify entity @s text set value [{"color":"green","text":"❚❚❚❚"},{"color":"red","text":"❚❚❚❚❚❚"}]
-execute if score @e[limit=1,sort=nearest] hp_ratio matches 5..6 run data modify entity @s text set value [{"color":"green","text":"❚❚❚"},{"color":"red","text":"❚❚❚❚❚❚❚"}]
-execute if score @e[limit=1,sort=nearest] hp_ratio matches 3..4 run data modify entity @s text set value [{"color":"green","text":"❚❚"},{"color":"red","text":"❚❚❚❚❚❚❚❚"}]
-execute if score @e[limit=1,sort=nearest] hp_ratio matches 1..2 run data modify entity @s text set value [{"color":"green","text":"❚"},{"color":"red","text":"❚❚❚❚❚❚❚❚❚"}]
+execute if score #hpbar_ratio temp matches 21.. run return run data modify entity @s text set value {"color":"green","text":"❚❚❚❚❚❚❚❚❚❚+"}
+execute if score #hpbar_ratio temp matches 19..20 run return run data modify entity @s text set value {"color":"green","text":"❚❚❚❚❚❚❚❚❚❚"}
+execute if score #hpbar_ratio temp matches 17..18 run return run data modify entity @s text set value [{"color":"green","text":"❚❚❚❚❚❚❚❚❚"},{"color":"red","text":"❚"}]
+execute if score #hpbar_ratio temp matches 15..16 run return run data modify entity @s text set value [{"color":"green","text":"❚❚❚❚❚❚❚❚"},{"color":"red","text":"❚❚"}]
+execute if score #hpbar_ratio temp matches 13..14 run return run data modify entity @s text set value [{"color":"green","text":"❚❚❚❚❚❚❚"},{"color":"red","text":"❚❚❚"}]
+execute if score #hpbar_ratio temp matches 11..12 run return run data modify entity @s text set value [{"color":"green","text":"❚❚❚❚❚❚"},{"color":"red","text":"❚❚❚❚"}]
+execute if score #hpbar_ratio temp matches 9..10 run return run data modify entity @s text set value [{"color":"green","text":"❚❚❚❚❚"},{"color":"red","text":"❚❚❚❚❚"}]
+execute if score #hpbar_ratio temp matches 7..8 run return run data modify entity @s text set value [{"color":"green","text":"❚❚❚❚"},{"color":"red","text":"❚❚❚❚❚❚"}]
+execute if score #hpbar_ratio temp matches 5..6 run return run data modify entity @s text set value [{"color":"green","text":"❚❚❚"},{"color":"red","text":"❚❚❚❚❚❚❚"}]
+execute if score #hpbar_ratio temp matches 3..4 run return run data modify entity @s text set value [{"color":"green","text":"❚❚"},{"color":"red","text":"❚❚❚❚❚❚❚❚"}]
+execute if score #hpbar_ratio temp matches 1..2 run return run data modify entity @s text set value [{"color":"green","text":"❚"},{"color":"red","text":"❚❚❚❚❚❚❚❚❚"}]

@@ -17,15 +17,15 @@ function tm_rpg:system/item_drop/accessories/roll_default
 
 # 特化ステータスは抽選せず、必ず最大値（#base + Lv / #div）を付ける
 ## HP（必ず 10+Lv/2）
-scoreboard players set #base item_roll 10
-scoreboard players set #div item_roll 2
+scoreboard players set #stat item_roll 1
+function tm_rpg:system/item_drop/stat_range
 function tm_rpg:system/item_drop/max
 scoreboard players operation hp item_roll = #result item_roll
 execute store result storage tm_rpg:item_random data.hp int 1 run scoreboard players get #result item_roll
 
 ## HP自動回復（必ず 1+Lv/4）
-scoreboard players set #base item_roll 1
-scoreboard players set #div item_roll 4
+scoreboard players set #stat item_roll 2
+function tm_rpg:system/item_drop/stat_range
 function tm_rpg:system/item_drop/max
 scoreboard players operation hp_rege item_roll = #result item_roll
 execute store result storage tm_rpg:item_random data.hp_rege int 1 run scoreboard players get #result item_roll

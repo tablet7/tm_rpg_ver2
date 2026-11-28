@@ -17,8 +17,20 @@ execute if entity @s[tag=!joined] run function tm_rpg:player/first_reload
 # leave_game ＝ サーバーから抜けると増える統計（tm_rpg:reload で作る）。抜けたあと最初の tick にだけ動くよう、呼んだら消す
 execute if score @s leave_game matches 1.. run function tm_rpg:player/login_sec
 
-# HP,MP,Armorなどの変動
-function tm_rpg:system/stutas/hendou_main
+# バフ（スキル・ポーション）の時間切れ。一番早く切れる時刻 buff_next になった相手だけ外す（system/buff/expire）
+execute if score @s buff_next <= #now temp run function tm_rpg:system/buff/expire
+
+# 装備が変わったか。RPG の装備には目印の運（luck）の属性がランダムな値で付いていて、持ち替え・付け外しで合計が変わる（md/system_md/stutas.md）
+# データは読まないので軽い。変わっていたら装備を読み直してステータスを組み立て直す
+execute store result score @s eq_sig run attribute @s minecraft:luck get 1000000
+execute unless score @s eq_sig = @s eq_sig_old run function tm_rpg:system/stutas/eq_changed
+
+# HP,MP,Armorなどの変動（材料が変わったときだけ。stat_dirty が 0 でなければ組み立て直す）
+execute unless score @s stat_dirty matches 0 run function tm_rpg:system/stutas/hendou_main
+
+# 最大HP・最大MP が下がったとき（バフが切れた・装備を外したなど）、今の HP・MP を最大値まで下げる
+execute if score @s hp > @s HP_MAX run scoreboard players operation @s hp = @s HP_MAX
+execute if score @s mp > @s MP_MAX run scoreboard players operation @s mp = @s MP_MAX
 
 # hp変動
 scoreboard players operation @s hp_ratio = @s hp
@@ -26,21 +38,16 @@ scoreboard players operation @s hp_ratio *= System CONTACT_20
 scoreboard players operation @s hp_ratio /= @s HP_MAX
 execute unless score @s hp_ratio = @s hp_ratio_old run function tm_rpg:system/stutas/hp_ratio_watch
 
-#actionbar表示
-execute as @s[tag=!sorcerer] at @s run title @s actionbar [\
-{"text":"HP "},{"score":{"name":"@s","objective":"hp"},"color":"red"},{"text":"/"},{"score":{"name":"@s","objective":"HP_MAX"},"color":"red"},\
-{"text":"　MP "},{"score":{"name":"@s","objective":"mp"},"color":"blue"},{"text":"/"},{"score":{"name":"@s","objective":"MP_MAX"},"color":"blue"},\
-{"text":"　スキル1 "},{"score":{"name":"@s","objective":"skill1_recast"},"color":"green"},\
-{"text":"　スキル2 "},{"score":{"name":"@s","objective":"skill2_recast"},"color":"green"},\
-{"text":"　スキル3 "},{"score":{"name":"@s","objective":"skill3_recast"},"color":"green"},\
-{"text":"　スキル4 "},{"score":{"name":"@s","objective":"skill4_recast"},"color":"green"},\
-{"text":"　スキル5 "},{"score":{"name":"@s","objective":"skill5_recast"},"color":"green"},\
-{"text":"　スキル6 "},{"score":{"name":"@s","objective":"skill6_recast"},"color":"green"}]
+# HUD（アクションバー）。HP・MP・最大値が変わったときだけ組み立て直して送る（毎秒の送り直しは player/seconds）
+execute unless score @s hp = @s hud_hp_old run function tm_rpg:player/hud/update
+execute unless score @s mp = @s hud_mp_old run function tm_rpg:player/hud/update
+execute unless score @s HP_MAX = @s hud_hpmax_old run function tm_rpg:player/hud/update
+execute unless score @s MP_MAX = @s hud_mpmax_old run function tm_rpg:player/hud/update
+execute if score @s hud_hold matches 1.. run function tm_rpg:player/hud/hold_tick
 
-# hp表示テキストのtp
+# hp表示テキストのtp（表示の中身は HP の割合が変わったときだけ system/stutas/hp_ratio_watch が変える）
 scoreboard players operation System temp = @s ent_id
 execute as @e[type=text_display,tag=mount_text] if score @s ent_id = System temp run tp @s ~ ~2.2 ~
-execute as @e[type=text_display,tag=mount_text] if score @s ent_id = System temp run function tm_rpg:system/hp_text_update
 
 # 死んだときの検知
 execute as @s[scores={player_deaths=1..}] run function tm_rpg:player/death/on_death

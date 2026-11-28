@@ -1,0 +1,325 @@
+{
+  "type": "minecraft:sequence",
+  "functions": [
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "12 番に改造アイテムを置くと、ここに説明が出る",
+          "color": "gray",
+          "italic": false
+        }
+      ],
+      "mode": "replace_all",
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#kit"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "min": 0,
+          "max": 0
+        }
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "錬石: Lv を 1 上げる（成功率 100%）",
+          "color": "white",
+          "italic": false
+        },
+        {
+          "text": "強化回数は増えない",
+          "color": "gray",
+          "italic": false
+        },
+        {
+          "text": "武器・防具・アクセサリー・スキルに使える",
+          "color": "gray",
+          "italic": false
+        }
+      ],
+      "mode": "replace_all",
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#kit"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "min": 1,
+          "max": 1
+        }
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "変質石「HP」: 特化を HP にする（最大HP ＋10%）",
+          "color": "white",
+          "italic": false
+        },
+        {
+          "text": "防具・アクセサリーに使える",
+          "color": "gray",
+          "italic": false
+        }
+      ],
+      "mode": "replace_all",
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#kit"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "min": 2,
+          "max": 2
+        }
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "古代の残骸: 付いている値をすべて ＋5〜15%",
+          "color": "white",
+          "italic": false
+        },
+        {
+          "text": "防具・アクセサリーに使える",
+          "color": "gray",
+          "italic": false
+        }
+      ],
+      "mode": "replace_all",
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#kit"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "min": 3,
+          "max": 3
+        }
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "可能性の琥珀: 付いていない値を 1 つ付ける",
+          "color": "white",
+          "italic": false
+        },
+        {
+          "text": "値は自分の Lv で決まる（ドロップと同じ範囲）",
+          "color": "gray",
+          "italic": false
+        },
+        {
+          "text": "防具・アクセサリーに使える",
+          "color": "gray",
+          "italic": false
+        }
+      ],
+      "mode": "replace_all",
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#kit"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "min": 4,
+          "max": 4
+        }
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "変性石「物理」: ダメージタイプを物理にする",
+          "color": "white",
+          "italic": false
+        },
+        {
+          "text": "武器・スキルに使える",
+          "color": "gray",
+          "italic": false
+        }
+      ],
+      "mode": "replace_all",
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#kit"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "min": 5,
+          "max": 5
+        }
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "変性石「魔法」: ダメージタイプを魔法にする",
+          "color": "white",
+          "italic": false
+        },
+        {
+          "text": "武器・スキルに使える",
+          "color": "gray",
+          "italic": false
+        }
+      ],
+      "mode": "replace_all",
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#kit"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "min": 6,
+          "max": 6
+        }
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "異流石「物理」: 参照ステータスを攻撃力にする",
+          "color": "white",
+          "italic": false
+        },
+        {
+          "text": "武器・スキルに使える",
+          "color": "gray",
+          "italic": false
+        }
+      ],
+      "mode": "replace_all",
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#kit"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "min": 7,
+          "max": 7
+        }
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "異流石「魔法」: 参照ステータスを魔法攻撃力にする",
+          "color": "white",
+          "italic": false
+        },
+        {
+          "text": "武器・スキルに使える",
+          "color": "gray",
+          "italic": false
+        }
+      ],
+      "mode": "replace_all",
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#kit"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "min": 8,
+          "max": 8
+        }
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "12 番の物は改造アイテムではない",
+          "color": "gray",
+          "italic": false
+        }
+      ],
+      "mode": "replace_all",
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#kit"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "min": 9,
+          "max": 9
+        }
+      }
+    }
+  ]
+}

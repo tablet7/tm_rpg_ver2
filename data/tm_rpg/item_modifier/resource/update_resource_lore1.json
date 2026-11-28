@@ -1,0 +1,91 @@
+{
+  "type": "minecraft:sequence",
+  "functions": [
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        [
+          {
+            "text": "exp: ",
+            "color": "green",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "@s",
+              "objective": "exp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ],
+        [
+          {
+            "text": "次のLvまで: ",
+            "color": "green",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "@s",
+              "objective": "next_exp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ],
+        [
+          {
+            "text": "gold: ",
+            "color": "gold",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "@s",
+              "objective": "gold"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ],
+        [
+          {
+            "text": "クラフトの欠片：　",
+            "color": "yellow",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "@s",
+              "objective": "mat_craft"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "mode": "replace_all"
+    },
+    "tm_workbench:gen/mat/resource_lore",
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "",
+          "italic": false
+        },
+        [
+          {
+            "text": "※投げると次のページへ",
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "mode": "append"
+    }
+  ]
+}

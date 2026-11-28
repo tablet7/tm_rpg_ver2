@@ -35,7 +35,8 @@
             {
               "type": "minecraft:set_custom_data",
               "tag": "{skill:\"tm_rpg:player/skill/test_laser_sweep/skill1\",lv:1,skillcool:1,mp:10,cooltime:5,kihon:5,per:150,damage_type:1,sanshou_type:1,delete_item_reset:1,kaizou:0}"
-            }
+            },
+            "tm_rpg:upgrade_res_random"
           ]
         }
       ]

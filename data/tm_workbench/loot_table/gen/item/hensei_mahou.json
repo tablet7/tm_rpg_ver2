@@ -1,0 +1,49 @@
+{
+  "type": "minecraft:command",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:flint",
+          "modifier": [
+            {
+              "type": "minecraft:set_name",
+              "target": "item_name",
+              "name": {
+                "text": "変性石「魔法」"
+              }
+            },
+            {
+              "type": "minecraft:set_lore",
+              "mode": "append",
+              "lore": [
+                {
+                  "text": "改造: ダメージタイプを魔法にする",
+                  "color": "gray",
+                  "italic": false
+                },
+                {
+                  "text": "武器・スキルに使える",
+                  "color": "gray",
+                  "italic": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:set_custom_data",
+              "tag": "{kaizou_item:\"hensei_mahou\",sell:1000}"
+            },
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:item_model": "minecraft:lapis_lazuli"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

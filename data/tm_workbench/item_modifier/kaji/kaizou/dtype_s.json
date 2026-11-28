@@ -1,0 +1,91 @@
+{
+  "type": "minecraft:sequence",
+  "functions": [
+    {
+      "type": "minecraft:copy_custom_data",
+      "source": {
+        "type": "minecraft:storage",
+        "source": "tm_workbench:kaji"
+      },
+      "ops": [
+        {
+          "source": "item.damage_type",
+          "target": "damage_type",
+          "op": "replace"
+        }
+      ]
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        [
+          {
+            "text": "ダメージタイプ: ",
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": "物理ダメージ",
+            "color": "red",
+            "italic": false
+          }
+        ]
+      ],
+      "mode": "replace_section",
+      "offset": 5,
+      "size": 1,
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#dt"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "min": 1,
+          "max": 1
+        }
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        [
+          {
+            "text": "ダメージタイプ: ",
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": "魔法ダメージ",
+            "color": "blue",
+            "italic": false
+          }
+        ]
+      ],
+      "mode": "replace_section",
+      "offset": 5,
+      "size": 1,
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#dt"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "min": 2,
+          "max": 2
+        }
+      }
+    }
+  ]
+}

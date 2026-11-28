@@ -1,0 +1,107 @@
+{
+  "type": "minecraft:sequence",
+  "functions": [
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        [
+          {
+            "text": "必要: ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#n4",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ],
+        [
+          {
+            "text": "持っている: ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#h4",
+              "objective": "kaji_tmp"
+            },
+            "color": "green",
+            "italic": false
+          }
+        ]
+      ],
+      "mode": "replace_all",
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#nok4"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "min": 1
+        }
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        [
+          {
+            "text": "必要: ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#n4",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ],
+        [
+          {
+            "text": "持っている: ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#h4",
+              "objective": "kaji_tmp"
+            },
+            "color": "red",
+            "italic": false
+          }
+        ]
+      ],
+      "mode": "replace_all",
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#nok4"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "max": 0
+        }
+      }
+    }
+  ]
+}

@@ -9,6 +9,8 @@
 # @s ＝ プレイヤー（at @s）
 
 # メインハンドが空いていないと、写すときに上書きして消してしまうので、知らせて終わる
+# HUD（tm_rpg:player/hud/show）がこのメッセージを上書きしないよう、2秒止める
+execute if items entity @s weapon.mainhand * run scoreboard players set @s hud_hold 40
 execute if items entity @s weapon.mainhand * run return run title @s actionbar {"text":"メインハンドを空けてから右クリックしてください","color":"red"}
 
 item replace entity @s weapon.mainhand from entity @s weapon.offhand

@@ -6,7 +6,6 @@
 
 execute if score @s rupture_potency matches ..0 run scoreboard players set @s rupture_potency 1
 
-tellraw @s [{"text":"破裂","color":"green"},{"score":{"name":"@s","objective":"rupture_potency"},"color":"white"},{"text":" "},{"score":{"name":"@s","objective":"rupture_time"}},{"text":"秒","color":"white"}]
 scoreboard players operation @s damage_dealt_pmc_p += @s rupture_potency
 scoreboard players remove @s rupture_time 1
 
@@ -18,7 +17,8 @@ execute store result score @s random_rand run random value -15..15
 execute store result storage tm_rpg:ab_text z_rand float 0.1 run scoreboard players get @s random_rand
 
 data merge storage tm_rpg:ab_text {color:green}
-data merge storage tm_rpg:ab_text {type:"破裂"}
+# 種類はアイコンの文字（フォント tm_rpg:popup。md/font_md/hud/gen_hud_font.py）
+data merge storage tm_rpg:ab_text {type:"\ue003"}
 execute store result storage tm_rpg:ab_text damage int 1 run scoreboard players get @s rupture_potency
 execute store result storage tm_rpg:ab_text time int 1 run scoreboard players get @s rupture_time
 

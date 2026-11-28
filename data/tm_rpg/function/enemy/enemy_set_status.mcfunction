@@ -3,6 +3,7 @@
 # 召喚した敵にステータスを設定し、HPバー（text_display）を乗せる関数（マクロなし）。敵の召喚関数（enemy/summon/...）から呼ばれる
 # 使い方: storage tm_rpg:enemy_status data にステータスを入れてから、execute as <召喚した敵> at @s run function tm_rpg:enemy/enemy_set_status
 # data のキー: Lv, HP, HP_MAX, hp_rege, MP, MP_MAX, mp_rege, armor, magic_armor, p_attack, m_attack, cooltime, sustain_time, sustain_power, crit_per, crit_damage, job_bonus, evasin, luck
+#   mat_family（落とす素材の系統 1 木・2 石・3 生物・4 宝石）, mat_table（段階の表 1〜4）。無くてもよい（無ければ素材を落とさない。ボスなど）
 # 武器は召喚関数のほうで loot replace entity @s weapon.mainhand loot <loot table> を実行して持たせる
 # @s ＝ 召喚した敵
 
@@ -29,6 +30,14 @@ execute store result score @s CRIT_DAMAGE_MAX_LEV run data get storage tm_rpg:en
 execute store result score @s JOB_BONUS_MAX_LEV run data get storage tm_rpg:enemy_status data.job_bonus
 execute store result score @s EVASION_MAX_LEV run data get storage tm_rpg:enemy_status data.evasin
 execute store result score @s LUCK_MAX_LEV run data get storage tm_rpg:enemy_status data.luck
+
+# 落とす強化の素材（tm_workbench:mat/drop/start が読む）。書いていない敵は 0（落とさない）
+execute store result score @s mat_family run data get storage tm_rpg:enemy_status data.mat_family
+execute store result score @s mat_table run data get storage tm_rpg:enemy_status data.mat_table
+
+# 次の tick にステータスを組み立てる（武器は召喚関数がこのあと持たせるので、装備もそのとき読む）
+scoreboard players set @s eq_dirty 1
+scoreboard players set @s stat_dirty 1
 
 scoreboard players set @s attack_timer 0
 scoreboard players set @s ATTACK_TIMER_LEV 0

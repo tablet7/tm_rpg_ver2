@@ -1,0 +1,187 @@
+{
+  "type": "minecraft:sequence",
+  "functions": [
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        [
+          {
+            "text": "持っている: ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#ghave",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "mode": "replace_all",
+      "condition": {
+        "type": "minecraft:inverted",
+        "term": {
+          "type": "minecraft:int_value_check",
+          "value": {
+            "type": "minecraft:score",
+            "target": {
+              "type": "minecraft:fixed",
+              "name": "#state"
+            },
+            "score": "kaji_tmp"
+          },
+          "test": {
+            "min": 2,
+            "max": 2
+          }
+        }
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        [
+          {
+            "text": "必要: ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#gold",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ],
+        [
+          {
+            "text": "持っている: ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#ghave",
+              "objective": "kaji_tmp"
+            },
+            "color": "green",
+            "italic": false
+          }
+        ]
+      ],
+      "mode": "replace_all",
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#goldok"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        [
+          {
+            "text": "必要: ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#gold",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ],
+        [
+          {
+            "text": "持っている: ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#ghave",
+              "objective": "kaji_tmp"
+            },
+            "color": "red",
+            "italic": false
+          }
+        ]
+      ],
+      "mode": "replace_all",
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#goldok"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "max": 0
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

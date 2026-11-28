@@ -16,6 +16,8 @@ scoreboard players set #tama_sustain_power temp 0
 scoreboard players set #tama_sustain_time temp 0
 scoreboard players operation #tama_sustain_power temp += @s sustain_power
 scoreboard players operation #tama_sustain_time temp += @s sustain_time
+# 敵が撃った弾なら 1（func がバフ・デバフを付けるとき、buff/src/tama が #buff_side temp に写す。敵から受けたデバフは付与効果増加で弱まる）
+execute store success score #tama_side temp if entity @s[tag=enemy_shot]
 
 # 当たったときに実行する関数。main_projectile/init が弾に入れたものがあれば使う（無ければ何もしない）
 data modify storage tm_rpg:tama func set value "tm_rpg:system/naguri/non_func"

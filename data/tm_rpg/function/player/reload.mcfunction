@@ -8,6 +8,10 @@ effect give @s minecraft:instant_health infinite 10 true
 effect give @s minecraft:saturation infinite 10 true
 effect give @s minecraft:resistance infinite 10 true
 
+# ステータスを組み立て直す（装備も読み直す）
+scoreboard players set @s eq_dirty 1
+scoreboard players set @s stat_dirty 1
+
 scoreboard players operation @s hp = @s HP_MAX
 scoreboard players operation @s mp = @s MP_MAX
 scoreboard players set @s skill1_recast 0
@@ -16,6 +20,17 @@ scoreboard players set @s skill3_recast 0
 scoreboard players set @s skill4_recast 0
 scoreboard players set @s skill5_recast 0
 scoreboard players set @s skill6_recast 0
+
+# HUD（リングを使える状態に戻し、次の tick で組み立て直させる）
+scoreboard players set @s skill1_cdmax 0
+scoreboard players set @s skill2_cdmax 0
+scoreboard players set @s skill3_cdmax 0
+scoreboard players set @s skill4_cdmax 0
+scoreboard players set @s skill5_cdmax 0
+scoreboard players set @s skill6_cdmax 0
+function tm_rpg:player/hud/ring
+scoreboard players set @s hud_hold 0
+scoreboard players reset @s hud_hp_old
 
 function tm_rpg:system/abnormal/clear
 
@@ -55,15 +70,17 @@ scoreboard players reset @s hit_mark_16
 scoreboard players reset @s hit_mark_last
 scoreboard players reset @s hit_mark_next
 
-function tm_rpg:system/stutas/potion_reset
+# バフを外す（スキル・ポーション）
+function tm_rpg:system/buff/skill/reset
+function tm_rpg:system/buff/potion/reset
 
 tag @s add player_reload
 
 # hp表示
 execute as @e[type=text_display,tag=mount_text] at @s if score @s ent_id = @a[tag=player_reload,limit=1] ent_id run kill
 
+# プレイヤーには乗せられない（/ride は Players can't be ridden で失敗する）ので、player/main が毎 tick tp で頭の上に動かす
 summon text_display ~ ~ ~ {billboard:"center",Tags:["sub_text","mount_text"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0.1f,0f],scale:[1f,1f,1f]},text:{"color":"green","text":"❚❚❚❚❚❚❚❚❚❚"},background:-2368549}
-ride @e[type=text_display,limit=1,tag=sub_text] mount @s
 scoreboard players operation @e[type=text_display,tag=sub_text,limit=1] ent_id = @s ent_id
 tag @e[type=text_display,tag=sub_text] remove sub_text
 

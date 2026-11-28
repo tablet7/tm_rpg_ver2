@@ -1,0 +1,631 @@
+{
+  "type": "minecraft:sequence",
+  "functions": [
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "10 番に、武器・防具・アクセサリー・スキルを置く",
+          "color": "gray",
+          "italic": false
+        },
+        {
+          "text": "12 番に、改造アイテムを置く",
+          "color": "gray",
+          "italic": false
+        }
+      ],
+      "mode": "replace_all",
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#state"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "min": 0,
+          "max": 0
+        }
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "これは改造できません",
+          "color": "red",
+          "italic": false
+        }
+      ],
+      "mode": "replace_all",
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#state"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "min": 1,
+          "max": 1
+        }
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        [
+          {
+            "text": "Lv: ",
+            "color": "gold",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#lv",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ],
+        [
+          {
+            "text": "強化回数: ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#kk",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ],
+        [
+          {
+            "text": "改造した回数: ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#kz",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ],
+        [
+          {
+            "text": "改造できる回数: ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#kzc",
+              "objective": "kaji_tmp"
+            },
+            "color": "green",
+            "italic": false
+          }
+        ],
+        [
+          {
+            "text": "成功率: ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#rate",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": "%",
+            "color": "gray",
+            "italic": false
+          }
+        ]
+      ],
+      "mode": "replace_all",
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#state"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "min": 2,
+          "max": 2
+        }
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "12 番に改造アイテムを置いてください",
+          "color": "yellow",
+          "italic": false
+        }
+      ],
+      "mode": "append",
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#why"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 3,
+              "max": 3
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "12 番の物は改造アイテムではありません",
+          "color": "red",
+          "italic": false
+        }
+      ],
+      "mode": "append",
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#why"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 4,
+              "max": 4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "改造できる回数がありません（強化 10 回ごとに 1 回増えます）",
+          "color": "red",
+          "italic": false
+        }
+      ],
+      "mode": "append",
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#why"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 5,
+              "max": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "この改造アイテムは、この物には使えません",
+          "color": "red",
+          "italic": false
+        }
+      ],
+      "mode": "append",
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#why"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 6,
+              "max": 6
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "すでに同じ状態なので、使う必要がありません",
+          "color": "red",
+          "italic": false
+        }
+      ],
+      "mode": "append",
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#why"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 7,
+              "max": 7
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "ダメージの無いスキルには使えません",
+          "color": "red",
+          "italic": false
+        }
+      ],
+      "mode": "append",
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#why"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 8,
+              "max": 8
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "付いていない値が無いので、使えません",
+          "color": "red",
+          "italic": false
+        }
+      ],
+      "mode": "append",
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#why"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 9,
+              "max": 9
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        [
+          {
+            "text": "Lv の上限（",
+            "color": "red",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#cap",
+              "objective": "kaji_tmp"
+            },
+            "color": "red",
+            "italic": false
+          },
+          {
+            "text": "）を超えるため使えません",
+            "color": "red",
+            "italic": false
+          }
+        ]
+      ],
+      "mode": "append",
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#why"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 10,
+              "max": 10
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "付いている値が無いので、使えません",
+          "color": "red",
+          "italic": false
+        }
+      ],
+      "mode": "append",
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#why"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 11,
+              "max": 11
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "失敗しても改造アイテムと gold は使う（改造できる回数は減らない）",
+          "color": "dark_gray",
+          "italic": false
+        }
+      ],
+      "mode": "append",
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#state"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "min": 2,
+          "max": 2
+        }
+      }
+    }
+  ]
+}

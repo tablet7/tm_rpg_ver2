@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:set_lore",
+  "entity": "this",
+  "mode": "replace_all",
+  "lore": [
+    {
+      "text": "押すと ×1 → ×10 → ×100 → ×1000 → 全部 の順に変わる",
+      "color": "gray",
+      "italic": false
+    },
+    {
+      "text": "持っている数が足りないときは変換しない（全部を除く）",
+      "color": "gray",
+      "italic": false
+    },
+    {
+      "text": "全部は 2 回押すと変換する",
+      "color": "dark_gray",
+      "italic": false
+    }
+  ]
+}
