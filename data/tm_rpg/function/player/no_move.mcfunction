@@ -11,8 +11,10 @@ execute if items entity @s container.17 book[custom_data='{is_status_paper:1b}']
 
 # resource表示用の紙を用意
 execute if score @s resource_page matches 1 unless items entity @s container.26 * run item replace entity @s container.26 with paper[custom_data={is_resource_paper:1b},item_name='資源(1/2)'] 1 
+execute if score @s resource_page matches 2 unless items entity @s container.26 * run item replace entity @s container.26 with paper[custom_data={is_resource_paper:1b},item_name='資源(2/2)'] 1 
 # resource表示
 execute if score @s resource_page matches 1 if items entity @s container.26 paper[custom_data='{is_resource_paper:1b}'] run item modify entity @s container.26 tm_rpg:resource/update_resource_lore1
+execute if score @s resource_page matches 2 if items entity @s container.26 paper[custom_data='{is_resource_paper:1b}'] run item modify entity @s container.26 tm_rpg:resource/update_resource_lore2
 
 # 設定
 execute unless items entity @s container.35 * run item replace entity @s container.35 with redstone_torch[custom_data={is_setting_paper:1b},item_name='設定'] 1 

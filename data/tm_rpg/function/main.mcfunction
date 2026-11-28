@@ -72,6 +72,11 @@ execute as @e[type=#tm_rpg:delete_type,tag=delete_entity] at @s if score @s kill
 execute as @e[type=item] if items entity @s contents minecraft:bedrock run kill @s
 clear @a bedrock
 
+## メニュー 
+execute as @e[type=item] at @s if items entity @s contents minecraft:paper run function tm_rpg:player/menu/res_cnt
+execute as @e[type=item] if items entity @s contents minecraft:paper run kill @s
+
+
 ## テキストディスプレイ
 execute as @e[type=text_display,tag=mount_text] at @s unless entity @e[type=!#tm_rpg:delete_hp_bar_type,dx=0,dy=-3,dz=0] run kill @s
 
