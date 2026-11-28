@@ -4,6 +4,8 @@
 # @s ＝ プレイヤー
 
 # メインハンドに持っていたら、オフハンドへ移す（オフハンドが空いていないときは、上書きして消さないように知らせて終わる）
+# HUD（tm_rpg:player/hud/show）がこのメッセージを上書きしないよう、2秒止める
+execute if items entity @s weapon.mainhand *[minecraft:item_model="test_weapon_motion:weapon"] if items entity @s weapon.offhand * run scoreboard players set @s hud_hold 40
 execute if items entity @s weapon.mainhand *[minecraft:item_model="test_weapon_motion:weapon"] if items entity @s weapon.offhand * run return run title @s actionbar {"text":"双剣はオフハンドに持ちます。オフハンドを空けてください","color":"red"}
 execute if items entity @s weapon.mainhand *[minecraft:item_model="test_weapon_motion:weapon"] run item replace entity @s weapon.offhand from entity @s weapon.mainhand
 execute if items entity @s weapon.mainhand *[minecraft:item_model="test_weapon_motion:weapon"] run item replace entity @s weapon.mainhand with minecraft:air

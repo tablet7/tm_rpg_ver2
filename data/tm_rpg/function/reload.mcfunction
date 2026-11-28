@@ -41,6 +41,10 @@ scoreboard objectives add CONTACT_20 dummy
 scoreboard players set System CONTACT_20 20
 scoreboard objectives add CONTACT_3 dummy
 scoreboard players set System CONTACT_3 3
+scoreboard objectives add CONTACT_9 dummy
+scoreboard players set System CONTACT_9 9
+scoreboard objectives add CONTACT_54 dummy
+scoreboard players set System CONTACT_54 54
 scoreboard objectives add CONTACT_5 dummy
 scoreboard players set System CONTACT_5 5
 scoreboard objectives add CONTACT_10 dummy
@@ -332,6 +336,40 @@ scoreboard objectives add skill3_recast dummy
 scoreboard objectives add skill4_recast dummy
 scoreboard objectives add skill5_recast dummy
 scoreboard objectives add skill6_recast dummy
+
+### HUD（player/hud/。説明書: md/font_md/hud/hud.md）
+# スキル枠のリング: 使ったときのクールタイム（割合の分母）と、0〜9 の段階
+scoreboard objectives add skill1_cdmax dummy
+scoreboard objectives add skill2_cdmax dummy
+scoreboard objectives add skill3_cdmax dummy
+scoreboard objectives add skill4_cdmax dummy
+scoreboard objectives add skill5_cdmax dummy
+scoreboard objectives add skill6_cdmax dummy
+scoreboard objectives add skill1_ring dummy
+scoreboard objectives add skill2_ring dummy
+scoreboard objectives add skill3_ring dummy
+scoreboard objectives add skill4_ring dummy
+scoreboard objectives add skill5_ring dummy
+scoreboard objectives add skill6_ring dummy
+# HP・MP バーの6つの区切り（0〜9）
+scoreboard objectives add hud_hp_g0 dummy
+scoreboard objectives add hud_hp_g1 dummy
+scoreboard objectives add hud_hp_g2 dummy
+scoreboard objectives add hud_hp_g3 dummy
+scoreboard objectives add hud_hp_g4 dummy
+scoreboard objectives add hud_hp_g5 dummy
+scoreboard objectives add hud_mp_g0 dummy
+scoreboard objectives add hud_mp_g1 dummy
+scoreboard objectives add hud_mp_g2 dummy
+scoreboard objectives add hud_mp_g3 dummy
+scoreboard objectives add hud_mp_g4 dummy
+scoreboard objectives add hud_mp_g5 dummy
+# 変化の判定用の前回の値と、HUD を送らない時間（tick）
+scoreboard objectives add hud_hp_old dummy
+scoreboard objectives add hud_mp_old dummy
+scoreboard objectives add hud_hpmax_old dummy
+scoreboard objectives add hud_mpmax_old dummy
+scoreboard objectives add hud_hold dummy
 
 ### 状態異常
 #### 火傷

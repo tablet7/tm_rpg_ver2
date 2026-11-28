@@ -18,3 +18,7 @@ function tm_rpg:system/abnormal/second
 # 燃えていなかったら燃やす
 execute store result score @s real_fire_time run data get entity @s Fire
 execute if score @s burn_time matches 1.. if score @s real_fire_time matches ..0 run summon vindicator ~ ~-0.5 ~ {DeathLootTable:"tm_rpg:entity/empty",Silent:1b,Invulnerable:1b,DeathTime:19,Johnny:1b,Tags:["fire_ent_delete","temp_victim"],equipment:{mainhand:{id:"minecraft:stick",count:1,components:{"minecraft:enchantments":{"fire_aspect":1},"minecraft:attribute_modifiers":[{id:"attack_damage",type:"attack_damage",amount:0.01,operation:"add_multiplied_base"},{id:"attack_knockback",type:"attack_knockback",amount:0,operation:"add_value"}]}}},drop_chances:{mainhand:0.000},active_effects:[{id:"minecraft:invisibility",amplifier:1,duration:20000,show_particles:0b}]}
+
+# HUD のリングを計算し直して送り直す（アクションバーは約3秒で消えるので、毎秒送る）。状態異常の秒数を減らした後に送る
+function tm_rpg:player/hud/ring
+function tm_rpg:player/hud/show

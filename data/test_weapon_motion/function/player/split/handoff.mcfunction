@@ -6,6 +6,8 @@
 # @s ＝ プレイヤー（at @s）
 
 # オフハンドが空いていないと上書きして消してしまうので、空くまで 0 コマ目のまま待つ
+# HUD（tm_rpg:player/hud/show）がこのメッセージを上書きしないよう、2秒止める
+execute if items entity @s weapon.offhand * run scoreboard players set @s hud_hold 40
 execute if items entity @s weapon.offhand * run return run title @s actionbar {"text":"オフハンドを空けてください","color":"red"}
 
 item replace entity @s weapon.offhand from entity @s weapon.mainhand
