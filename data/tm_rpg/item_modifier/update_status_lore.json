@@ -23,20 +23,20 @@
       {"score": {"name": "@s", "objective": "mp_rege"}, "color": "white", "italic": false}
     ],
     [
-      {"text": "防御力: ", "color": "#a8a8a8", "italic": false},
-      {"score": {"name": "@s", "objective": "armor"}, "color": "white", "italic": false}
-    ],
-    [
-      {"text": "魔法防御力: ", "color": "#34ada7", "italic": false},
-      {"score": {"name": "@s", "objective": "magic_armor"}, "color": "white", "italic": false}
-    ],
-    [
       {"text": "攻撃力: ", "color": "#660000", "italic": false},
       {"score": {"name": "@s", "objective": "p_attack"}, "color": "white", "italic": false}
     ],
     [
       {"text": "魔法攻撃力: ", "color": "#826cff", "italic": false},
       {"score": {"name": "@s", "objective": "m_attack"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "防御力: ", "color": "#a8a8a8", "italic": false},
+      {"score": {"name": "@s", "objective": "armor"}, "color": "white", "italic": false}
+    ],
+    [
+      {"text": "魔法防御力: ", "color": "#34ada7", "italic": false},
+      {"score": {"name": "@s", "objective": "magic_armor"}, "color": "white", "italic": false}
     ],
     [
       {"text": "クールタイム低下: ", "color": "green", "italic": false},

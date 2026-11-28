@@ -5,6 +5,14 @@
     [
       {"text": "職業: ", "color": "white", "italic": false},
       {"storage": "tm_rpg:setting", "nbt": "job_type", "color": "white", "italic": false}
+    ],
+    [
+      {"text": "メインクエスト: ", "color": "white", "italic": false},
+      {"storage": "tm_rpg:setting", "nbt": "job_type", "color": "white", "italic": false}
+    ],
+    [
+      {"text": "サブクエスト: ", "color": "white", "italic": false},
+      {"storage": "tm_rpg:setting", "nbt": "job_type", "color": "white", "italic": false}
     ]
   ],
   "mode": "replace_all"
