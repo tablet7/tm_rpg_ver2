@@ -9,3 +9,6 @@ tellraw @a {"text":"{tm_rpg} Reloaded"}
 
 function test_weapon_motion:load
 tellraw @a {"text":"{test_weapon_motion} Reloaded"}
+
+function tm_workbench:load
+tellraw @a {"text":"{tm_workbench} Reloaded"}

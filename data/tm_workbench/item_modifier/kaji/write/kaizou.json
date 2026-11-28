@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:copy_custom_data",
+  "source": {
+    "type": "minecraft:storage",
+    "source": "tm_workbench:kaji"
+  },
+  "ops": [
+    {
+      "source": "item.kaizou",
+      "target": "kaizou",
+      "op": "replace"
+    }
+  ]
+}

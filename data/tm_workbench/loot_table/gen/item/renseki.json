@@ -1,0 +1,49 @@
+{
+  "type": "minecraft:command",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:flint",
+          "modifier": [
+            {
+              "type": "minecraft:set_name",
+              "target": "item_name",
+              "name": {
+                "text": "錬石"
+              }
+            },
+            {
+              "type": "minecraft:set_lore",
+              "mode": "append",
+              "lore": [
+                {
+                  "text": "改造: Lv を 1 上げる（成功率 100%）",
+                  "color": "gray",
+                  "italic": false
+                },
+                {
+                  "text": "武器・防具・アクセサリー・スキルに使える",
+                  "color": "gray",
+                  "italic": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:set_custom_data",
+              "tag": "{kaizou_item:\"renseki\",sell:1000}"
+            },
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:item_model": "minecraft:disc_fragment_5"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -5,3 +5,4 @@
 #function
 function tm_rpg:main
 function test_weapon_motion:tick
+function tm_workbench:tick

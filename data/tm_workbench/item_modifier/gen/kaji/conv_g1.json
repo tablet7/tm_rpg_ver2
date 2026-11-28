@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:set_lore",
+  "entity": "this",
+  "mode": "replace_all",
+  "lore": [
+    [
+      {
+        "text": "持っている: ",
+        "color": "gray",
+        "italic": false
+      },
+      {
+        "score": {
+          "name": "#cvh1",
+          "objective": "kaji_tmp"
+        },
+        "color": "white",
+        "italic": false
+      }
+    ],
+    {
+      "text": "これより下の段階は無いので変換できません",
+      "color": "dark_gray",
+      "italic": false
+    }
+  ]
+}

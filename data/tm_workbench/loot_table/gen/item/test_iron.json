@@ -1,0 +1,44 @@
+{
+  "type": "minecraft:command",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_nugget",
+          "modifier": [
+            {
+              "type": "minecraft:set_name",
+              "target": "item_name",
+              "name": {
+                "text": "鉄のかけら（仮）"
+              }
+            },
+            {
+              "type": "minecraft:set_lore",
+              "mode": "append",
+              "lore": [
+                {
+                  "text": "強化に使う素材（仮）",
+                  "color": "gray",
+                  "italic": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:set_custom_data",
+              "tag": "{mat:\"test_iron\",sell:1000}"
+            },
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:item_model": "minecraft:iron_nugget"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

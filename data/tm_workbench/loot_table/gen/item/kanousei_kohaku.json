@@ -1,0 +1,49 @@
+{
+  "type": "minecraft:command",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:flint",
+          "modifier": [
+            {
+              "type": "minecraft:set_name",
+              "target": "item_name",
+              "name": {
+                "text": "可能性の琥珀"
+              }
+            },
+            {
+              "type": "minecraft:set_lore",
+              "mode": "append",
+              "lore": [
+                {
+                  "text": "改造: 付いていない値を 1 つ付ける",
+                  "color": "gray",
+                  "italic": false
+                },
+                {
+                  "text": "防具・アクセサリーに使える",
+                  "color": "gray",
+                  "italic": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:set_custom_data",
+              "tag": "{kaizou_item:\"kanousei_kohaku\",sell:1000}"
+            },
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:item_model": "minecraft:resin_clump"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

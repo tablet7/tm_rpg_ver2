@@ -1,0 +1,2508 @@
+{
+  "type": "minecraft:sequence",
+  "functions": [
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "replace_all",
+      "lore": [
+        {
+          "text": "10 番に、強化する物を置く",
+          "color": "gray",
+          "italic": false
+        }
+      ],
+      "condition": {
+        "type": "minecraft:inverted",
+        "term": {
+          "type": "minecraft:int_value_check",
+          "value": {
+            "type": "minecraft:score",
+            "target": {
+              "type": "minecraft:fixed",
+              "name": "#state"
+            },
+            "score": "kaji_tmp"
+          },
+          "test": {
+            "min": 2,
+            "max": 2
+          }
+        }
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "replace_all",
+      "lore": [
+        {
+          "text": "足りない素材はありません",
+          "color": "gray",
+          "italic": false
+        }
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 0,
+              "max": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "replace_all",
+      "lore": [
+        {
+          "text": "一番上の段階（赤）が足りないので、崩しても足りません",
+          "color": "red",
+          "italic": false
+        }
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "replace_all",
+      "lore": [
+        {
+          "text": "押すと、次のように崩して補います:",
+          "color": "yellow",
+          "italic": false
+        }
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "木材",
+            "color": "green",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flk2",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "木のかけら",
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flp2",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#res"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flk2"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "まとまった木",
+            "color": "aqua",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flk3",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "木材",
+            "color": "green",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flp3",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#res"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flk3"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "原木",
+            "color": "light_purple",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flk4",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "まとまった木",
+            "color": "aqua",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flp4",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#res"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flk4"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "古代の木",
+            "color": "gold",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flk5",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "原木",
+            "color": "light_purple",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flp5",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#res"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flk5"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "古代の苗",
+            "color": "red",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flk6",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "古代の木",
+            "color": "gold",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flp6",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#res"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flk6"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "石材",
+            "color": "green",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flk2",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "石のかけら",
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flp2",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#res"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flk2"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "磨かれた石",
+            "color": "aqua",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flk3",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "石材",
+            "color": "green",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flp3",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#res"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flk3"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "加工された石",
+            "color": "light_purple",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flk4",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "磨かれた石",
+            "color": "aqua",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flp4",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#res"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flk4"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "古代の石",
+            "color": "gold",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flk5",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "加工された石",
+            "color": "light_purple",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flp5",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#res"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flk5"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "加工された古代の石",
+            "color": "red",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flk6",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "古代の石",
+            "color": "gold",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flp6",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#res"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flk6"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "皮",
+            "color": "green",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flk2",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "皮のかけら",
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flp2",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#res"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 3,
+              "max": 3
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flk2"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "肉",
+            "color": "aqua",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flk3",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "皮",
+            "color": "green",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flp3",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#res"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 3,
+              "max": 3
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flk3"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "骨",
+            "color": "light_purple",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flk4",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "肉",
+            "color": "aqua",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flp4",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#res"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 3,
+              "max": 3
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flk4"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "目",
+            "color": "gold",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flk5",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "骨",
+            "color": "light_purple",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flp5",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#res"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 3,
+              "max": 3
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flk5"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "ナニカの卵",
+            "color": "red",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flk6",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "目",
+            "color": "gold",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#flp6",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#res"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 3,
+              "max": 3
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flk6"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "銅インゴット",
+            "color": "green",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#glk2",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "黒ずんだ石",
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#glp2",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#glk2"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "鉄インゴット",
+            "color": "aqua",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#glk3",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "銅インゴット",
+            "color": "green",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#glp3",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#glk3"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "金インゴット",
+            "color": "light_purple",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#glk4",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "鉄インゴット",
+            "color": "aqua",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#glp4",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#glk4"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "ダイヤモンド",
+            "color": "gold",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#glk5",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "金インゴット",
+            "color": "light_purple",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#glp5",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#glk5"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        [
+          {
+            "text": "  ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "輝き石",
+            "color": "red",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#glk6",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          },
+          {
+            "text": " → ",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "text": "ダイヤモンド",
+            "color": "gold",
+            "italic": false
+          },
+          {
+            "text": " ×",
+            "color": "gray",
+            "italic": false
+          },
+          {
+            "score": {
+              "name": "#glp6",
+              "objective": "kaji_tmp"
+            },
+            "color": "white",
+            "italic": false
+          }
+        ]
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#state"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 2,
+              "max": 2
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#flst"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1,
+              "max": 1
+            }
+          },
+          {
+            "type": "minecraft:int_value_check",
+            "value": {
+              "type": "minecraft:score",
+              "target": {
+                "type": "minecraft:fixed",
+                "name": "#glk6"
+              },
+              "score": "kaji_tmp"
+            },
+            "test": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "mode": "append",
+      "lore": [
+        {
+          "text": "足りない分だけ、すぐ上の段階から崩す。下の段階から上には戻せない",
+          "color": "dark_gray",
+          "italic": false
+        }
+      ],
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "#state"
+          },
+          "score": "kaji_tmp"
+        },
+        "test": {
+          "min": 2,
+          "max": 2
+        }
+      }
+    }
+  ]
+}

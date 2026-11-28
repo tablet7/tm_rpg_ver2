@@ -1,0 +1,19 @@
+{
+  "criteria": {
+    "open": {
+      "trigger": "minecraft:player_interacted_with_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "minecraft:chest_minecart"
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "tm_workbench:gui/chest/on_open"
+  }
+}

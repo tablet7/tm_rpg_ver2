@@ -1,0 +1,49 @@
+{
+  "type": "minecraft:command",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:flint",
+          "modifier": [
+            {
+              "type": "minecraft:set_name",
+              "target": "item_name",
+              "name": {
+                "text": "古代の残骸"
+              }
+            },
+            {
+              "type": "minecraft:set_lore",
+              "mode": "append",
+              "lore": [
+                {
+                  "text": "改造: 付いている値をすべて ＋5〜15%",
+                  "color": "gray",
+                  "italic": false
+                },
+                {
+                  "text": "防具・アクセサリーに使える",
+                  "color": "gray",
+                  "italic": false
+                }
+              ]
+            },
+            {
+              "type": "minecraft:set_custom_data",
+              "tag": "{kaizou_item:\"kodai_zangai\",sell:1000}"
+            },
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:item_model": "minecraft:ancient_debris"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

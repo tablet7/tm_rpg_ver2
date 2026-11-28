@@ -1,0 +1,32 @@
+#> tm_workbench:gen/chest/s101/fill
+
+# 画面 101（機能 1）: 空いている枠に画面の物を置く（gen/chest/s101/check から）
+# gen_gui.py が作る（手で直さない。md/gui_md/screens.json・items.json・materials.json を直して作り直す）
+# @s ＝ トロッコ
+
+execute unless items entity @s container.0 * run item replace entity @s container.0 with minecraft:bedrock[minecraft:custom_data={gui_slot:0},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.1 * run item replace entity @s container.1 with minecraft:bedrock[minecraft:custom_data={gui_slot:1},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.2 * run item replace entity @s container.2 with minecraft:bedrock[minecraft:custom_data={gui_slot:2},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.3 * run item replace entity @s container.3 with minecraft:bedrock[minecraft:custom_data={gui_slot:3},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.4 * run item replace entity @s container.4 with minecraft:bedrock[minecraft:custom_data={gui_slot:4},minecraft:item_model="minecraft:smithing_table",minecraft:item_name="鍛冶台"]
+execute unless items entity @s container.5 * run item replace entity @s container.5 with minecraft:bedrock[minecraft:custom_data={gui_slot:5},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.6 * run item replace entity @s container.6 with minecraft:bedrock[minecraft:custom_data={gui_slot:6},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.7 * run item replace entity @s container.7 with minecraft:bedrock[minecraft:custom_data={gui_slot:7},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.8 * run item replace entity @s container.8 with minecraft:bedrock[minecraft:custom_data={gui_slot:8},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.9 * run item replace entity @s container.9 with minecraft:bedrock[minecraft:custom_data={gui_slot:9},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.11 * run item replace entity @s container.11 with minecraft:bedrock[minecraft:custom_data={gui_slot:11},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.12 * run item replace entity @s container.12 with minecraft:bedrock[minecraft:custom_data={gui_slot:12},minecraft:item_model="minecraft:anvil",minecraft:item_name="強化"]
+execute unless items entity @s container.13 * run item replace entity @s container.13 with minecraft:bedrock[minecraft:custom_data={gui_slot:13},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.14 * run item replace entity @s container.14 with minecraft:bedrock[minecraft:custom_data={gui_slot:14},minecraft:item_model="minecraft:smithing_table",minecraft:item_name="改造"]
+execute unless items entity @s container.15 * run item replace entity @s container.15 with minecraft:bedrock[minecraft:custom_data={gui_slot:15},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.16 * run item replace entity @s container.16 with minecraft:bedrock[minecraft:custom_data={gui_slot:16},minecraft:item_model="minecraft:grindstone",minecraft:item_name="分解"]
+execute unless items entity @s container.17 * run item replace entity @s container.17 with minecraft:bedrock[minecraft:custom_data={gui_slot:17},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.18 * run item replace entity @s container.18 with minecraft:bedrock[minecraft:custom_data={gui_slot:18},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.19 * run item replace entity @s container.19 with minecraft:bedrock[minecraft:custom_data={gui_slot:19},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.20 * run item replace entity @s container.20 with minecraft:bedrock[minecraft:custom_data={gui_slot:20},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.21 * run item replace entity @s container.21 with minecraft:bedrock[minecraft:custom_data={gui_slot:21},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.22 * run item replace entity @s container.22 with minecraft:bedrock[minecraft:custom_data={gui_slot:22},minecraft:item_model="minecraft:stonecutter",minecraft:item_name="素材の変換"]
+execute unless items entity @s container.23 * run item replace entity @s container.23 with minecraft:bedrock[minecraft:custom_data={gui_slot:23},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.24 * run item replace entity @s container.24 with minecraft:bedrock[minecraft:custom_data={gui_slot:24},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.25 * run item replace entity @s container.25 with minecraft:bedrock[minecraft:custom_data={gui_slot:25},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]
+execute unless items entity @s container.26 * run item replace entity @s container.26 with minecraft:bedrock[minecraft:custom_data={gui_slot:26},minecraft:item_model="minecraft:gray_stained_glass_pane",minecraft:tooltip_display={hide_tooltip:true}]

@@ -1,0 +1,52 @@
+{
+  "type": "minecraft:sequence",
+  "functions": [
+    {
+      "type": "minecraft:set_custom_model_data",
+      "floats": {
+        "values": [
+          2
+        ],
+        "mode": "replace_all"
+      }
+    },
+    {
+      "type": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "text": "HP関連に特化している",
+          "color": "white",
+          "italic": false
+        },
+        {
+          "text": "最大HPを10%増加させる",
+          "color": "white",
+          "italic": false
+        }
+      ],
+      "mode": "replace_section",
+      "offset": 2,
+      "size": 1
+    },
+    {
+      "type": "minecraft:set_name",
+      "entity": "this",
+      "name": [
+        {
+          "text": "",
+          "color": "white",
+          "italic": false
+        },
+        {
+          "nbt": "name",
+          "storage": "tm_workbench:kaji",
+          "interpret": true
+        },
+        {
+          "text": "[HP]"
+        }
+      ]
+    }
+  ]
+}

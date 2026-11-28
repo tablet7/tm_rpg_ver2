@@ -26,7 +26,8 @@ p_attack:10,m_attack:10,\
 cooltime:10,\
 sustain_time:10,sustain_power:10,\
 crit_per:10,crit_damage:5,\
-job_bonus:1000,evasin:0,luck:1000}
+job_bonus:1000,evasin:0,luck:1000,\
+mat_family:1,mat_table:1}
 
 # 武器（enemy_set_status で new_mob タグが外れるので、先に持たせる）
 execute as @e[tag=new_mob,limit=1] run loot replace entity @s weapon.mainhand loot tm_rpg:item/weapon/test_weapon

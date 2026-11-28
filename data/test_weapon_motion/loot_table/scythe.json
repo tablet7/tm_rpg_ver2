@@ -50,7 +50,8 @@
             {
               "type": "minecraft:set_custom_data",
               "tag": "{weapon_type:\"large\",lv:1,kihon:3,per:50,damage_type:1,sanshou_type:1,kinsetu:1,kaizou:0,sengi:\"test_weapon_motion:sengi/back_step/skill1\"}"
-            }
+            },
+            "tm_rpg:upgrade_res_random"
           ]
         }
       ]
