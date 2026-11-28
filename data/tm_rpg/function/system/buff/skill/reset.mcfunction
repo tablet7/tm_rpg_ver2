@@ -7,6 +7,7 @@
 
 execute if score @s buff_e_test1 matches -2147483648.. run function tm_rpg:system/buff/skill/test1/remove
 execute if score @s buff_e_test2 matches -2147483648.. run function tm_rpg:system/buff/skill/test2/remove
+execute if score @s buff_e_test3 matches -2147483648.. run function tm_rpg:system/buff/skill/test3/remove
 
 # 合計を 0 にそろえる（念のため）
 scoreboard players set @s skill_hp_buff 0
@@ -25,5 +26,21 @@ scoreboard players set @s skill_critdamage_buff 0
 scoreboard players set @s skill_job_buff 0
 scoreboard players set @s skill_evasion_buff 0
 scoreboard players set @s skill_luck_buff 0
+scoreboard players set @s skill_hp_pct 0
+scoreboard players set @s skill_mp_pct 0
+scoreboard players set @s skill_hp_rage_pct 0
+scoreboard players set @s skill_mp_rage_pct 0
+scoreboard players set @s skill_armor_pct 0
+scoreboard players set @s skill_magicarmor_pct 0
+scoreboard players set @s skill_pattack_pct 0
+scoreboard players set @s skill_mattack_pct 0
+scoreboard players set @s skill_cooltime_pct 0
+scoreboard players set @s skill_sustain_pct 0
+scoreboard players set @s skill_sustainP_pct 0
+scoreboard players set @s skill_critper_pct 0
+scoreboard players set @s skill_critdamage_pct 0
+scoreboard players set @s skill_job_pct 0
+scoreboard players set @s skill_evasion_pct 0
+scoreboard players set @s skill_luck_pct 0
 
 function tm_rpg:system/buff/next

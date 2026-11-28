@@ -8,6 +8,7 @@
 # スキル
 execute if score @s buff_e_test1 <= #now temp run function tm_rpg:system/buff/skill/test1/remove
 execute if score @s buff_e_test2 <= #now temp run function tm_rpg:system/buff/skill/test2/remove
+execute if score @s buff_e_test3 <= #now temp run function tm_rpg:system/buff/skill/test3/remove
 
 # ポーション
 execute if score @s potion_hp_buff_end <= #now temp run scoreboard players set @s potion_hp_buff 0

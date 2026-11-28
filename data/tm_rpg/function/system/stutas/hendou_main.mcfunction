@@ -52,6 +52,9 @@ scoreboard players operation @s luck_score += @s LUCK_MAX_LEV
 # 特化装備の割合（%）ボーナス
 function tm_rpg:system/stutas/percent_bonus
 
+# スキルの割合（%）のバフ（system/buff/pct_apply。gen_buff.py が作る）。バフがかかっている相手（buff_next が入っている）だけ
+execute if score @s buff_next matches -2147483648.. run function tm_rpg:system/buff/pct_apply
+
 # 実数値にする（0以下だったら0~1に変更）
 execute if score @s hp_score matches ..0 run scoreboard players set @s hp_score 1
 scoreboard players operation @s HP_MAX = @s hp_score

@@ -24,6 +24,24 @@ scoreboard objectives add skill_job_buff dummy
 scoreboard objectives add skill_evasion_buff dummy
 scoreboard objectives add skill_luck_buff dummy
 
+# スキルの割合のバフの合計（%。stutas/hendou_main の最後のほうで buff/pct_apply が倍率をかける）
+scoreboard objectives add skill_hp_pct dummy
+scoreboard objectives add skill_mp_pct dummy
+scoreboard objectives add skill_hp_rage_pct dummy
+scoreboard objectives add skill_mp_rage_pct dummy
+scoreboard objectives add skill_armor_pct dummy
+scoreboard objectives add skill_magicarmor_pct dummy
+scoreboard objectives add skill_pattack_pct dummy
+scoreboard objectives add skill_mattack_pct dummy
+scoreboard objectives add skill_cooltime_pct dummy
+scoreboard objectives add skill_sustain_pct dummy
+scoreboard objectives add skill_sustainP_pct dummy
+scoreboard objectives add skill_critper_pct dummy
+scoreboard objectives add skill_critdamage_pct dummy
+scoreboard objectives add skill_job_pct dummy
+scoreboard objectives add skill_evasion_pct dummy
+scoreboard objectives add skill_luck_pct dummy
+
 # ポーションのバフ（値と、切れる時刻）
 scoreboard objectives add potion_hp_buff dummy
 scoreboard objectives add potion_hp_buff_end dummy
@@ -58,7 +76,7 @@ scoreboard objectives add potion_evasion_buff_end dummy
 scoreboard objectives add potion_luck_buff dummy
 scoreboard objectives add potion_luck_buff_end dummy
 
-# スキルごとの枠（切れる時刻 buff_e_<id>、足した値 buff_v_<id>_<ステータス>）
+# スキルごとの枠（切れる時刻 buff_e_<id>、足した値 buff_v_<id>_<ステータス>、足した割合 buff_p_<id>_<ステータス>）
 ## test1（テスト用1（物理攻撃））
 scoreboard objectives add buff_e_test1 dummy
 scoreboard objectives add buff_v_test1_pattack dummy
@@ -67,3 +85,7 @@ scoreboard objectives add buff_e_test2 dummy
 scoreboard objectives add buff_v_test2_pattack dummy
 scoreboard objectives add buff_v_test2_armor dummy
 scoreboard objectives add buff_v_test2_hp dummy
+## test3（テスト用3（物理攻撃 %・物理防御 %））
+scoreboard objectives add buff_e_test3 dummy
+scoreboard objectives add buff_p_test3_pattack dummy
+scoreboard objectives add buff_p_test3_armor dummy

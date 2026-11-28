@@ -11,6 +11,7 @@ scoreboard players set @s stat_dirty 1
 scoreboard players set @s buff_next 2147483647
 execute if score @s buff_e_test1 matches -2147483648.. run scoreboard players operation @s buff_next < @s buff_e_test1
 execute if score @s buff_e_test2 matches -2147483648.. run scoreboard players operation @s buff_next < @s buff_e_test2
+execute if score @s buff_e_test3 matches -2147483648.. run scoreboard players operation @s buff_next < @s buff_e_test3
 execute if score @s potion_hp_buff_end matches -2147483648.. run scoreboard players operation @s buff_next < @s potion_hp_buff_end
 execute if score @s potion_mp_buff_end matches -2147483648.. run scoreboard players operation @s buff_next < @s potion_mp_buff_end
 execute if score @s potion_hp_rage_buff_end matches -2147483648.. run scoreboard players operation @s buff_next < @s potion_hp_rage_buff_end
