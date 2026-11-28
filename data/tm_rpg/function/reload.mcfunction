@@ -106,14 +106,6 @@ scoreboard objectives add hit_mark_16 dummy
 scoreboard objectives add hit_mark_next dummy
 # サーバーから抜けた回数（統計。抜けると増える）。2回目以降のログインを見分けて player/reload を呼ぶ（player/main）
 scoreboard objectives add leave_game minecraft.custom:minecraft.leave_game
-# 改造台の鍵（system/item_mod/lock）
-# kaizou_open ＝ ドロッパーを開いた回数（統計。開くと増える。player/main が見て 0 に戻す）
-# 改造台の marker に入れる: kaizou_user ＝ 使っている人の ent_id、kaizou_time ＝ 鍵をかけてからの tick、kaizou_rot_x / kaizou_rot_y ＝ 開いたときの視線（×100）
-scoreboard objectives add kaizou_open minecraft.custom:minecraft.inspect_dropper
-scoreboard objectives add kaizou_user dummy
-scoreboard objectives add kaizou_time dummy
-scoreboard objectives add kaizou_rot_x dummy
-scoreboard objectives add kaizou_rot_y dummy
 scoreboard objectives add hp_ratio dummy
 scoreboard objectives add hp_ratio_old dummy
 scoreboard objectives add player_deaths deathCount

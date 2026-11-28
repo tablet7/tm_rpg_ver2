@@ -17,10 +17,6 @@ execute if entity @s[tag=!joined] run function tm_rpg:player/first_reload
 # leave_game ＝ サーバーから抜けると増える統計（tm_rpg:reload で作る）。抜けたあと最初の tick にだけ動くよう、呼んだら消す
 execute if score @s leave_game matches 1.. run function tm_rpg:player/login_sec
 
-# ドロッパーを開いたら、それが改造台なら鍵をかけて、ほかのプレイヤーが開けないようにする（system/item_mod/lock）
-# ほかの人が開く前にかけたいので、5tick おきの改造台の処理ではなく毎 tick 見る
-execute if score @s kaizou_open matches 1.. run function tm_rpg:system/item_mod/lock/on_open
-
 # バフ（スキル・ポーション）の時間切れ。一番早く切れる時刻 buff_next になった相手だけ外す（system/buff/expire）
 execute if score @s buff_next <= #now temp run function tm_rpg:system/buff/expire
 
