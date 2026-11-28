@@ -12,4 +12,5 @@ scoreboard players operation @s dash_z = #push_speed temp
 function tm_rpg:enemy/skill/move/impulse
 
 scoreboard players add #push_count temp 1
-particle minecraft:gust ~ ~1 ~ 0 0 0 0 1
+# 呼び出し元は as だけで at を付けていない（向きを使うため、実行位置は使った人のまま）。演出は敵の位置に出す
+execute at @s run particle minecraft:gust ~ ~1 ~ 0 0 0 0 1
